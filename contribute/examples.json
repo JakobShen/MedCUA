@@ -1,0 +1,148 @@
+{
+  "pulmonaryEmbolism": {
+    "schemaVersion": 1,
+    "contact": {
+      "name": "",
+      "email": "",
+      "affiliation": ""
+    },
+    "task": {
+      "exampleTitle": "Example 1 - Pulmonary Embolism",
+      "name": "Risk Stratification of Acute Pulmonary Embolism (ESC 2019)",
+      "description": "Classify the early mortality risk of acute pulmonary embolism",
+      "data": "CT pulmonary angiography (CTPA) and EHR / clinical records (e.g. vital signs, comorbidities, troponin).",
+      "tools": [
+        {
+          "id": "tool-slicer",
+          "name": "3D Slicer"
+        },
+        {
+          "id": "tool-ehr",
+          "name": "EHR / clinical records"
+        }
+      ],
+      "modalities": [
+        {
+          "id": "modality-ct",
+          "name": "CT"
+        },
+        {
+          "id": "modality-records",
+          "name": "Clinical text / records"
+        }
+      ],
+      "note": "Measure the maximal ventricular diameters from the inner wall to the septum. Link each measurement to its series and slice, and each clinical item to its source note and time. Importance labels are illustrative.",
+      "reference": "https://doi.org/10.1093/eurheartj/ehz405"
+    },
+    "steps": [
+      {
+        "id": "pe-step-1",
+        "description": "Open the CTPA and locate the clots.",
+        "toolIds": [
+          "tool-slicer"
+        ],
+        "modalityIds": [
+          "modality-ct"
+        ],
+        "evidence": [
+          {
+            "id": "pe-evidence-1-1",
+            "description": "Most proximal clot location (main / lobar / segmental / subsegmental), with series and slice.",
+            "importance": "optional"
+          }
+        ]
+      },
+      {
+        "id": "pe-step-2",
+        "description": "Adjust the views to a four-chamber plane.",
+        "toolIds": [
+          "tool-slicer"
+        ],
+        "modalityIds": [
+          "modality-ct"
+        ],
+        "evidence": []
+      },
+      {
+        "id": "pe-step-3",
+        "description": "Measure the right and left ventricles.",
+        "toolIds": [
+          "tool-slicer"
+        ],
+        "modalityIds": [
+          "modality-ct"
+        ],
+        "evidence": [
+          {
+            "id": "pe-evidence-3-1",
+            "description": "Maximal RV and LV diameters (mm), with series, slice and measurement endpoints.",
+            "importance": "essential"
+          },
+          {
+            "id": "pe-evidence-3-2",
+            "description": "RV/LV diameter ratio.",
+            "importance": "essential"
+          }
+        ]
+      },
+      {
+        "id": "pe-step-4",
+        "description": "Check hemodynamic status and troponin.",
+        "toolIds": [
+          "tool-ehr"
+        ],
+        "modalityIds": [
+          "modality-records"
+        ],
+        "evidence": [
+          {
+            "id": "pe-evidence-4-1",
+            "description": "Hemodynamic instability (cardiac arrest, obstructive shock, persistent hypotension): present / absent / uncertain, with time.",
+            "importance": "essential"
+          },
+          {
+            "id": "pe-evidence-4-2",
+            "description": "Troponin value, assay cut-off and sample time.",
+            "importance": "essential"
+          }
+        ]
+      },
+      {
+        "id": "pe-step-5",
+        "description": "Calculate the sPESI.",
+        "toolIds": [
+          "tool-ehr"
+        ],
+        "modalityIds": [
+          "modality-records"
+        ],
+        "evidence": [
+          {
+            "id": "pe-evidence-5-1",
+            "description": "Each sPESI item with its value and source: age >80 y, cancer, chronic heart failure or chronic lung disease, heart rate ≥110/min, systolic BP <100 mmHg, SaO₂ <90%.",
+            "importance": "essential"
+          },
+          {
+            "id": "pe-evidence-5-2",
+            "description": "sPESI total score.",
+            "importance": "optional"
+          }
+        ]
+      },
+      {
+        "id": "pe-step-6",
+        "description": "Assign the ESC 2019 risk class.",
+        "toolIds": [
+          "tool-ehr"
+        ],
+        "modalityIds": [
+          "modality-ct",
+          "modality-records"
+        ],
+        "evidence": []
+      }
+    ],
+    "expectedResult": "ESC 2019 risk class (high / intermediate-high / intermediate-low / low), linked to the recorded evidence.",
+    "comments": ""
+  }
+}

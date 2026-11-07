@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f7f3">
+  <meta name="description" content="MedCUA studies computer-use agents for real clinical and research workflows. Explore our projects or contribute a workflow.">
+  <link rel="canonical" href="https://jakobshen.github.io/MedCUA/">
+  <link rel="icon" href="assets/mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="site.css">
+  <title>MedCUA | Computer-Use Agents in Medicine</title>
+</head>
+<body>
+  <a class="site-skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="site-shell site-header-inner">
+      <a class="site-brand" href="./" aria-label="MedCUA home"><img src="assets/mark.svg" width="30" height="30" alt=""><span>MedCUA</span></a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="./" aria-current="page">Home</a>
+        <a href="projects/">Projects</a>
+        <a class="site-nav-cta" href="contribute/">Contribute</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="site-shell hero" aria-labelledby="home-heading">
+      <div class="hero-copy">
+        <h1 class="site-display" id="home-heading">MedCUA</h1>
+        <p class="site-display hero-deck">Computer-use agents in medicine</p>
+        <p>We study how agents can help with real clinical and research workflows using the software people already work with. The tasks clinicians and researchers share guide what we build and evaluate.</p>
+        <div class="site-actions">
+          <a class="site-button site-button-primary" href="contribute/">Contribute a workflow <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 10h11m-5-5 5 5-5 5"/></svg></a>
+          <a class="site-button site-button-secondary" href="projects/">Explore projects</a>
+        </div>
+      </div>
+      <figure class="hero-figure">
+        <img src="assets/workflow.svg" width="568" height="442" alt="A CTPA study and a clinical record feed into a review, with a risk class linked to its source slice, measurement, and clinical note.">
+        <figcaption>Example workflow for pulmonary embolism risk stratification</figcaption>
+      </figure>
+    </section>
+
+    <section class="site-shell open-problems" id="open-problems" aria-labelledby="problems-heading">
+      <div>
+        <p class="section-kicker">Why this matters</p>
+        <h2 class="site-display section-heading" id="problems-heading">Medical work spans tools and decisions.</h2>
+        <p class="section-lede">A workflow can require moving between software, inspecting intermediate results, and adapting to the case. We study where agents could reduce that manual work and how to verify the results.</p>
+      </div>
+      <div>
+        <p class="section-kicker">Open problems and example workflows</p>
+        <div class="problem-list">
+          <article class="problem">
+            <h3>Combine imaging and clinical records</h3>
+            <p>For pulmonary embolism risk stratification, review CTPA measurements alongside clinical findings and link the resulting risk class to its supporting evidence.</p>
+            <ul class="tag-row" aria-label="Data and tools"><li>CTPA</li><li>Clinical records</li><li>3D Slicer</li></ul>
+          </article>
+          <article class="problem">
+            <h3>Track imaging findings across visits</h3>
+            <p>Follow findings over time, compare measurements across studies, and record the source images and dates so another person can check the comparison.</p>
+            <ul class="tag-row" aria-label="Workflow characteristics"><li>Longitudinal imaging</li><li>Measurements</li></ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="roadmap-band" aria-labelledby="roadmap-heading">
+      <div class="site-shell roadmap">
+        <h2 class="site-display section-heading" id="roadmap-heading">From a workflow to a research task</h2>
+        <p class="section-lede">A real problem gives us a concrete place to start. The evidence tells us what worked and where an agent still needs help.</p>
+        <ol class="roadmap-steps">
+          <li><span class="roadmap-step-index" aria-hidden="true">01</span><h3>Collect</h3><p>Learn where clinicians and researchers spend time on manual work.</p></li>
+          <li><span class="roadmap-step-index" aria-hidden="true">02</span><h3>Define</h3><p>Specify the inputs, expected result, and evidence needed to check it.</p></li>
+          <li><span class="roadmap-step-index" aria-hidden="true">03</span><h3>Build and evaluate</h3><p>Test agents on the task using the relevant tools and evidence.</p></li>
+          <li><span class="roadmap-step-index" aria-hidden="true">04</span><h3>Improve</h3><p>Use failures to decide what to build and evaluate next.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="site-shell project-section" aria-labelledby="projects-heading">
+      <div class="section-topline">
+        <div>
+          <h2 class="site-display section-heading" id="projects-heading">Current projects</h2>
+          <p class="section-lede">Two projects explore how agents operate medical software and how we can evaluate their work.</p>
+        </div>
+        <a class="site-text-link" href="projects/">View project directory <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="project-grid">
+        <article class="project-card">
+          <div class="project-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="24" height="22" rx="3"/><path d="M4 10h24M12 10v17m4-7 3-4 2 3 3-2M7 15h2m-2 5h2"/></svg></div>
+          <p class="project-type">Runtime</p>
+          <h3 class="site-display">MedOpenClaw</h3>
+          <p>A runtime for agents to inspect complete medical imaging studies, operate imaging software, and capture evidence that can be reviewed.</p>
+          <a class="site-text-link" href="/MedOpenClaw/">Explore MedOpenClaw <span aria-hidden="true">↗</span></a>
+        </article>
+        <article class="project-card">
+          <div class="project-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="5" width="22" height="22" rx="3"/><path d="M5 11h22M11 11v16m4-11 2 2 4-4m-6 8 2 2 4-4"/></svg></div>
+          <p class="project-type">Benchmark</p>
+          <h3 class="site-display">MedFlowBench</h3>
+          <p>A benchmark for medical imaging workflows that evaluates both the outcome and the evidence an agent uses to support it.</p>
+          <a class="site-text-link" href="/MedOpenClaw/medflowbench/">Explore MedFlowBench <span aria-hidden="true">↗</span></a>
+        </article>
+      </div>
+    </section>
+
+    <section class="site-shell invitation" aria-labelledby="invitation-heading">
+      <div>
+        <h2 class="site-display" id="invitation-heading">Share a workflow from your practice.</h2>
+        <p>Tell us where the manual work is and how you check the result.</p>
+      </div>
+      <a class="site-button site-button-primary" href="contribute/">Contribute a workflow</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-shell site-footer-inner">
+      <a class="site-brand" href="./"><img src="assets/mark.svg" width="26" height="26" alt=""><span>MedCUA</span></a>
+      <p>Computer-use agents in medicine</p>
+      <nav aria-label="Footer"><a href="projects/">Projects</a><a href="contribute/">Contribute</a></nav>
+    </div>
+  </footer>
+</body>
+</html>

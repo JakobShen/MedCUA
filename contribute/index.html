@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Share a clinical or research workflow with MedCUA and help shape the development and evaluation of medical computer-use agents.">
+  <meta name="theme-color" content="#f7f7f3">
+  <link rel="canonical" href="https://jakobshen.github.io/MedCUA/contribute/">
+  <meta property="og:title" content="Task Collection | MedCUA">
+  <meta property="og:description" content="Contribute a clinical or research workflow to MedCUA.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://jakobshen.github.io/MedCUA/contribute/">
+  <title>Task Collection | MedCUA</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/mark.svg">
+  <link rel="stylesheet" href="../site.css">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <a class="site-skip" href="#main-content">Skip to content</a>
+  <header class="site-header">
+    <div class="site-shell site-header-inner">
+      <a class="site-brand" href="../" aria-label="MedCUA home">
+        <img src="../assets/mark.svg" width="30" height="30" alt="">
+        <span>MedCUA</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="../">Home</a>
+        <a href="../projects/">Projects</a>
+        <a class="site-nav-cta" href="./" aria-current="page">Contribute</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="collection-main">
+    <div class="site-shell">
+      <div class="page-intro">
+        <div class="contribute-lead">
+          <p class="collection-label">Task collection</p>
+          <h1 class="site-display">Contribute a workflow</h1>
+          <p class="intro-copy">Share a task you handle in clinical practice or research. Tell us what takes time, which tools you use, and what would show that an agent did it well.</p>
+          <div class="intro-bottom">
+            <a class="site-button site-button-primary" href="#task-form">Start the form</a>
+            <span class="small muted">No account needed</span>
+          </div>
+        </div>
+
+        <aside class="example-bar" aria-labelledby="worked-example-heading">
+          <p class="collection-label">Worked example</p>
+          <h2 id="worked-example-heading" class="site-display">Pulmonary embolism</h2>
+          <p>Review how a workflow combines CTPA and clinical records, then links the final assessment to checkable evidence.</p>
+          <button class="button button-secondary" type="button" data-example="pulmonaryEmbolism" aria-haspopup="dialog" aria-controls="example-dialog">View the example</button>
+          <p id="example-status" class="small status-message" role="status"></p>
+        </aside>
+      </div>
+
+      <section class="task-criteria" aria-labelledby="task-criteria-heading">
+        <h2 id="task-criteria-heading" class="site-display">What makes a useful task?</h2>
+        <ul>
+          <li><strong>Time-consuming</strong>Repetitive or manual work that takes effort today.</li>
+          <li><strong>Hard to automate</strong>Existing models or pipelines cover only part of it.</li>
+          <li><strong>Several steps</strong>Work that needs inspection, measurement, comparison, or interpretation.</li>
+          <li><strong>Across tools or data</strong>Tasks that may span software, modalities, or time points.</li>
+        </ul>
+      </section>
+    </div>
+
+    <div class="collection-shell">
+      <noscript><p class="form-alert">Please enable JavaScript to add steps and evidence, save a draft, and prepare your submission.</p></noscript>
+      <div id="submission-result" class="submission-result" hidden role="status"></div>
+      <form id="task-form" aria-labelledby="form-heading">
+        <div class="form-intro">
+          <div>
+            <h2 id="form-heading" class="site-display">Describe your workflow</h2>
+            <p class="small muted">One task per form. Fields marked with an asterisk are required.</p>
+          </div>
+          <p id="save-status" class="small muted draft-status" role="status">Your draft is saved in this browser.</p>
+        </div>
+        <section class="form-section" aria-labelledby="contributor-heading">
+          <div class="section-title"><div><h2 id="contributor-heading">Your details</h2><p class="small muted">We use these details to follow up about your workflow.</p></div></div>
+          <div class="contact-grid contributor-grid">
+            <label class="field"><span>Name <span class="required-marker" aria-hidden="true">*</span></span><input name="contactName" required autocomplete="name"></label>
+            <label class="field"><span>Email <span class="required-marker" aria-hidden="true">*</span></span><input name="email" type="email" required autocomplete="email"></label>
+            <label class="field affiliation-field"><span>Affiliation <span class="required-marker" aria-hidden="true">*</span></span><input name="affiliation" required autocomplete="organization" placeholder="Your institution or organisation"></label>
+          </div>
+        </section>
+        <div hidden aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div>
+        <section class="form-section" aria-labelledby="task-heading">
+          <div class="section-title"><span class="section-number" aria-hidden="true">1</span><div><h2 id="task-heading">The task</h2><p class="small muted">Describe the goal and the data you start with.</p></div></div>
+          <div class="field-stack">
+            <label class="field"><span>Task name <span class="required-marker" aria-hidden="true">*</span></span><input name="taskName" required autocomplete="off" placeholder="e.g. Stratify acute pulmonary embolism risk"></label>
+            <label class="field"><span>What should the agent do? <span class="required-marker" aria-hidden="true">*</span></span><textarea name="goal" required rows="2" placeholder="Describe the clinical question or goal."></textarea></label>
+            <label class="field"><span>What data is available? <span class="required-marker" aria-hidden="true">*</span></span><textarea name="dataDescription" required rows="2" placeholder="e.g. CTPA and clinical records, including vital signs and troponin."></textarea></label>
+          </div>
+        </section>
+
+        <section class="form-section" aria-labelledby="tools-heading">
+          <div class="section-title"><span class="section-number" aria-hidden="true">2</span><div><h2 id="tools-heading">Tools &amp; data types</h2><p class="small muted">Enter these once. If there are several, select which ones each step uses.</p></div></div>
+          <div class="setup-grid">
+            <div class="setup-column"><h3>Software or tools</h3><p class="small muted">Imaging software, EHR, browser, or other tools.</p><div id="tools-list" class="item-list"></div><button type="button" class="button-text add-control" data-action="add-tool">+ Add tool</button></div>
+            <div class="setup-column"><h3>Data modalities</h3><p class="small muted">MRI, CT, text / clinical records, or other data.</p><div id="modalities-list" class="item-list"></div><button type="button" class="button-text add-control" data-action="add-modality">+ Add modality</button></div>
+          </div>
+        </section>
+
+        <section class="form-section" aria-labelledby="steps-heading">
+          <div class="section-title"><span class="section-number" aria-hidden="true">3</span><div><h2 id="steps-heading">Steps &amp; evidence</h2><p class="small muted">Suggest the main steps. Add evidence only where needed.</p></div></div>
+          <div class="evidence-guide"><p><strong>Evidence</strong> is a measurement, location, saved view, or record that helps verify the result.</p><p class="small muted">Record all listed evidence. Choose Essential or Optional to indicate its importance for scoring. The steps describe one way to complete the task.</p></div>
+          <div id="steps-list" class="step-list"></div>
+          <button type="button" class="button button-secondary" data-action="add-step">+ Add step</button>
+        </section>
+
+        <section class="form-section" aria-labelledby="result-heading">
+          <div class="section-title"><span class="section-number" aria-hidden="true">4</span><div><h2 id="result-heading">The result</h2></div></div>
+          <div class="field-stack">
+            <label class="field"><span>What should the final answer contain? <span class="required-marker" aria-hidden="true">*</span></span><textarea name="expectedResult" required rows="2" placeholder="e.g. A risk class supported by the recorded evidence."></textarea></label>
+          </div>
+        </section>
+
+        <section class="form-section" aria-labelledby="comments-heading">
+          <div class="section-title"><div><h2 id="comments-heading">Comments <span class="optional">optional</span></h2></div></div>
+          <div class="field"><textarea name="comments" aria-labelledby="comments-heading" rows="3" placeholder="Anything else we should know?"></textarea></div>
+        </section>
+
+        <div class="form-finish">
+          <p class="small muted">Preview your task before submitting.</p>
+          <button id="review-button" class="button" type="submit">Review &amp; submit <span aria-hidden="true">→</span></button>
+        </div>
+        <p id="form-status" class="small status-message" role="status" aria-live="polite"></p>
+        <details class="draft-tools"><summary>Save / load draft</summary><div class="draft-actions"><button type="button" class="button button-secondary button-compact" data-action="download-json">Download draft</button><button type="button" class="button button-secondary button-compact" data-action="import-draft">Load draft</button><button type="button" class="button button-secondary button-compact" data-action="copy-summary">Copy summary</button><button type="button" class="button button-secondary button-compact" data-action="print">Print / save PDF</button><input type="file" id="draft-file" accept="application/json,.json" hidden></div><p class="small muted">Downloads include your task, steps, evidence, and importance selections.</p></details>
+      </form>
+    </div>
+  </main>
+  <dialog id="example-dialog" aria-labelledby="example-dialog-title"><div id="example-content"></div></dialog>
+  <dialog id="review-dialog" aria-labelledby="review-title">
+  <div class="review-heading"><div><p class="collection-label">Your submission</p><h2 id="review-title">Review your task</h2></div><button type="button" class="button-text close-dialog" data-action="close-review" aria-label="Close review">×</button></div>
+  <div id="review-content"></div>
+  <div class="review-actions"><button id="submit-task" class="button" type="button">Submit task</button><a id="send-email" class="button button-secondary" href="mailto:weixiang.shen@tum.de">Send by email instead</a><button id="review-copy" type="button" class="button button-secondary">Copy summary</button><button id="review-download" type="button" class="button button-secondary">Download draft</button></div>
+  <p id="delivery-note" class="small muted">Your task will be sent to the MedCUA team at <a class="text-link" href="mailto:weixiang.shen@tum.de">weixiang.shen@tum.de</a>.</p>
+  <p id="privacy-note" class="small muted">Describe the workflow without including patient-identifiable information. Submissions are delivered through <a class="text-link" href="https://formspree.io/" target="_blank" rel="noopener noreferrer">Formspree</a>.</p>
+  <p id="send-status" class="small status-message" role="status" aria-live="polite"></p>
+  </dialog>
+  <footer class="site-footer">
+    <div class="site-shell site-footer-inner">
+      <a class="site-brand" href="../">
+        <img src="../assets/mark.svg" width="26" height="26" alt="">
+        <span>MedCUA</span>
+      </a>
+      <p>Computer-use agents in medicine</p>
+      <nav aria-label="Footer">
+        <a href="../projects/">Projects</a>
+        <a href="./">Contribute</a>
+      </nav>
+    </div>
+  </footer>
+  <script type="module" src="./form.js"></script>
+</body>
+</html>
