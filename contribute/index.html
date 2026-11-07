@@ -13,7 +13,7 @@
   <title>Task Collection | MedCUA</title>
   <link rel="icon" type="image/svg+xml" href="../assets/mark.svg?v=3">
   <link rel="stylesheet" href="../site.css?v=3">
-  <link rel="stylesheet" href="./style.css?v=3">
+  <link rel="stylesheet" href="./style.css?v=4">
 </head>
 <body>
   <a class="site-skip" href="#main-content">Skip to content</a>
@@ -89,7 +89,14 @@
           <div class="field-stack">
             <label class="field"><span>Task name <span class="required-marker" aria-hidden="true">*</span></span><input name="taskName" required autocomplete="off" placeholder="e.g. Stratify acute pulmonary embolism risk"></label>
             <label class="field"><span>What should the agent do? <span class="required-marker" aria-hidden="true">*</span></span><textarea name="goal" required rows="2" placeholder="Describe the clinical question or goal."></textarea></label>
-            <label class="field"><span>What data is available? <span class="required-marker" aria-hidden="true">*</span></span><textarea name="dataDescription" required rows="2" placeholder="e.g. CTPA and clinical records, including vital signs and troponin."></textarea></label>
+            <label class="field"><span>What data does the task use? <span class="required-marker" aria-hidden="true">*</span></span><textarea name="dataDescription" required rows="2" placeholder="e.g. CTPA and clinical records, including vital signs and troponin."></textarea></label>
+            <fieldset class="data-availability" aria-describedby="data-availability-hint">
+              <legend>Can you share sample data? <span class="optional">optional</span></legend>
+              <p id="data-availability-hint" class="small muted">If you can’t share a sample, you can link to a public dataset for this task.</p>
+              <div id="data-availability-options" class="choice-list"></div>
+              <p id="data-sharing-note" class="small muted" hidden>We can follow up about how to share it. Please leave patient details out of this form.</p>
+              <label class="field" id="public-dataset-field" hidden><span>Public dataset URL <span class="required-marker" aria-hidden="true">*</span></span><input name="publicDatasetUrl" type="url" placeholder="https://…" autocomplete="off" disabled></label>
+            </fieldset>
           </div>
         </section>
 
@@ -102,8 +109,11 @@
         </section>
 
         <section class="form-section" aria-labelledby="steps-heading">
-          <div class="section-title"><span class="section-number" aria-hidden="true">3</span><div><h2 id="steps-heading">Steps &amp; evidence</h2><p class="small muted">Suggest the main steps. Add evidence only where needed.</p></div></div>
-          <div class="evidence-guide"><p><strong>Evidence</strong> is a measurement, location, saved view, or record that helps verify the result.</p><p class="small muted">Record all listed evidence. Choose Essential or Optional to indicate its importance for scoring. The steps describe one way to complete the task.</p></div>
+          <div class="section-title"><span class="section-number" aria-hidden="true">3</span><div><h2 id="steps-heading">Steps &amp; evidence</h2><p class="small muted">Start with 4–6 steps. Use one step for each meaningful action or decision and group routine clicks under it.</p></div></div>
+          <div class="evidence-guide">
+            <dl><dt>Step</dt><dd>Measure the right and left ventricles.</dd><dt>Evidence to save</dt><dd>RV and LV diameters (mm), with series and slice.</dd></dl>
+            <p class="small muted">Add evidence where there’s something to save for verification. List each item separately and mark it Essential or Optional. Only the evidence is scored.</p>
+          </div>
           <div id="steps-list" class="step-list"></div>
           <button type="button" class="button button-secondary" data-action="add-step">+ Add step</button>
         </section>
@@ -151,6 +161,6 @@
       </nav>
     </div>
   </footer>
-  <script type="module" src="./form.js"></script>
+  <script type="module" src="./form.js?v=2"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-import { RECIPIENT, IMPORTANCE, uid, blankTask, blankStep, activeItems, effectiveIds, normalizeTask, exportTask, validationError, taskSummary } from './model.js';
+import { RECIPIENT, IMPORTANCE, DATA_AVAILABILITY, uid, blankTask, blankStep, activeItems, effectiveIds, normalizeTask, exportTask, validationError, taskSummary } from './model.js?v=2';
 import { exampleMarkup } from './example-view.js';
 import { SUBMISSION_ENDPOINT } from './config.js';
 
@@ -9,6 +9,7 @@ const STORAGE_KEY = 'medopenclaw.task-collection.v1';
 const SUBMIT_URL = /^https:\/\/formspree\.io\/f\/[a-zA-Z0-9]+$/.test(SUBMISSION_ENDPOINT) ? SUBMISSION_ENDPOINT : '';
 const escape = value => String(value).replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
 const fieldPaths = { taskName: ['task', 'name'], goal: ['task', 'description'], dataDescription: ['task', 'data'],
+  publicDatasetUrl: ['task', 'publicDatasetUrl'],
   contactName: ['contact', 'name'], email: ['contact', 'email'], affiliation: ['contact', 'affiliation'], expectedResult: ['expectedResult'], comments: ['comments'] };
 let state = blankTask();
 let storageAvailable = true;
@@ -72,7 +73,7 @@ function renderContexts() {
 }
 function evidenceMarkup(step, evidence, index) {
   return `<div class="evidence-row" data-evidence-row="${evidence.id}">
-    <label class="field"><span>Evidence ${index + 1}</span><textarea id="${evidence.id}" rows="2" data-step="${step.id}" data-evidence="${evidence.id}" data-field="description" placeholder="e.g. RV and LV diameters (mm), with series and slice.">${escape(evidence.description)}</textarea></label>
+    <label class="field"><span>Evidence ${index + 1} to save</span><textarea id="${evidence.id}" rows="2" data-step="${step.id}" data-evidence="${evidence.id}" data-field="description" placeholder="e.g. RV and LV diameters (mm), with series and slice.">${escape(evidence.description)}</textarea></label>
     <label class="field"><span>Importance</span><select data-step="${step.id}" data-evidence="${evidence.id}" data-field="importance" aria-label="Importance of evidence ${index + 1} in step ${state.steps.indexOf(step) + 1}"><option value="">Select…</option>${IMPORTANCE.map(level => `<option value="${level}" ${evidence.importance === level ? 'selected' : ''}>${level[0].toUpperCase() + level.slice(1)}</option>`).join('')}</select></label>
     <button type="button" class="button-text" data-action="remove-evidence" data-step="${step.id}" data-evidence="${evidence.id}" aria-label="Remove evidence ${index + 1} in step ${state.steps.indexOf(step) + 1}">Remove</button></div>`;
 }
@@ -82,22 +83,31 @@ function renderSteps() {
     <button type="button" class="button-text small" data-action="move-up" data-step="${step.id}" ${index === 0 ? 'disabled' : ''} aria-label="Move step ${index + 1} up">↑</button>
     <button type="button" class="button-text small" data-action="move-down" data-step="${step.id}" ${index === state.steps.length - 1 ? 'disabled' : ''} aria-label="Move step ${index + 1} down">↓</button>
     <button type="button" class="button-text small" data-action="remove-step" data-step="${step.id}" ${state.steps.length === 1 ? 'disabled' : ''}>Remove step</button></div></div>
-    <label class="field"><span class="sr-only">Step ${index + 1} description</span><textarea id="description-${step.id}" rows="2" data-step="${step.id}" data-field="description" placeholder="What do you do at this step?">${escape(step.description)}</textarea></label>
+    <label class="field"><span>What do you do? <span class="sr-only">Step ${index + 1}</span></span><textarea id="description-${step.id}" rows="2" data-step="${step.id}" data-field="description" placeholder="e.g. Measure the right and left ventricles.">${escape(step.description)}</textarea></label>
     <div class="step-context" id="context-${step.id}"></div>
     <div class="evidence-list">${step.evidence.map((evidence, i) => evidenceMarkup(step, evidence, i)).join('')}</div>
     <button type="button" class="button-text add-control" data-action="add-evidence" data-step="${step.id}">+ Add evidence</button>
     </article>`).join('');
   renderContexts();
 }
+function syncDatasetFields() {
+  const usesPublicDataset = state.task.dataAvailability === 'public';
+  $('#public-dataset-field').hidden = !usesPublicDataset;
+  form.elements.publicDatasetUrl.disabled = !usesPublicDataset;
+  form.elements.publicDatasetUrl.required = usesPublicDataset;
+  $('#data-sharing-note').hidden = state.task.dataAvailability !== 'shareable';
+}
 function render() {
   for (const [name, path] of Object.entries(fieldPaths)) {
     form.elements[name].value = path.reduce((obj, key) => obj[key], state);
   }
+  $('#data-availability-options').innerHTML = Object.entries(DATA_AVAILABILITY).map(([value, label]) =>
+    `<label><input type="radio" name="dataAvailability" value="${value}" ${state.task.dataAvailability === value ? 'checked' : ''}><span>${escape(label)}</span></label>`).join('');
+  syncDatasetFields();
   renderItems('tools'); renderItems('modalities'); renderSteps();
-
 }
 function hasContent() {
-  return Boolean(state.task.name || state.task.description || state.task.data || state.expectedResult || state.comments ||
+  return Boolean(state.task.name || state.task.description || state.task.data || state.task.dataAvailability || state.task.publicDatasetUrl || state.expectedResult || state.comments ||
     activeItems(state.task.tools).length || activeItems(state.task.modalities).length ||
     Object.values(state.contact).some(Boolean) || state.steps.some(step => step.description || step.evidence.length));
 }
@@ -143,7 +153,10 @@ function openReview(validate = true) {
   const names = (items, ids) => items.filter(item => ids.includes(item.id)).map(item => item.name).join(', ');
   $('#review-content').innerHTML = `<p class="review-contributor"><strong>${escape(data.contact.name)}</strong> · ${escape(data.contact.affiliation)}<br>${escape(data.contact.email)}</p>
     ${data.task.exampleTitle ? `<h3>${escape(data.task.exampleTitle)}</h3>` : ''}<h3>${escape(data.task.name)}</h3><p class="preserve-lines">${escape(data.task.description)}</p>
-    <dl><dt>Available data</dt><dd>${escape(data.task.data)}</dd><dt>Software or tools</dt><dd>${escape(data.task.tools.map(item => item.name).join(', '))}</dd><dt>Data modalities</dt><dd>${escape(data.task.modalities.map(item => item.name).join(', '))}</dd></dl>
+    <dl><dt>Data used</dt><dd>${escape(data.task.data)}</dd>
+    ${data.task.dataAvailability ? `<dt>Data availability</dt><dd>${escape(DATA_AVAILABILITY[data.task.dataAvailability])}</dd>` : ''}
+    ${data.task.publicDatasetUrl ? `<dt>Public dataset</dt><dd><a class="text-link" href="${escape(data.task.publicDatasetUrl)}" target="_blank" rel="noopener noreferrer">${escape(data.task.publicDatasetUrl)}</a></dd>` : ''}
+    <dt>Software or tools</dt><dd>${escape(data.task.tools.map(item => item.name).join(', '))}</dd><dt>Data modalities</dt><dd>${escape(data.task.modalities.map(item => item.name).join(', '))}</dd></dl>
     <h3>Steps &amp; evidence</h3><ol class="review-steps">${data.steps.map(step => `<li><strong>${escape(step.description)}</strong>
     ${data.task.tools.length > 1 ? `<p class="small muted">Tools: ${escape(names(data.task.tools, step.toolIds))}</p>` : ''}
     ${data.task.modalities.length > 1 ? `<p class="small muted">Data: ${escape(names(data.task.modalities, step.modalityIds))}</p>` : ''}
@@ -165,6 +178,9 @@ form.addEventListener('input', event => {
   const path = fieldPaths[element.name];
   if (path) {
     const parent = path.slice(0, -1).reduce((obj, key) => obj[key], state); parent[path.at(-1)] = element.value;
+  } else if (element.name === 'dataAvailability') {
+    state.task.dataAvailability = element.value;
+    syncDatasetFields();
   } else if (element.dataset.item && !element.dataset.action) {
     const { kind, item } = element.dataset;
     const before = activeItems(state.task[kind]);

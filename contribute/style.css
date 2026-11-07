@@ -174,6 +174,10 @@ button:disabled, a[aria-disabled="true"] { cursor: not-allowed; opacity: .55; }
 .section-title h2 { font-size: 1.2rem; font-weight: 700; letter-spacing: -.015em; line-height: 1.4; }
 .section-title p { margin-top: .3rem; }
 .field-stack { display: grid; gap: 1.2rem; }
+.data-availability { display: grid; gap: .55rem; min-width: 0; margin: 0; padding: 0; border: 0; }
+.data-availability legend { padding: 0 0 .35rem; font-size: .9rem; font-weight: 650; }
+.data-availability .choice-list label { min-height: 2.5rem; }
+.data-availability .field { margin-top: .2rem; }
 .field { display: flex; flex-direction: column; gap: .5rem; min-width: 0; color: var(--form-ink); }
 .field > span, .field > label { font-weight: 650; font-size: .9rem; line-height: 1.5; }
 .field input, .field textarea, .field select, .item-row input, .item-row select, .evidence-row textarea, .evidence-row input, .evidence-row select, .step-card > textarea, .step-card > input {
@@ -206,7 +210,9 @@ input:focus, textarea:focus, select:focus { border-color: var(--form-accent) !im
 .button-text[data-action*="remove"], .button-text[data-action*="delete"] { color: #475868; }
 .button-text[data-action*="remove"]:hover, .button-text[data-action*="delete"]:hover { background: #fff0ef; color: #9d3028; }
 .evidence-guide { padding: .9rem 1rem; margin-bottom: 1.2rem; border-radius: .6rem; background: var(--form-tint); font-size: .9rem; line-height: 1.65; }
-.evidence-guide p + p { margin-top: .35rem; }
+.evidence-guide dl { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: .15rem .8rem; margin: 0 0 .55rem; }
+.evidence-guide dt { font-weight: 700; }
+.evidence-guide dd { margin: 0; }
 .step-list { display: grid; gap: 1rem; margin-bottom: 1rem; }
 .step-card { min-width: 0; padding: 1.1rem; border: 1px solid var(--form-line); border-radius: .5rem; background: var(--form-surface); }
 .step-header { display: flex; align-items: center; justify-content: space-between; gap: .75rem; margin-bottom: .75rem; }
@@ -219,7 +225,7 @@ input:focus, textarea:focus, select:focus { border-color: var(--form-accent) !im
 .step-context legend { font-size: .8rem; font-weight: 650; margin-bottom: .4rem; }
 .choice-list { display: flex; flex-wrap: wrap; gap: .45rem .75rem; }
 .choice-list label { display: inline-flex; align-items: center; gap: .4rem; padding: .35rem .55rem; border: 1px solid var(--form-line); border-radius: .35rem; background: white; font-size: .82rem; line-height: 1.4; font-weight: 400; cursor: pointer; }
-.choice-list input[type="checkbox"] { width: 1rem; height: 1rem; margin: 0; padding: 0; accent-color: var(--form-accent); box-shadow: none; }
+.choice-list input { flex: 0 0 auto; width: 1rem; height: 1rem; margin: 0; padding: 0; accent-color: var(--form-accent); box-shadow: none; }
 .choice-list label:has(input:checked) { border-color: var(--form-accent); background: var(--form-tint); }
 .evidence-list { display: grid; gap: .65rem; }
 .evidence-row { display: grid; grid-template-columns: minmax(0,1fr) 10.5rem auto; align-items: start; gap: .65rem; padding: .85rem 0; border-top: 1px solid var(--form-line); }
@@ -303,7 +309,7 @@ body:has(#example-dialog[open]) { overflow: hidden; }
 #review-content h4 { font-weight: 750; margin: .9rem 0 .35rem; }
 #review-content p, #review-content dl, #review-content ul, #review-content ol { margin-bottom: .7rem; }
 #review-content dt { font-weight: 700; margin-top: .7rem; }
-#review-content dd { white-space: pre-wrap; }
+#review-content dd { white-space: pre-wrap; overflow-wrap: anywhere; }
 #review-content ul, #review-content ol { padding-left: 1.3rem; list-style: revert; }
 #review-content table { width: 100%; border-collapse: collapse; margin: .75rem 0; }
 #review-content td, #review-content th { text-align: left; padding: .6rem; border: 1px solid var(--form-line); vertical-align: top; }
