@@ -169,7 +169,7 @@
           </section>
 
           <section class="form-section" aria-labelledby="tools-heading">
-            <div class="section-title"><span class="section-number" aria-hidden="true">02</span><div><h2 id="tools-heading">Tools &amp; data types</h2><p class="small muted">Enter these once. If there are several, select which ones each step uses.</p></div></div>
+            <div class="section-title"><span class="section-number" aria-hidden="true">02</span><div><h2 id="tools-heading">Tools &amp; data types</h2><p class="small muted">List each tool and data type once here. In each step, select the ones that step uses.</p></div></div>
             <div class="setup-grid">
               <div class="setup-column"><h3>Software or tools</h3><p class="small muted">Imaging software, EHR, browser, or other tools.</p><div id="tools-list" class="item-list"></div><button type="button" class="button-text add-control" data-action="add-tool">+ Add tool</button></div>
               <div class="setup-column"><h3>Data modalities</h3><p class="small muted">MRI, CT, text / clinical records, or other data.</p><div id="modalities-list" class="item-list"></div><button type="button" class="button-text add-control" data-action="add-modality">+ Add modality</button></div>
@@ -180,7 +180,7 @@
             <div class="section-title"><span class="section-number" aria-hidden="true">03</span><div><h2 id="steps-heading">Steps &amp; evidence</h2><p class="small muted">Start with 4–6 steps. Use one step for each meaningful action or decision and group routine clicks under it.</p></div></div>
             <div class="evidence-guide">
               <dl><dt>Step</dt><dd>Measure the right and left ventricles.</dd><dt>Evidence to save</dt><dd>RV and LV diameters (mm), with series and slice.</dd></dl>
-              <p class="small muted">Add evidence where there’s something to save for verification. List each item separately and mark it Essential or Optional. Only the evidence is scored.</p>
+              <p class="small muted">Add evidence where a step produces something that can be checked. List each item separately and mark it Essential or Optional. Only the evidence is scored.</p>
             </div>
             <div id="steps-list" class="step-list"></div>
             <button type="button" class="button button-secondary add-step" data-action="add-step">+ Add step</button>
@@ -203,7 +203,7 @@
             <button id="review-button" class="button" type="submit">Review &amp; submit <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h11M10.5 5.5 15 10l-4.5 4.5"/></svg></button>
           </div>
           <p id="form-status" class="small status-message" role="status" aria-live="polite"></p>
-          <details class="draft-tools"><summary>Save / load draft</summary><div class="draft-actions"><button type="button" class="button button-secondary button-compact" data-action="download-json">Download draft</button><button type="button" class="button button-secondary button-compact" data-action="import-draft">Load draft</button><button type="button" class="button button-secondary button-compact" data-action="copy-summary">Copy summary</button><button type="button" class="button button-secondary button-compact" data-action="print">Print / save PDF</button><input type="file" id="draft-file" accept="application/json,.json" hidden></div><p class="small muted">Downloads include your task, steps, evidence, and importance selections.</p></details>
+          <details class="draft-tools"><summary>Save / load draft</summary><div class="draft-actions"><button type="button" class="button button-secondary button-compact" data-action="download-json">Download draft</button><button type="button" class="button button-secondary button-compact" data-action="import-draft">Load draft</button><button type="button" class="button button-secondary button-compact" data-action="copy-summary">Copy summary</button><button type="button" class="button button-secondary button-compact" data-action="print">Print / save PDF</button><input type="file" id="draft-file" accept="application/json,.json" hidden></div><p class="small muted">Downloads include your task, steps, evidence and the Essential or Optional mark on each evidence item.</p></details>
         </form>
       </div>
     </div>
