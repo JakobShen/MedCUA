@@ -1,7 +1,7 @@
 export const RECIPIENT = 'weixiang.shen@tum.de';
 export const IMPORTANCE = ['essential', 'optional'];
 export const DATA_AVAILABILITY = {
-  shareable: 'I can share de-identified sample data',
+  shareable: 'I may be able to share de-identified sample data',
   public: 'A public dataset is available',
   none: 'No shareable data known',
   unsure: 'Not sure',
@@ -10,7 +10,7 @@ export const uid = () => `id-${crypto.randomUUID()}`;
 export const blankStep = () => ({ id: uid(), description: '', toolIds: [], modalityIds: [], evidence: [] });
 export function blankTask() {
   return { schemaVersion: 1, contact: { name: '', email: '', affiliation: '' },
-    task: { name: '', description: '', data: '', dataAvailability: '', publicDatasetUrl: '',
+    task: { name: '', description: '', data: '', dataAvailability: [], publicDatasetUrl: '',
       tools: [{ id: uid(), name: '' }], modalities: [{ id: uid(), name: '' }] },
     steps: [blankStep()], expectedResult: '', comments: '' };
 }
@@ -20,7 +20,13 @@ export const effectiveIds = (items, ids) => {
   return active.length === 1 ? [active[0].id] : ids.filter(id => active.some(item => item.id === id));
 };
 const text = value => typeof value === 'string' ? value : '';
-const knownAvailability = value => Object.hasOwn(DATA_AVAILABILITY, text(value)) ? value : '';
+
+function knownAvailability(value) {
+  const values = Array.isArray(value) ? value : [value];
+  const known = [...new Set(values.filter(key => Object.hasOwn(DATA_AVAILABILITY, text(key))))];
+  const sources = known.filter(key => key === 'shareable' || key === 'public');
+  return sources.length ? sources : known.slice(0, 1);
+}
 
 function datasetUrl(value) {
   const address = text(value).trim();
@@ -62,7 +68,7 @@ export function normalizeTask(raw) {
 export function exportTask(state) {
   const copy = structuredClone(state);
   copy.task.dataAvailability = knownAvailability(copy.task.dataAvailability);
-  copy.task.publicDatasetUrl = copy.task.dataAvailability === 'public' ? datasetUrl(copy.task.publicDatasetUrl) : '';
+  copy.task.publicDatasetUrl = copy.task.dataAvailability.includes('public') ? datasetUrl(copy.task.publicDatasetUrl) : '';
   copy.task.tools = activeItems(copy.task.tools);
   copy.task.modalities = activeItems(copy.task.modalities);
   copy.steps.forEach(step => {
@@ -78,7 +84,7 @@ export function validationError(state) {
   for (const [key, label] of [['name', 'task name'], ['description', 'task goal'], ['data', 'data used by the task']]) {
     if (!state.task[key].trim()) return `Please enter the ${label}.`;
   }
-  if (state.task.dataAvailability === 'public' && !datasetUrl(state.task.publicDatasetUrl)) {
+  if (knownAvailability(state.task.dataAvailability).includes('public') && !datasetUrl(state.task.publicDatasetUrl)) {
     return 'Please enter a valid public dataset link starting with http:// or https://.';
   }
   if (!activeItems(state.task.tools).length) return 'Please enter at least one tool or software application.';
@@ -101,7 +107,9 @@ export function taskSummary(state) {
   const data = exportTask(state);
   const lines = ['MEDCUA TASK SUBMISSION', ...(data.task.exampleTitle ? ['', data.task.exampleTitle] : []), '', data.task.name, '', 'TASK', data.task.description,
     '', 'DATA USED', data.task.data];
-  if (data.task.dataAvailability) lines.push(`Dataset availability: ${DATA_AVAILABILITY[data.task.dataAvailability]}`);
+  if (data.task.dataAvailability.length) {
+    lines.push(`Dataset availability: ${data.task.dataAvailability.map(key => DATA_AVAILABILITY[key]).join(', ')}`);
+  }
   if (data.task.publicDatasetUrl) lines.push(`Public dataset: ${data.task.publicDatasetUrl}`);
   lines.push('', `Tools: ${data.task.tools.map(item => item.name).join(', ')}`,
     `Data modalities: ${data.task.modalities.map(item => item.name).join(', ')}`, '', 'STEPS & EVIDENCE',

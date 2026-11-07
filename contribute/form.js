@@ -1,4 +1,4 @@
-import { RECIPIENT, IMPORTANCE, DATA_AVAILABILITY, uid, blankTask, blankStep, activeItems, effectiveIds, normalizeTask, exportTask, validationError, taskSummary } from './model.js?v=2';
+import { RECIPIENT, IMPORTANCE, DATA_AVAILABILITY, uid, blankTask, blankStep, activeItems, effectiveIds, normalizeTask, exportTask, validationError, taskSummary } from './model.js?v=3';
 import { exampleMarkup } from './example-view.js';
 import { SUBMISSION_ENDPOINT } from './config.js';
 
@@ -91,23 +91,27 @@ function renderSteps() {
   renderContexts();
 }
 function syncDatasetFields() {
-  const usesPublicDataset = state.task.dataAvailability === 'public';
+  const selected = state.task.dataAvailability;
+  for (const checkbox of form.elements.dataAvailability) {
+    checkbox.checked = selected.includes(checkbox.value);
+  }
+  const usesPublicDataset = selected.includes('public');
   $('#public-dataset-field').hidden = !usesPublicDataset;
   form.elements.publicDatasetUrl.disabled = !usesPublicDataset;
   form.elements.publicDatasetUrl.required = usesPublicDataset;
-  $('#data-sharing-note').hidden = state.task.dataAvailability !== 'shareable';
+  $('#data-sharing-note').hidden = !selected.includes('shareable');
 }
 function render() {
   for (const [name, path] of Object.entries(fieldPaths)) {
     form.elements[name].value = path.reduce((obj, key) => obj[key], state);
   }
   $('#data-availability-options').innerHTML = Object.entries(DATA_AVAILABILITY).map(([value, label]) =>
-    `<label><input type="radio" name="dataAvailability" value="${value}" ${state.task.dataAvailability === value ? 'checked' : ''}><span>${escape(label)}</span></label>`).join('');
+    `<label><input type="checkbox" name="dataAvailability" value="${value}"><span>${escape(label)}</span></label>`).join('');
   syncDatasetFields();
   renderItems('tools'); renderItems('modalities'); renderSteps();
 }
 function hasContent() {
-  return Boolean(state.task.name || state.task.description || state.task.data || state.task.dataAvailability || state.task.publicDatasetUrl || state.expectedResult || state.comments ||
+  return Boolean(state.task.name || state.task.description || state.task.data || state.task.dataAvailability.length || state.task.publicDatasetUrl || state.expectedResult || state.comments ||
     activeItems(state.task.tools).length || activeItems(state.task.modalities).length ||
     Object.values(state.contact).some(Boolean) || state.steps.some(step => step.description || step.evidence.length));
 }
@@ -154,7 +158,7 @@ function openReview(validate = true) {
   $('#review-content').innerHTML = `<p class="review-contributor"><strong>${escape(data.contact.name)}</strong> · ${escape(data.contact.affiliation)}<br>${escape(data.contact.email)}</p>
     ${data.task.exampleTitle ? `<h3>${escape(data.task.exampleTitle)}</h3>` : ''}<h3>${escape(data.task.name)}</h3><p class="preserve-lines">${escape(data.task.description)}</p>
     <dl><dt>Data used</dt><dd>${escape(data.task.data)}</dd>
-    ${data.task.dataAvailability ? `<dt>Data availability</dt><dd>${escape(DATA_AVAILABILITY[data.task.dataAvailability])}</dd>` : ''}
+    ${data.task.dataAvailability.length ? `<dt>Data availability</dt><dd>${data.task.dataAvailability.map(value => escape(DATA_AVAILABILITY[value])).join('<br>')}</dd>` : ''}
     ${data.task.publicDatasetUrl ? `<dt>Public dataset</dt><dd><a class="text-link" href="${escape(data.task.publicDatasetUrl)}" target="_blank" rel="noopener noreferrer">${escape(data.task.publicDatasetUrl)}</a></dd>` : ''}
     <dt>Software or tools</dt><dd>${escape(data.task.tools.map(item => item.name).join(', '))}</dd><dt>Data modalities</dt><dd>${escape(data.task.modalities.map(item => item.name).join(', '))}</dd></dl>
     <h3>Steps &amp; evidence</h3><ol class="review-steps">${data.steps.map(step => `<li><strong>${escape(step.description)}</strong>
@@ -179,7 +183,13 @@ form.addEventListener('input', event => {
   if (path) {
     const parent = path.slice(0, -1).reduce((obj, key) => obj[key], state); parent[path.at(-1)] = element.value;
   } else if (element.name === 'dataAvailability') {
-    state.task.dataAvailability = element.value;
+    const hasDataSource = value => value === 'shareable' || value === 'public';
+    let selected = state.task.dataAvailability.filter(value => value !== element.value);
+    if (element.checked) {
+      selected = hasDataSource(element.value) ? selected.filter(hasDataSource) : [];
+      selected.push(element.value);
+    }
+    state.task.dataAvailability = selected;
     syncDatasetFields();
   } else if (element.dataset.item && !element.dataset.action) {
     const { kind, item } = element.dataset;

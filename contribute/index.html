@@ -91,8 +91,8 @@
             <label class="field"><span>What should the agent do? <span class="required-marker" aria-hidden="true">*</span></span><textarea name="goal" required rows="2" placeholder="Describe the clinical question or goal."></textarea></label>
             <label class="field"><span>What data does the task use? <span class="required-marker" aria-hidden="true">*</span></span><textarea name="dataDescription" required rows="2" placeholder="e.g. CTPA and clinical records, including vital signs and troponin."></textarea></label>
             <fieldset class="data-availability" aria-describedby="data-availability-hint">
-              <legend>Can you share sample data? <span class="optional">optional</span></legend>
-              <p id="data-availability-hint" class="small muted">If you can’t share a sample, you can link to a public dataset for this task.</p>
+              <legend>What data could be shared for this task? <span class="optional">optional</span></legend>
+              <p id="data-availability-hint" class="small muted">Select all that apply.</p>
               <div id="data-availability-options" class="choice-list"></div>
               <p id="data-sharing-note" class="small muted" hidden>We can follow up about how to share it. Please leave patient details out of this form.</p>
               <label class="field" id="public-dataset-field" hidden><span>Public dataset URL <span class="required-marker" aria-hidden="true">*</span></span><input name="publicDatasetUrl" type="url" placeholder="https://…" autocomplete="off" disabled></label>
@@ -161,6 +161,6 @@
       </nav>
     </div>
   </footer>
-  <script type="module" src="./form.js?v=2"></script>
+  <script type="module" src="./form.js?v=3"></script>
 </body>
 </html>

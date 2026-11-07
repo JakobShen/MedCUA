@@ -71,20 +71,29 @@ test('name, affiliation, and a valid email are required before submission', () =
   assert.equal(validationError(state), '');
 });
 
-test('the dataset question is optional and older drafts restore without an answer', () => {
+test('older drafts restore missing or single-choice dataset answers', () => {
   const raw = validSingle();
   delete raw.task.dataAvailability;
   delete raw.task.publicDatasetUrl;
   const state = normalizeTask(raw);
-  assert.equal(state.task.dataAvailability, '');
+  assert.deepEqual(state.task.dataAvailability, []);
   assert.equal(state.task.publicDatasetUrl, '');
   assert.equal(validationError(state), '');
   assert.doesNotMatch(taskSummary(state), /Dataset availability:/);
+
+  raw.task.publicDatasetUrl = 'https://dataset.example.org/studies';
+  for (const key of ['shareable', 'public', 'none', 'unsure']) {
+    raw.task.dataAvailability = key;
+    const restored = normalizeTask(raw);
+    assert.deepEqual(restored.task.dataAvailability, [key]);
+    assert.equal(validationError(restored), '');
+    assert.equal(raw.task.dataAvailability, key);
+  }
 });
 
-test('public dataset links must be HTTP(S) and survive export and import', () => {
+test('dataset options can coexist and require a valid HTTP(S) link when public data is selected', () => {
   const state = validSingle();
-  state.task.dataAvailability = 'public';
+  state.task.dataAvailability = ['shareable', 'public'];
   for (const value of ['', 'dataset.example.org', 'https://', 'https:///dataset.example.org',
     'ftp://dataset.example.org', 'javascript:alert(1)', 'https://user:secret@dataset.example.org']) {
     state.task.publicDatasetUrl = value;
@@ -95,14 +104,27 @@ test('public dataset links must be HTTP(S) and survive export and import', () =>
   state.task.publicDatasetUrl = `  ${url}  `;
   assert.equal(validationError(state), '');
   const exported = exportTask(state);
-  assert.equal(exported.task.dataAvailability, 'public');
+  assert.deepEqual(exported.task.dataAvailability, ['shareable', 'public']);
   assert.equal(exported.task.publicDatasetUrl, url);
-  assert.equal(normalizeTask(exported).task.publicDatasetUrl, url);
-  assert.ok(taskSummary(state).includes(`Public dataset: ${url}`));
-  state.task.dataAvailability = 'shareable';
+  const restored = normalizeTask(exported);
+  assert.deepEqual(restored.task.dataAvailability, ['shareable', 'public']);
+  assert.equal(restored.task.publicDatasetUrl, url);
+  const summary = taskSummary(state);
+  assert.match(summary, /Dataset availability: I may be able to share de-identified sample data, A public dataset is available/);
+  assert.ok(summary.includes(`Public dataset: ${url}`));
+  state.task.dataAvailability = ['shareable'];
   assert.equal(exportTask(state).task.publicDatasetUrl, '');
-  assert.match(taskSummary(state), /I can share de-identified sample data/);
-  assert.doesNotMatch(taskSummary(state), /Public dataset:/);
+  assert.equal(validationError(state), '');
+  assert.doesNotMatch(taskSummary(state), /A public dataset is available|Public dataset:/);
+});
+
+test('dataset imports discard invalid and duplicate choices and resolve conflicting fallback answers', () => {
+  const state = validSingle();
+  state.task.dataAvailability = ['unsure', 'public', 'unknown', 'shareable', 'none', 'public', null];
+  assert.deepEqual(normalizeTask(state).task.dataAvailability, ['public', 'shareable']);
+  assert.deepEqual(exportTask(state).task.dataAvailability, ['public', 'shareable']);
+  state.task.dataAvailability = ['unknown', 'none', 'unsure'];
+  assert.deepEqual(normalizeTask(state).task.dataAvailability, ['none']);
 });
 
 test('a single active tool and modality are inherited by every exported step', () => {
