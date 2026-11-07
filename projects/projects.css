@@ -1,0 +1,65 @@
+/* MedCUA · Projects page. Page-only styles, scoped to body.page-projects; builds on ../site.css. */
+
+/* ---------- Project entry ---------- */
+.page-projects .proj {
+  display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); gap: clamp(1.5rem, 4vw, 3.5rem); align-items: center;
+}
+.page-projects .proj-figure {
+  margin: 0; overflow: hidden; border-radius: var(--radius-lg);
+  background: var(--paper); border: 1px solid var(--line); box-shadow: var(--shadow);
+}
+.page-projects .proj-figure img { width: 100%; height: auto; }
+.page-projects .proj-body { display: grid; gap: 1rem; align-content: start; }
+.page-projects .proj-meta { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent-700); }
+.page-projects .proj-body > p:not(.proj-meta) { color: var(--ink-2); }
+.page-projects .proj-links { list-style: none; display: flex; flex-wrap: wrap; gap: .55rem; margin-top: .5rem; }
+
+/* ---------- Citation ---------- */
+.page-projects .cite-grid { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: clamp(1.5rem, 4vw, 3rem); align-items: start; }
+.page-projects .cite-head { display: grid; gap: .8rem; }
+.page-projects .cite-head p { color: var(--ink-2); font-size: .95rem; line-height: 1.7; }
+
+.page-projects .proj-bib {
+  display: flex; flex-direction: column; min-width: 0; overflow: hidden;
+  border-radius: var(--radius-lg); background: var(--paper); border: 1px solid var(--line); box-shadow: var(--shadow-sm);
+}
+.page-projects .proj-bib-bar {
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 54px;
+  padding: .5rem .6rem .5rem 1.25rem; border-bottom: 1px solid var(--line); background: var(--paper-2);
+}
+.page-projects .proj-bib-label { font-family: var(--font-mono); font-size: .7rem; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-2); }
+/* Long BibTeX values wrap with a hanging indent so continuation lines stay aligned after "key = {". */
+.page-projects .proj-bib pre {
+  margin: 0; padding: 1.25rem 1.25rem 1.5rem;
+  font-family: var(--font-mono); font-size: .78rem; line-height: 1.75; color: var(--ink);
+  white-space: pre-wrap; overflow-wrap: break-word;
+}
+.page-projects .bib-field { display: inline-block; width: 100%; padding-left: 13ch; text-indent: -13ch; vertical-align: top; }
+.page-projects .proj-bib code { font: inherit; }
+.page-projects .tk-type { color: var(--accent-800); font-weight: 600; }
+.page-projects .tk-key { color: var(--accent-700); }
+.page-projects .proj-copy {
+  display: inline-flex; align-items: center; gap: .45rem; min-height: 40px; padding: .45rem 1rem .45rem .85rem;
+  border-radius: 999px; border: 1px solid var(--line-2); background: var(--paper); color: var(--ink);
+  font-size: .86rem; font-weight: 560; line-height: 1.2; cursor: pointer;
+  transition: border-color .2s var(--ease), color .2s var(--ease), background-color .2s var(--ease);
+}
+.page-projects .proj-copy:hover { border-color: var(--accent-400); }
+.page-projects .proj-copy svg { width: 16px; height: 16px; flex: none; }
+.page-projects .proj-copied-icon { display: none; }
+.page-projects .proj-copy[data-state="copied"] { border-color: color-mix(in srgb, var(--ok) 40%, transparent); background: color-mix(in srgb, var(--ok) 7%, var(--paper)); color: color-mix(in srgb, var(--ok) 80%, var(--ink)); }
+.page-projects .proj-copy[data-state="copied"] .proj-copy-icon { display: none; }
+.page-projects .proj-copy[data-state="copied"] .proj-copied-icon { display: block; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 960px) {
+  .page-projects .proj, .page-projects .cite-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .page-projects .proj-bib pre { font-size: .72rem; }
+  .page-projects .bib-field { padding-left: 4ch; text-indent: -4ch; }
+}
+
+@media print {
+  .page-projects .site-header, .page-projects .nav-toggle, .page-projects .proj-copy { display: none !important; }
+}

@@ -1,164 +1,259 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Contribute a workflow · MedCUA</title>
   <meta name="description" content="Share a clinical or research workflow with MedCUA and help shape the development and evaluation of medical computer-use agents.">
-  <meta name="theme-color" content="#072140">
+  <meta name="theme-color" content="#ffffff">
   <link rel="canonical" href="https://jakobshen.github.io/MedCUA/contribute/">
-  <meta property="og:title" content="Task Collection | MedCUA">
-  <meta property="og:description" content="Contribute a clinical or research workflow to MedCUA.">
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="MedCUA">
+  <meta property="og:title" content="Contribute a workflow · MedCUA">
+  <meta property="og:description" content="Share a clinical or research workflow with MedCUA and help shape the development and evaluation of medical computer-use agents.">
   <meta property="og:url" content="https://jakobshen.github.io/MedCUA/contribute/">
-  <title>Task Collection | MedCUA</title>
-  <link rel="icon" type="image/svg+xml" href="../assets/mark.svg?v=3">
-  <link rel="stylesheet" href="../site.css?v=3">
-  <link rel="stylesheet" href="./style.css?v=4">
+  <meta property="og:image" content="https://jakobshen.github.io/MedCUA/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="../assets/mark.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+  <link rel="preload" href="../assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../site.css?v=9">
+  <link rel="stylesheet" href="style.css?v=7">
+  <script>document.documentElement.classList.add('js')</script>
+  <script src="../site.js?v=9" defer></script>
 </head>
-<body>
-  <a class="site-skip" href="#main-content">Skip to content</a>
-  <header class="site-header">
-    <div class="site-shell site-header-inner">
-      <a class="site-brand" href="../" aria-label="MedCUA home">
-        <img src="../assets/mark.svg?v=3" width="30" height="30" alt="">
-        <span>MedCUA</span>
+<body class="page-contribute">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" data-header>
+    <div class="shell header-inner">
+      <a class="brand" href="../" aria-label="MedCUA home">
+        <img class="brand-mark" src="../assets/mark.svg" width="30" height="30" alt="">
+        <span class="brand-name">MedCUA</span>
+        <span class="brand-sub">Computer-use agents<br>for medicine</span>
       </a>
-      <nav class="site-nav" aria-label="Primary">
-        <a href="../">Home</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span class="nav-toggle-icon" aria-hidden="true"></span>Menu</button>
+      <nav class="nav" id="site-nav" aria-label="Primary">
+        <a href="../#about">About</a>
         <a href="../projects/">Projects</a>
-        <a class="site-nav-cta" href="./" aria-current="page">Contribute</a>
+        <a href="../team/">Team</a>
+        <a class="nav-cta" href="../contribute/" aria-current="page">Contribute a workflow</a>
       </nav>
     </div>
   </header>
 
-  <main id="main-content" class="collection-main">
-    <div class="site-shell">
-      <div class="page-intro">
-        <div class="contribute-lead">
-          <p class="collection-label">Task collection</p>
-          <h1 class="site-display">Contribute a workflow</h1>
-          <p class="intro-copy">Share a task you handle in clinical practice or research. Tell us what takes time, which tools you use, and what would show that an agent did it well.</p>
-          <div class="intro-bottom">
-            <a class="site-button site-button-primary" href="#task-form">Start the form</a>
-            <span class="small muted">No account needed</span>
+  <main id="main">
+    <!-- Hero with the worked example -->
+    <section class="page-hero" aria-labelledby="page-title">
+      <div class="page-hero-bg" aria-hidden="true"></div>
+      <div class="shell contribute-hero">
+        <div class="page-hero-inner">
+          <p class="crumbs"><a href="../">MedCUA</a><span aria-hidden="true">/</span><span>Contribute</span></p>
+          <h1 class="page-title" id="page-title">Contribute a <em>workflow</em></h1>
+          <p class="lead">Share a task you handle in clinical practice or research. Tell us what takes time, which tools you use, and what would show that an agent did it well.</p>
+          <div class="hero-cta">
+            <a class="btn btn-primary btn-down" href="#task-form">Start the form <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 4v11M5.5 10.5 10 15l4.5-4.5"/></svg></a>
+            <p class="hero-note"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4.5 10.5 3.5 3.5 7.5-8"/></svg>No account needed</p>
           </div>
         </div>
 
         <aside class="example-bar" aria-labelledby="worked-example-heading">
-          <p class="collection-label">Worked example</p>
-          <h2 id="worked-example-heading" class="site-display">Pulmonary embolism</h2>
-          <p>Review how a workflow combines CTPA and clinical records, then links the final assessment to checkable evidence.</p>
-          <button class="button button-secondary" type="button" data-example="pulmonaryEmbolism" aria-haspopup="dialog" aria-controls="example-dialog">View the example</button>
+          <div class="example-bar-head">
+            <p class="eyebrow">Worked example</p>
+            <p class="example-bar-meta">ESC 2019</p>
+          </div>
+          <h2 id="worked-example-heading" class="example-bar-title">Pulmonary embolism</h2>
+          <p class="example-bar-copy">Review how a workflow combines CTPA and clinical records, then links the final assessment to checkable evidence.</p>
+          <ul class="tag-row" aria-label="Data and tools"><li class="chip">CTPA</li><li class="chip">Clinical records</li><li class="chip">3D Slicer</li></ul>
+          <div class="example-preview">
+            <p class="example-preview-head" aria-hidden="true"><span>Step</span><span>Evidence</span></p>
+            <ol aria-label="Steps in the worked example">
+              <li><span class="n" aria-hidden="true">01</span><span class="t">Open the CTPA and locate the clots.</span><span class="e"><span class="sr-only">Evidence items:</span> 1</span></li>
+              <li><span class="n" aria-hidden="true">02</span><span class="t">Adjust the views to a four-chamber plane.</span><span class="e is-none"><span class="sr-only">Evidence items: none</span><span aria-hidden="true">—</span></span></li>
+              <li><span class="n" aria-hidden="true">03</span><span class="t">Measure the right and left ventricles.</span><span class="e"><span class="sr-only">Evidence items:</span> 2</span></li>
+              <li><span class="n" aria-hidden="true">04</span><span class="t">Check hemodynamic status and troponin.</span><span class="e"><span class="sr-only">Evidence items:</span> 2</span></li>
+              <li><span class="n" aria-hidden="true">05</span><span class="t">Calculate the sPESI.</span><span class="e"><span class="sr-only">Evidence items:</span> 2</span></li>
+              <li><span class="n" aria-hidden="true">06</span><span class="t">Assign the ESC 2019 risk class.</span><span class="e is-none"><span class="sr-only">Evidence items: none</span><span aria-hidden="true">—</span></span></li>
+            </ol>
+          </div>
+          <button class="btn btn-ghost example-open" type="button" data-example="pulmonaryEmbolism" aria-haspopup="dialog" aria-controls="example-dialog">View the example <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h11M10.5 5.5 15 10l-4.5 4.5"/></svg></button>
           <p id="example-status" class="small status-message" role="status"></p>
         </aside>
       </div>
+    </section>
 
-      <section class="task-criteria" aria-labelledby="task-criteria-heading">
-        <h2 id="task-criteria-heading" class="site-display">What makes a useful task?</h2>
-        <ul>
-          <li><strong>Time-consuming</strong>Repetitive or manual work that takes effort today.</li>
-          <li><strong>Hard to automate</strong>Existing models or pipelines cover only part of it.</li>
-          <li><strong>Several steps</strong>Work that needs inspection, measurement, comparison, or interpretation.</li>
-          <li><strong>Across tools or data</strong>Tasks that may span software, modalities, or time points.</li>
+    <!-- What makes a useful task -->
+    <section class="section criteria-section" aria-labelledby="task-criteria-heading">
+      <div class="shell">
+        <div class="section-head">
+          <p class="eyebrow" data-reveal>Before you start</p>
+          <h2 class="h2" id="task-criteria-heading" data-reveal>What makes a <em>useful</em> task?</h2>
+        </div>
+        <ul class="criteria">
+          <li class="criterion" data-reveal style="--d:0">
+            <div class="criterion-top">
+              <span class="criterion-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></span>
+              <span class="num" aria-hidden="true">01</span>
+            </div>
+            <h3 class="h3">Time-consuming</h3>
+            <p>Repetitive or manual work that takes effort today.</p>
+          </li>
+          <li class="criterion" data-reveal style="--d:1">
+            <div class="criterion-top">
+              <span class="criterion-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor" fill-opacity=".16" stroke="none"/><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5v17"/></svg></span>
+              <span class="num" aria-hidden="true">02</span>
+            </div>
+            <h3 class="h3">Hard to automate</h3>
+            <p>Existing models or pipelines cover only part of it.</p>
+          </li>
+          <li class="criterion" data-reveal style="--d:2">
+            <div class="criterion-top">
+              <span class="criterion-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2"/><circle cx="6" cy="12" r="2"/><circle cx="6" cy="18" r="2"/><path d="M11 6h8M11 12h8M11 18h5"/></svg></span>
+              <span class="num" aria-hidden="true">03</span>
+            </div>
+            <h3 class="h3">Several steps</h3>
+            <p>Work that needs inspection, measurement, comparison, or interpretation.</p>
+          </li>
+          <li class="criterion" data-reveal style="--d:3">
+            <div class="criterion-top">
+              <span class="criterion-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="12" height="10" rx="2"/><path d="M9 14v2a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2h-4"/></svg></span>
+              <span class="num" aria-hidden="true">04</span>
+            </div>
+            <h3 class="h3">Across tools or data</h3>
+            <p>Tasks that may span software, modalities, or time points.</p>
+          </li>
         </ul>
-      </section>
-    </div>
+      </div>
+    </section>
 
-    <div class="collection-shell">
-      <noscript><p class="form-alert">Please enable JavaScript to add steps and evidence, save a draft, and prepare your submission.</p></noscript>
-      <div id="submission-result" class="submission-result" hidden role="status"></div>
-      <form id="task-form" aria-labelledby="form-heading">
-        <div class="form-intro">
-          <div>
-            <h2 id="form-heading" class="site-display">Describe your workflow</h2>
-            <p class="small muted">One task per form. Fields marked with an asterisk are required.</p>
+    <!-- Workflow form -->
+    <div class="section section--tint form-area">
+      <div class="collection-shell">
+        <div id="submission-result" class="submission-result" hidden role="status"></div>
+        <form id="task-form" aria-labelledby="form-heading">
+          <div class="form-intro">
+            <div>
+              <p class="eyebrow">Workflow form</p>
+              <h2 id="form-heading">Describe your workflow</h2>
+              <p class="small muted">One task per form. Fields marked with an asterisk are required.</p>
+            </div>
+            <p id="save-status" class="small muted draft-status" role="status">Drafts save automatically in this browser.</p>
           </div>
-          <p id="save-status" class="small muted draft-status" role="status">Your draft is saved in this browser.</p>
-        </div>
-        <section class="form-section" aria-labelledby="contributor-heading">
-          <div class="section-title"><div><h2 id="contributor-heading">Your details</h2><p class="small muted">We use these details to follow up about your workflow.</p></div></div>
-          <div class="contact-grid contributor-grid">
-            <label class="field"><span>Name <span class="required-marker" aria-hidden="true">*</span></span><input name="contactName" required autocomplete="name"></label>
-            <label class="field"><span>Email <span class="required-marker" aria-hidden="true">*</span></span><input name="email" type="email" required autocomplete="email"></label>
-            <label class="field affiliation-field"><span>Affiliation <span class="required-marker" aria-hidden="true">*</span></span><input name="affiliation" required autocomplete="organization" placeholder="Your institution or organisation"></label>
-          </div>
-        </section>
-        <div hidden aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div>
-        <section class="form-section" aria-labelledby="task-heading">
-          <div class="section-title"><span class="section-number" aria-hidden="true">1</span><div><h2 id="task-heading">The task</h2><p class="small muted">Describe the goal and the data you start with.</p></div></div>
-          <div class="field-stack">
-            <label class="field"><span>Task name <span class="required-marker" aria-hidden="true">*</span></span><input name="taskName" required autocomplete="off" placeholder="e.g. Stratify acute pulmonary embolism risk"></label>
-            <label class="field"><span>What should the agent do? <span class="required-marker" aria-hidden="true">*</span></span><textarea name="goal" required rows="2" placeholder="Describe the clinical question or goal."></textarea></label>
-            <label class="field"><span>What data does the task use? <span class="required-marker" aria-hidden="true">*</span></span><textarea name="dataDescription" required rows="2" placeholder="e.g. CTPA and clinical records, including vital signs and troponin."></textarea></label>
-            <fieldset class="data-availability" aria-describedby="data-availability-hint">
-              <legend>What data could be shared for this task? <span class="optional">optional</span></legend>
-              <p id="data-availability-hint" class="small muted">Select all that apply.</p>
-              <div id="data-availability-options" class="choice-list"></div>
-              <p id="data-sharing-note" class="small muted" hidden>We can follow up about how to share it. Please leave patient details out of this form.</p>
-              <label class="field" id="public-dataset-field" hidden><span>Public dataset URL <span class="required-marker" aria-hidden="true">*</span></span><input name="publicDatasetUrl" type="url" placeholder="https://…" autocomplete="off" disabled></label>
-            </fieldset>
-          </div>
-        </section>
+          <noscript><p class="form-alert">Please enable JavaScript to add steps and evidence, save a draft, and prepare your submission, or email your workflow to <a class="text-link" href="mailto:weixiang.shen@tum.de">weixiang.shen@tum.de</a>.</p></noscript>
 
-        <section class="form-section" aria-labelledby="tools-heading">
-          <div class="section-title"><span class="section-number" aria-hidden="true">2</span><div><h2 id="tools-heading">Tools &amp; data types</h2><p class="small muted">Enter these once. If there are several, select which ones each step uses.</p></div></div>
-          <div class="setup-grid">
-            <div class="setup-column"><h3>Software or tools</h3><p class="small muted">Imaging software, EHR, browser, or other tools.</p><div id="tools-list" class="item-list"></div><button type="button" class="button-text add-control" data-action="add-tool">+ Add tool</button></div>
-            <div class="setup-column"><h3>Data modalities</h3><p class="small muted">MRI, CT, text / clinical records, or other data.</p><div id="modalities-list" class="item-list"></div><button type="button" class="button-text add-control" data-action="add-modality">+ Add modality</button></div>
+          <section class="form-section" aria-labelledby="contributor-heading">
+            <div class="section-title"><span class="section-number section-icon" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="7" r="3"/><path d="M4.5 16.5c.8-2.7 3-4.2 5.5-4.2s4.7 1.5 5.5 4.2"/></svg></span><div><h2 id="contributor-heading">Your details</h2><p class="small muted">We use these details to follow up about your workflow.</p></div></div>
+            <div class="contact-grid contributor-grid">
+              <label class="field"><span>Name <span class="required-marker" aria-hidden="true">*</span></span><input name="contactName" required autocomplete="name"></label>
+              <label class="field"><span>Email <span class="required-marker" aria-hidden="true">*</span></span><input name="email" type="email" required autocomplete="email"></label>
+              <label class="field affiliation-field"><span>Affiliation <span class="required-marker" aria-hidden="true">*</span></span><input name="affiliation" required autocomplete="organization" placeholder="Your institution or organisation"></label>
+            </div>
+          </section>
+          <div hidden aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div>
+
+          <section class="form-section" aria-labelledby="task-heading">
+            <div class="section-title"><span class="section-number" aria-hidden="true">01</span><div><h2 id="task-heading">The task</h2><p class="small muted">Describe the goal and the data you start with.</p></div></div>
+            <div class="field-stack">
+              <label class="field"><span>Task name <span class="required-marker" aria-hidden="true">*</span></span><input name="taskName" required autocomplete="off" placeholder="e.g. Stratify pulmonary embolism risk"></label>
+              <label class="field"><span>What should the agent do? <span class="required-marker" aria-hidden="true">*</span></span><textarea name="goal" required rows="2" placeholder="Describe the clinical question or goal."></textarea></label>
+              <label class="field"><span>What data does the task use? <span class="required-marker" aria-hidden="true">*</span></span><textarea name="dataDescription" required rows="2" placeholder="e.g. CTPA and clinical records, including vital signs and troponin."></textarea></label>
+              <fieldset class="data-availability" aria-describedby="data-availability-hint">
+                <legend>What data could be shared for this task? <span class="optional">optional</span></legend>
+                <p id="data-availability-hint" class="small muted">Select all that apply.</p>
+                <div id="data-availability-options" class="choice-list"></div>
+                <p id="data-sharing-note" class="small muted" hidden>We can follow up about how to share it. Please leave patient details out of this form.</p>
+                <label class="field" id="public-dataset-field" hidden><span>Public dataset URL <span class="required-marker" aria-hidden="true">*</span></span><input name="publicDatasetUrl" type="url" placeholder="https://…" autocomplete="off" disabled></label>
+              </fieldset>
+            </div>
+          </section>
+
+          <section class="form-section" aria-labelledby="tools-heading">
+            <div class="section-title"><span class="section-number" aria-hidden="true">02</span><div><h2 id="tools-heading">Tools &amp; data types</h2><p class="small muted">Enter these once. If there are several, select which ones each step uses.</p></div></div>
+            <div class="setup-grid">
+              <div class="setup-column"><h3>Software or tools</h3><p class="small muted">Imaging software, EHR, browser, or other tools.</p><div id="tools-list" class="item-list"></div><button type="button" class="button-text add-control" data-action="add-tool">+ Add tool</button></div>
+              <div class="setup-column"><h3>Data modalities</h3><p class="small muted">MRI, CT, text / clinical records, or other data.</p><div id="modalities-list" class="item-list"></div><button type="button" class="button-text add-control" data-action="add-modality">+ Add modality</button></div>
+            </div>
+          </section>
+
+          <section class="form-section" aria-labelledby="steps-heading">
+            <div class="section-title"><span class="section-number" aria-hidden="true">03</span><div><h2 id="steps-heading">Steps &amp; evidence</h2><p class="small muted">Start with 4–6 steps. Use one step for each meaningful action or decision and group routine clicks under it.</p></div></div>
+            <div class="evidence-guide">
+              <dl><dt>Step</dt><dd>Measure the right and left ventricles.</dd><dt>Evidence to save</dt><dd>RV and LV diameters (mm), with series and slice.</dd></dl>
+              <p class="small muted">Add evidence where there’s something to save for verification. List each item separately and mark it Essential or Optional. Only the evidence is scored.</p>
+            </div>
+            <div id="steps-list" class="step-list"></div>
+            <button type="button" class="button button-secondary add-step" data-action="add-step">+ Add step</button>
+          </section>
+
+          <section class="form-section" aria-labelledby="result-heading">
+            <div class="section-title"><span class="section-number" aria-hidden="true">04</span><div><h2 id="result-heading">The result</h2></div></div>
+            <div class="field-stack">
+              <label class="field"><span>What should the final answer contain? <span class="required-marker" aria-hidden="true">*</span></span><textarea name="expectedResult" required rows="2" placeholder="e.g. A risk class supported by the recorded evidence."></textarea></label>
+            </div>
+          </section>
+
+          <section class="form-section" aria-labelledby="comments-heading">
+            <div class="section-title"><span class="section-number section-icon" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 4h9A1.5 1.5 0 0 1 16 5.5v6a1.5 1.5 0 0 1-1.5 1.5H9.2L6 15.8V13h-.5A1.5 1.5 0 0 1 4 11.5v-6A1.5 1.5 0 0 1 5.5 4z"/></svg></span><div><h2 id="comments-heading">Comments <span class="optional">optional</span></h2></div></div>
+            <div class="field"><textarea name="comments" aria-labelledby="comments-heading" rows="3" placeholder="Anything else we should know?"></textarea></div>
+          </section>
+
+          <div class="form-finish">
+            <p class="small muted">Preview your task before submitting.</p>
+            <button id="review-button" class="button" type="submit">Review &amp; submit <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h11M10.5 5.5 15 10l-4.5 4.5"/></svg></button>
           </div>
-        </section>
-
-        <section class="form-section" aria-labelledby="steps-heading">
-          <div class="section-title"><span class="section-number" aria-hidden="true">3</span><div><h2 id="steps-heading">Steps &amp; evidence</h2><p class="small muted">Start with 4–6 steps. Use one step for each meaningful action or decision and group routine clicks under it.</p></div></div>
-          <div class="evidence-guide">
-            <dl><dt>Step</dt><dd>Measure the right and left ventricles.</dd><dt>Evidence to save</dt><dd>RV and LV diameters (mm), with series and slice.</dd></dl>
-            <p class="small muted">Add evidence where there’s something to save for verification. List each item separately and mark it Essential or Optional. Only the evidence is scored.</p>
-          </div>
-          <div id="steps-list" class="step-list"></div>
-          <button type="button" class="button button-secondary" data-action="add-step">+ Add step</button>
-        </section>
-
-        <section class="form-section" aria-labelledby="result-heading">
-          <div class="section-title"><span class="section-number" aria-hidden="true">4</span><div><h2 id="result-heading">The result</h2></div></div>
-          <div class="field-stack">
-            <label class="field"><span>What should the final answer contain? <span class="required-marker" aria-hidden="true">*</span></span><textarea name="expectedResult" required rows="2" placeholder="e.g. A risk class supported by the recorded evidence."></textarea></label>
-          </div>
-        </section>
-
-        <section class="form-section" aria-labelledby="comments-heading">
-          <div class="section-title"><div><h2 id="comments-heading">Comments <span class="optional">optional</span></h2></div></div>
-          <div class="field"><textarea name="comments" aria-labelledby="comments-heading" rows="3" placeholder="Anything else we should know?"></textarea></div>
-        </section>
-
-        <div class="form-finish">
-          <p class="small muted">Preview your task before submitting.</p>
-          <button id="review-button" class="button" type="submit">Review &amp; submit <span aria-hidden="true">→</span></button>
-        </div>
-        <p id="form-status" class="small status-message" role="status" aria-live="polite"></p>
-        <details class="draft-tools"><summary>Save / load draft</summary><div class="draft-actions"><button type="button" class="button button-secondary button-compact" data-action="download-json">Download draft</button><button type="button" class="button button-secondary button-compact" data-action="import-draft">Load draft</button><button type="button" class="button button-secondary button-compact" data-action="copy-summary">Copy summary</button><button type="button" class="button button-secondary button-compact" data-action="print">Print / save PDF</button><input type="file" id="draft-file" accept="application/json,.json" hidden></div><p class="small muted">Downloads include your task, steps, evidence, and importance selections.</p></details>
-      </form>
+          <p id="form-status" class="small status-message" role="status" aria-live="polite"></p>
+          <details class="draft-tools"><summary>Save / load draft</summary><div class="draft-actions"><button type="button" class="button button-secondary button-compact" data-action="download-json">Download draft</button><button type="button" class="button button-secondary button-compact" data-action="import-draft">Load draft</button><button type="button" class="button button-secondary button-compact" data-action="copy-summary">Copy summary</button><button type="button" class="button button-secondary button-compact" data-action="print">Print / save PDF</button><input type="file" id="draft-file" accept="application/json,.json" hidden></div><p class="small muted">Downloads include your task, steps, evidence, and importance selections.</p></details>
+        </form>
+      </div>
     </div>
   </main>
+
   <dialog id="example-dialog" aria-labelledby="example-dialog-title"><div id="example-content"></div></dialog>
   <dialog id="review-dialog" aria-labelledby="review-title">
-  <div class="review-heading"><div><p class="collection-label">Your submission</p><h2 id="review-title">Review your task</h2></div><button type="button" class="button-text close-dialog" data-action="close-review" aria-label="Close review">×</button></div>
-  <div id="review-content"></div>
-  <div class="review-actions"><button id="submit-task" class="button" type="button">Submit task</button><a id="send-email" class="button button-secondary" href="mailto:weixiang.shen@tum.de">Send by email instead</a><button id="review-copy" type="button" class="button button-secondary">Copy summary</button><button id="review-download" type="button" class="button button-secondary">Download draft</button></div>
-  <p id="delivery-note" class="small muted">Your task will be sent to the MedCUA team at <a class="text-link" href="mailto:weixiang.shen@tum.de">weixiang.shen@tum.de</a>.</p>
-  <p id="privacy-note" class="small muted">Describe the workflow without including patient-identifiable information. Submissions are delivered through <a class="text-link" href="https://formspree.io/" target="_blank" rel="noopener noreferrer">Formspree</a>.</p>
-  <p id="send-status" class="small status-message" role="status" aria-live="polite"></p>
+    <div class="review-heading"><div><p class="eyebrow">Your submission</p><h2 id="review-title">Review your task</h2></div><button type="button" class="button-text close-dialog" data-action="close-review" aria-label="Close review">×</button></div>
+    <div id="review-content"></div>
+    <div class="review-actions"><button id="submit-task" class="button" type="button">Submit task</button><a id="send-email" class="button button-secondary" href="mailto:weixiang.shen@tum.de">Send by email instead</a><button id="review-copy" type="button" class="button button-secondary">Copy summary</button><button id="review-download" type="button" class="button button-secondary">Download draft</button></div>
+    <p id="delivery-note" class="small muted">Your task will be sent to the MedCUA team at <a class="text-link" href="mailto:weixiang.shen@tum.de">weixiang.shen@tum.de</a>.</p>
+    <p id="privacy-note" class="small muted">Describe the workflow without including patient-identifiable information. Submissions are delivered through <a class="text-link" href="https://formspree.io/" target="_blank" rel="noopener noreferrer">Formspree</a>.</p>
+    <p id="send-status" class="small status-message" role="status" aria-live="polite"></p>
   </dialog>
+
   <footer class="site-footer">
-    <div class="site-shell site-footer-inner">
-      <a class="site-brand" href="../">
-        <img src="../assets/mark.svg?v=3" width="26" height="26" alt="">
-        <span>MedCUA</span>
-      </a>
-      <p>Computer-use agents in medicine</p>
-      <nav aria-label="Footer">
-        <a href="../projects/">Projects</a>
-        <a href="./">Contribute</a>
+    <div class="shell footer-top">
+      <div class="footer-brand">
+        <a class="brand" href="../" aria-label="MedCUA home"><img class="brand-mark" src="../assets/mark.svg" width="30" height="30" alt=""><span class="brand-name">MedCUA</span></a>
+        <p>Computer-use agents for medicine. A research initiative at the Technical University of Munich and TUM University Hospital, with partners in Europe, the United States and Asia.</p>
+        <a class="footer-mail" href="mailto:weixiang.shen@tum.de">weixiang.shen@tum.de</a>
+      </div>
+      <nav class="footer-col" aria-labelledby="f-initiative">
+        <h2 id="f-initiative">MedCUA</h2>
+        <ul>
+          <li><a href="../#about">About</a></li>
+          <li><a href="../projects/">Projects</a></li>
+          <li><a href="../team/">Team</a></li>
+          <li><a href="../contribute/">Contribute a workflow</a></li>
+        </ul>
       </nav>
+      <nav class="footer-col" aria-labelledby="f-projects">
+        <h2 id="f-projects">Projects</h2>
+        <ul>
+          <li><a href="https://jakobshen.github.io/MedOpenClaw/">MedOpenClaw <span class="ext" aria-hidden="true">↗</span></a></li>
+          <li><a href="https://jakobshen.github.io/MedOpenClaw/medflowbench/">MedFlowBench <span class="ext" aria-hidden="true">↗</span></a></li>
+        </ul>
+      </nav>
+      <nav class="footer-col" aria-labelledby="f-resources">
+        <h2 id="f-resources">Resources</h2>
+        <ul>
+          <li><a href="https://arxiv.org/abs/2603.24649">Paper on arXiv <span class="ext" aria-hidden="true">↗</span></a></li>
+          <li><a href="https://github.com/jakobshen/MedOpenClaw">Code on GitHub <span class="ext" aria-hidden="true">↗</span></a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="shell footer-bottom">
+      <p>© <span data-year>2026</span> MedCUA. Images come from public research datasets. For research use only, not for clinical decisions.</p>
+      <a class="to-top" href="#main">Back to top <span aria-hidden="true">↑</span></a>
     </div>
   </footer>
   <script type="module" src="./form.js?v=3"></script>

@@ -2,78 +2,144 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#072140">
-  <meta name="description" content="Explore the MedOpenClaw runtime and MedFlowBench benchmark, current projects in the MedCUA research initiative.">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Projects · MedCUA</title>
+  <meta name="description" content="Projects of the MedCUA initiative, starting with MedOpenClaw and MedFlowBench.">
+  <meta name="theme-color" content="#ffffff">
   <link rel="canonical" href="https://jakobshen.github.io/MedCUA/projects/">
-  <link rel="icon" href="../assets/mark.svg?v=3" type="image/svg+xml">
-  <link rel="stylesheet" href="../site.css?v=3">
-  <title>Projects | MedCUA</title>
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="MedCUA">
+  <meta property="og:title" content="Projects · MedCUA">
+  <meta property="og:description" content="Projects of the MedCUA initiative, starting with MedOpenClaw and MedFlowBench.">
+  <meta property="og:url" content="https://jakobshen.github.io/MedCUA/projects/">
+  <meta property="og:image" content="https://jakobshen.github.io/MedCUA/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="../assets/mark.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+  <link rel="preload" href="../assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../site.css?v=9">
+  <link rel="stylesheet" href="projects.css?v=3">
+  <script>document.documentElement.classList.add('js')</script>
+  <script src="../site.js?v=9" defer></script>
+  <script src="projects.js?v=3" defer></script>
 </head>
-<body>
-  <a class="site-skip" href="#main">Skip to content</a>
-  <header class="site-header">
-    <div class="site-shell site-header-inner">
-      <a class="site-brand" href="../" aria-label="MedCUA home"><img src="../assets/mark.svg?v=3" width="30" height="30" alt=""><span>MedCUA</span></a>
-      <nav class="site-nav" aria-label="Primary">
-        <a href="../">Home</a>
-        <a href="./" aria-current="page">Projects</a>
-        <a class="site-nav-cta" href="../contribute/">Contribute</a>
+<body class="page-projects">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" data-header>
+    <div class="shell header-inner">
+      <a class="brand" href="../" aria-label="MedCUA home">
+        <img class="brand-mark" src="../assets/mark.svg" width="30" height="30" alt="">
+        <span class="brand-name">MedCUA</span>
+        <span class="brand-sub">Computer-use agents<br>for medicine</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span class="nav-toggle-icon" aria-hidden="true"></span>Menu</button>
+      <nav class="nav" id="site-nav" aria-label="Primary">
+        <a href="../#about">About</a>
+        <a href="../projects/" aria-current="page">Projects</a>
+        <a href="../team/">Team</a>
+        <a class="nav-cta" href="../contribute/">Contribute a workflow</a>
       </nav>
     </div>
   </header>
 
-  <main class="site-shell" id="main">
-    <section class="directory-head" aria-labelledby="directory-heading">
-      <h1 class="site-display" id="directory-heading">Projects</h1>
-      <p>Explore how MedCUA builds agents that work with medical software and evaluates their performance on workflows with checkable outcomes.</p>
+  <main id="main">
+    <section class="page-hero" aria-labelledby="page-title">
+      <div class="page-hero-bg" aria-hidden="true"></div>
+      <div class="shell page-hero-inner">
+        <p class="crumbs"><a href="../">MedCUA</a><span aria-hidden="true">/</span><span>Projects</span></p>
+        <h1 class="page-title" id="page-title">Projects</h1>
+        <p class="lead">Each project has its own website with the full details.</p>
+      </div>
     </section>
 
-    <div class="project-grid directory-grid">
-      <article class="project-card" aria-labelledby="runtime-heading">
-        <div class="project-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="24" height="22" rx="3"/><path d="M4 10h24M12 10v17m4-7 3-4 2 3 3-2M7 15h2m-2 5h2"/></svg></div>
-        <p class="project-type">Runtime</p>
-        <h2 class="site-display" id="runtime-heading">MedOpenClaw</h2>
-        <p>MedOpenClaw gives agents a way to operate medical imaging software, inspect complete studies, and capture evidence for review.</p>
-        <dl class="project-facts">
-          <div><dt>Focus</dt><dd>Software interaction and full-study review</dd></div>
-          <div><dt>Output</dt><dd>Results supported by traceable evidence</dd></div>
-        </dl>
-        <ul class="project-links">
-          <li><a class="site-text-link" href="/MedOpenClaw/">Project overview <span aria-hidden="true">↗</span></a></li>
-          <li><a href="/MedOpenClaw/demos/">Demos</a></li>
-        </ul>
-      </article>
-      <article class="project-card" aria-labelledby="benchmark-heading">
-        <div class="project-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="5" width="22" height="22" rx="3"/><path d="M5 11h22M11 11v16m4-11 2 2 4-4m-6 8 2 2 4-4"/></svg></div>
-        <p class="project-type">Benchmark</p>
-        <h2 class="site-display" id="benchmark-heading">MedFlowBench</h2>
-        <p>MedFlowBench measures how agents handle complete medical imaging workflows by evaluating their results and the evidence they collect.</p>
-        <dl class="project-facts">
-          <div><dt>Focus</dt><dd>Medical imaging workflows and task evaluation</dd></div>
-          <div><dt>Measures</dt><dd>Task completion and supporting evidence</dd></div>
-        </dl>
-        <ul class="project-links">
-          <li><a class="site-text-link" href="/MedOpenClaw/medflowbench/">Benchmark overview <span aria-hidden="true">↗</span></a></li>
-          <li><a href="/MedOpenClaw/leaderboard/">Leaderboard</a></li>
-        </ul>
-      </article>
-    </div>
-
-    <section class="invitation" aria-labelledby="invitation-heading">
-      <div>
-        <h2 class="site-display" id="invitation-heading">What should we work on next?</h2>
-        <p>A task you do by hand can help shape our next study.</p>
+    <section class="section" aria-labelledby="medopenclaw-title">
+      <div class="shell">
+        <article class="proj" data-reveal>
+          <figure class="proj-figure">
+            <img src="../assets/media/projects/fig-overview.webp" width="1800" height="838" alt="Overview figure: on the left, a model answers from one pre-selected image; on the right, inside MedOpenClaw, a model operates 3D Slicer or QuPath through software actions and returns a visible trace, auditable evidence and a grounded answer, which MedFlowBench evaluates.">
+          </figure>
+          <div class="proj-body">
+            <p class="proj-meta">2026 · arXiv 2603.24649</p>
+            <h2 class="h2" id="medopenclaw-title">MedOpenClaw and MedFlowBench</h2>
+            <p>MedOpenClaw lets AI agents operate 3D Slicer and QuPath on complete radiology studies and whole-slide images, and records every step as a replayable trace.</p>
+            <p>MedFlowBench evaluates such agents on 1,459 cases in five task families. An answer only counts when the evidence behind it is also correct.</p>
+            <ul class="proj-links" aria-label="Links">
+              <li><a class="btn btn-primary btn-sm" href="https://jakobshen.github.io/MedOpenClaw/">Project website <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 14 14 6M7.5 6H14v6.5"/></svg></a></li>
+              <li><a class="btn btn-ghost btn-sm" href="https://arxiv.org/abs/2603.24649">Paper</a></li>
+              <li><a class="btn btn-ghost btn-sm" href="https://github.com/jakobshen/MedOpenClaw">MedOpenClaw code</a></li>
+              <li><a class="btn btn-ghost btn-sm" href="https://github.com/JakobShen/Med_Flow_Bench">MedFlowBench code</a></li>
+            </ul>
+          </div>
+        </article>
       </div>
-      <a class="site-button site-button-primary" href="../contribute/">Contribute a workflow</a>
+    </section>
+
+    <section class="section section--tint" id="cite" aria-labelledby="cite-title">
+      <div class="shell">
+        <div class="cite-grid">
+          <div class="cite-head" data-reveal>
+            <h2 class="h3" id="cite-title">Citation</h2>
+            <p>MedOpenClaw and MedFlowBench: Auditing Medical Agents in Full-Study Workflows. Weixiang Shen, Chengzhi Shen, Yanzhu Hu, Che Liu, Junde Wu, Jiayuan Zhu, Xiao Han, Zongyue Li, Jingpei Wu, Min Xu, Daguang Xu, Yueming Jin, Benedikt Wiestler, Daniel Rueckert and Jiazhen Pan. arXiv, 2026.</p>
+          </div>
+          <div class="proj-bib" data-reveal style="--d:1">
+            <div class="proj-bib-bar">
+              <p class="proj-bib-label">BibTeX</p>
+              <button class="proj-copy" type="button" data-copy="bibtex" hidden>
+                <svg class="proj-copy-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="7" width="9.5" height="9.5" rx="2"/><path d="M13 7V5.5A1.5 1.5 0 0 0 11.5 4h-6A1.5 1.5 0 0 0 4 5.5v6A1.5 1.5 0 0 0 5.5 13H7"/></svg>
+                <svg class="proj-copied-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4.5 10.5 3.5 3.5 7.5-8"/></svg>
+                <span data-copy-label>Copy</span><span class="sr-only"> BibTeX citation</span>
+              </button>
+            </div>
+<pre id="bibtex"><code><span class="tk-type">@article</span>{shen2026medopenclaw,
+<span class="bib-field">  <span class="tk-key">title</span>   = {MedOpenClaw and MedFlowBench: Auditing Medical Agents in Full-Study Workflows},</span>
+<span class="bib-field">  <span class="tk-key">author</span>  = {Shen, Weixiang and Shen, Chengzhi and Hu, Yanzhu and Liu, Che and Wu, Junde and Zhu, Jiayuan and Han, Xiao and Li, Zongyue and Wu, Jingpei and Xu, Min and Xu, Daguang and Jin, Yueming and Wiestler, Benedikt and Rueckert, Daniel and Pan, Jiazhen},</span>
+<span class="bib-field">  <span class="tk-key">journal</span> = {arXiv preprint arXiv:2603.24649},</span>
+<span class="bib-field">  <span class="tk-key">year</span>    = {2026}</span>
+}</code></pre>
+            <p class="sr-only" role="status" data-copy-status></p>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="site-shell site-footer-inner">
-      <a class="site-brand" href="../"><img src="../assets/mark.svg?v=3" width="26" height="26" alt=""><span>MedCUA</span></a>
-      <p>Computer-use agents in medicine</p>
-      <nav aria-label="Footer"><a href="./">Projects</a><a href="../contribute/">Contribute</a></nav>
+    <div class="shell footer-top">
+      <div class="footer-brand">
+        <a class="brand" href="../" aria-label="MedCUA home"><img class="brand-mark" src="../assets/mark.svg" width="30" height="30" alt=""><span class="brand-name">MedCUA</span></a>
+        <p>Computer-use agents for medicine. A research initiative at the Technical University of Munich and TUM University Hospital, with partners in Europe, the United States and Asia.</p>
+        <a class="footer-mail" href="mailto:weixiang.shen@tum.de">weixiang.shen@tum.de</a>
+      </div>
+      <nav class="footer-col" aria-labelledby="f-initiative">
+        <h2 id="f-initiative">MedCUA</h2>
+        <ul>
+          <li><a href="../#about">About</a></li>
+          <li><a href="../projects/">Projects</a></li>
+          <li><a href="../team/">Team</a></li>
+          <li><a href="../contribute/">Contribute a workflow</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-col" aria-labelledby="f-projects">
+        <h2 id="f-projects">Projects</h2>
+        <ul>
+          <li><a href="https://jakobshen.github.io/MedOpenClaw/">MedOpenClaw <span class="ext" aria-hidden="true">↗</span></a></li>
+          <li><a href="https://jakobshen.github.io/MedOpenClaw/medflowbench/">MedFlowBench <span class="ext" aria-hidden="true">↗</span></a></li>
+        </ul>
+      </nav>
+      <nav class="footer-col" aria-labelledby="f-resources">
+        <h2 id="f-resources">Resources</h2>
+        <ul>
+          <li><a href="https://arxiv.org/abs/2603.24649">Paper on arXiv <span class="ext" aria-hidden="true">↗</span></a></li>
+          <li><a href="https://github.com/jakobshen/MedOpenClaw">Code on GitHub <span class="ext" aria-hidden="true">↗</span></a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="shell footer-bottom">
+      <p>© <span data-year>2026</span> MedCUA. Images come from public research datasets. For research use only, not for clinical decisions.</p>
+      <a class="to-top" href="#main">Back to top <span aria-hidden="true">↑</span></a>
     </div>
   </footer>
 </body>
