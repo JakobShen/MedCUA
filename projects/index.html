@@ -20,7 +20,7 @@
   <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
   <link rel="preload" href="../assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../site.css?v=9">
-  <link rel="stylesheet" href="projects.css?v=3">
+  <link rel="stylesheet" href="projects.css?v=4">
   <script>document.documentElement.classList.add('js')</script>
   <script src="../site.js?v=9" defer></script>
   <script src="projects.js?v=3" defer></script>
@@ -51,26 +51,40 @@
       <div class="shell page-hero-inner">
         <p class="crumbs"><a href="../">MedCUA</a><span aria-hidden="true">/</span><span>Projects</span></p>
         <h1 class="page-title" id="page-title">Projects</h1>
-        <p class="lead">Each project has its own website with the full details.</p>
       </div>
     </section>
 
-    <section class="section" aria-labelledby="medopenclaw-title">
-      <div class="shell">
-        <article class="proj" data-reveal>
+    <section class="section" aria-label="Projects">
+      <div class="shell proj-list">
+        <article class="proj" id="medopenclaw" aria-labelledby="medopenclaw-title" data-reveal>
           <figure class="proj-figure">
-            <img src="../assets/media/projects/fig-overview.webp" width="1800" height="838" alt="Overview figure: on the left, a model answers from one pre-selected image; on the right, inside MedOpenClaw, a model operates 3D Slicer or QuPath through software actions and returns a visible trace, auditable evidence and a grounded answer, which MedFlowBench evaluates.">
+            <img src="../assets/media/projects/fig-overview.webp" width="1800" height="838" alt="MedOpenClaw overview: a model operates 3D Slicer or QuPath through software actions and returns a trace, evidence and an answer.">
           </figure>
           <div class="proj-body">
-            <p class="proj-meta">2026 · arXiv 2603.24649</p>
-            <h2 class="h2" id="medopenclaw-title">MedOpenClaw and MedFlowBench</h2>
-            <p>MedOpenClaw lets AI agents operate 3D Slicer and QuPath on complete radiology studies and whole-slide images, and records every step as a replayable trace.</p>
-            <p>MedFlowBench evaluates such agents on 1,459 cases in five task families. An answer only counts when the evidence behind it is also correct.</p>
-            <ul class="proj-links" aria-label="Links">
+            <p class="proj-meta">Runtime</p>
+            <h2 class="h2" id="medopenclaw-title">MedOpenClaw</h2>
+            <p>A runtime that lets AI agents operate 3D Slicer and QuPath on complete radiology studies and whole-slide images. Every action is recorded and can be replayed.</p>
+            <ul class="proj-links" aria-label="MedOpenClaw links">
               <li><a class="btn btn-primary btn-sm" href="https://jakobshen.github.io/MedOpenClaw/">Project website <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 14 14 6M7.5 6H14v6.5"/></svg></a></li>
+              <li><a class="btn btn-ghost btn-sm" href="https://github.com/jakobshen/MedOpenClaw">Code</a></li>
               <li><a class="btn btn-ghost btn-sm" href="https://arxiv.org/abs/2603.24649">Paper</a></li>
-              <li><a class="btn btn-ghost btn-sm" href="https://github.com/jakobshen/MedOpenClaw">MedOpenClaw code</a></li>
-              <li><a class="btn btn-ghost btn-sm" href="https://github.com/JakobShen/Med_Flow_Bench">MedFlowBench code</a></li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="proj proj--flip" id="medflowbench" aria-labelledby="medflowbench-title" data-reveal>
+          <figure class="proj-figure">
+            <img src="../assets/media/projects/medflowbench-tasks.webp" width="1600" height="800" alt="Cases from the five MedFlowBench task families: brain MRI, follow-up brain MRI, lung PET/CT, a breast whole-slide image and a lymph-node whole-slide image." loading="lazy">
+          </figure>
+          <div class="proj-body">
+            <p class="proj-meta">Benchmark</p>
+            <h2 class="h2" id="medflowbench-title">MedFlowBench</h2>
+            <p>A benchmark of 1,459 cases in five task families across radiology and pathology. An answer only counts when the evidence behind it is also correct.</p>
+            <ul class="proj-links" aria-label="MedFlowBench links">
+              <li><a class="btn btn-primary btn-sm" href="https://jakobshen.github.io/MedOpenClaw/medflowbench/">Benchmark <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 14 14 6M7.5 6H14v6.5"/></svg></a></li>
+              <li><a class="btn btn-ghost btn-sm" href="https://jakobshen.github.io/MedOpenClaw/leaderboard/">Leaderboard</a></li>
+              <li><a class="btn btn-ghost btn-sm" href="https://github.com/JakobShen/Med_Flow_Bench">Code</a></li>
+              <li><a class="btn btn-ghost btn-sm" href="https://arxiv.org/abs/2603.24649">Paper</a></li>
             </ul>
           </div>
         </article>
