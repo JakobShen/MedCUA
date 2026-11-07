@@ -3,47 +3,47 @@
   <desc>Illustrative pulmonary embolism workflow. Review a CTPA study and clinical records together, then record a risk class with its source slice, measurement and clinical note.</desc>
   <defs>
     <pattern id="dot-grid" width="17" height="17" patternUnits="userSpaceOnUse">
-      <circle cx="2" cy="2" r="1" fill="#94aefa" opacity=".16"/>
+      <circle cx="2" cy="2" r="1" fill="#98c6ea" opacity=".16"/>
     </pattern>
   </defs>
-  <rect width="568" height="442" rx="20" fill="#172b5c"/>
+  <rect width="568" height="442" rx="20" fill="#072140"/>
   <rect x="1" y="1" width="566" height="440" rx="19" fill="url(#dot-grid)"/>
-  <path d="M28 60h512" stroke="#516998"/>
+  <path d="M28 60h512" stroke="#335c7a"/>
   <g font-family="system-ui, -apple-system, sans-serif">
-    <text x="28" y="39" fill="#f6f8fd" font-size="16" font-weight="650">From workflow to evidence</text>
-    <text x="540" y="38" text-anchor="end" fill="#c0cdee" font-size="12">Illustrative example</text>
-    <rect x="28" y="82" width="247" height="98" rx="10" fill="#22396e" stroke="#536da6"/>
-    <rect x="293" y="82" width="247" height="98" rx="10" fill="#22396e" stroke="#536da6"/>
-    <rect x="44" y="99" width="60" height="64" rx="6" fill="#192e5f" stroke="#4d6394"/>
-    <g stroke="#bdcdf6" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
+    <text x="28" y="39" fill="#ffffff" font-size="16" font-weight="650">From workflow to evidence</text>
+    <text x="540" y="38" text-anchor="end" fill="#c2d7ef" font-size="12">Illustrative example</text>
+    <rect x="28" y="82" width="247" height="98" rx="10" fill="#0a2d57" stroke="#467294"/>
+    <rect x="293" y="82" width="247" height="98" rx="10" fill="#0a2d57" stroke="#467294"/>
+    <rect x="44" y="99" width="60" height="64" rx="6" fill="#072140" stroke="#335c7a"/>
+    <g stroke="#c2d7ef" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
       <ellipse cx="74" cy="131" rx="22" ry="19"/>
-      <path d="M69 118c-8 3-13 11-11 20 4 6 11 4 13-2 2-5 2-13-2-18Zm10 0c8 3 13 11 11 20-4 6-11 4-13-2-2-5-2-13 2-18Z" fill="#91a9e9" fill-opacity=".23"/>
-      <path d="M65 135h18m-14-5 10 10" stroke="#b1c3ff"/>
+      <path d="M69 118c-8 3-13 11-11 20 4 6 11 4 13-2 2-5 2-13-2-18Zm10 0c8 3 13 11 11 20-4 6-11 4-13-2-2-5-2-13 2-18Z" fill="#64a0c8" fill-opacity=".23"/>
+      <path d="M65 135h18m-14-5 10 10" stroke="#98c6ea"/>
     </g>
-    <text x="120" y="124" fill="#f6f8fd" font-size="17" font-weight="650">CTPA study</text>
-    <text x="120" y="148" fill="#c0cdee" font-size="13">Images and findings</text>
-    <rect x="309" y="99" width="60" height="64" rx="6" fill="#192e5f" stroke="#4d6394"/>
-    <g stroke="#c5d3f9" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+    <text x="120" y="124" fill="#ffffff" font-size="17" font-weight="650">CTPA study</text>
+    <text x="120" y="148" fill="#c2d7ef" font-size="13">Images and findings</text>
+    <rect x="309" y="99" width="60" height="64" rx="6" fill="#072140" stroke="#335c7a"/>
+    <g stroke="#c2d7ef" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
       <path d="M327 114h18l7 7v26h-25zM345 114v7h7M333 128h12m-12 5h12m-12 5h8"/>
     </g>
-    <text x="385" y="124" fill="#f6f8fd" font-size="17" font-weight="650">Clinical record</text>
-    <text x="385" y="148" fill="#c0cdee" font-size="13">Vitals and lab results</text>
-    <path d="M152 180v17a10 10 0 0 0 10 10h122m132-27v17a10 10 0 0 1-10 10H284v16" stroke="#a3baff" stroke-width="1.5"/>
-    <path d="m280 218 4 5 4-5" stroke="#a3baff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="284" cy="207" r="3" fill="#c3d1ff"/>
-    <rect x="98" y="223" width="372" height="62" rx="10" fill="#2d467f" stroke="#6780b8"/>
-    <path d="M120 244h19m-19 8h19m-19 8h19m-13-19v6m8 2v6m-9 2v6" stroke="#cfdbff" stroke-width="1.4" stroke-linecap="round"/>
-    <text x="155" y="250" fill="#f6f8fd" font-size="16" font-weight="650">Review both sources</text>
-    <text x="155" y="271" fill="#d5dff7" font-size="13">Measure, compare, and document</text>
-    <path d="M284 285v32m-4-5 4 5 4-5" stroke="#a3baff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-    <rect x="28" y="318" width="512" height="96" rx="10" fill="#e9efff"/>
-    <text x="48" y="351" fill="#14233b" font-size="18" font-weight="690">Risk class and supporting evidence</text>
-    <circle cx="508" cy="347" r="13" fill="#d5e0ff"/>
-    <path d="m502 347 4 4 7-8" stroke="#254bb8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-    <rect x="48" y="368" width="101" height="27" rx="5" fill="#ffffff" stroke="#c2ceed"/>
-    <rect x="157" y="368" width="111" height="27" rx="5" fill="#ffffff" stroke="#c2ceed"/>
-    <rect x="276" y="368" width="104" height="27" rx="5" fill="#ffffff" stroke="#c2ceed"/>
-    <g fill="#4b5a73" font-size="12">
+    <text x="385" y="124" fill="#ffffff" font-size="17" font-weight="650">Clinical record</text>
+    <text x="385" y="148" fill="#c2d7ef" font-size="13">Vitals and lab results</text>
+    <path d="M152 180v17a10 10 0 0 0 10 10h122m132-27v17a10 10 0 0 1-10 10H284v16" stroke="#98c6ea" stroke-width="1.5"/>
+    <path d="m280 218 4 5 4-5" stroke="#98c6ea" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="284" cy="207" r="3" fill="#c2d7ef"/>
+    <rect x="98" y="223" width="372" height="62" rx="10" fill="#003359" stroke="#5d88a7"/>
+    <path d="M120 244h19m-19 8h19m-19 8h19m-13-19v6m8 2v6m-9 2v6" stroke="#d7e4f4" stroke-width="1.4" stroke-linecap="round"/>
+    <text x="155" y="250" fill="#ffffff" font-size="16" font-weight="650">Review both sources</text>
+    <text x="155" y="271" fill="#d7e4f4" font-size="13">Measure, compare, and document</text>
+    <path d="M284 285v32m-4-5 4 5 4-5" stroke="#98c6ea" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="28" y="318" width="512" height="96" rx="10" fill="#f0f5fa"/>
+    <text x="48" y="351" fill="#072140" font-size="18" font-weight="690">Risk class and supporting evidence</text>
+    <circle cx="508" cy="347" r="13" fill="#d7e4f4"/>
+    <path d="m502 347 4 4 7-8" stroke="#005293" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="48" y="368" width="101" height="27" rx="5" fill="#ffffff" stroke="#bdcddd"/>
+    <rect x="157" y="368" width="111" height="27" rx="5" fill="#ffffff" stroke="#bdcddd"/>
+    <rect x="276" y="368" width="104" height="27" rx="5" fill="#ffffff" stroke="#bdcddd"/>
+    <g fill="#475868" font-size="12">
       <text x="59" y="386">Source slice</text>
       <text x="168" y="386">Measurement</text>
       <text x="287" y="386">Clinical note</text>

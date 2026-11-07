@@ -1,11 +1,11 @@
 :root {
-  --form-ink: var(--ink, #14233b);
-  --form-muted: var(--muted, #4b5a73);
-  --form-accent: var(--accent, #254bb8);
-  --form-line: var(--line, #dbe3f3);
-  --form-tint: var(--tint, #e9efff);
-  --form-surface: var(--paper, #f6f8fd);
-  --form-control-line: #8291ab;
+  --form-ink: var(--ink, #072140);
+  --form-muted: var(--muted, #475868);
+  --form-accent: var(--accent, #005293);
+  --form-line: var(--line, #d7e2eb);
+  --form-tint: var(--tint, #f0f5fa);
+  --form-surface: var(--paper, #ffffff);
+  --form-control-line: #7e91a4;
 }
 
 .collection-main :where(h1, h2, h3, p, ul),
@@ -179,11 +179,11 @@ button:disabled, a[aria-disabled="true"] { cursor: not-allowed; opacity: .55; }
 .field input, .field textarea, .field select, .item-row input, .item-row select, .evidence-row textarea, .evidence-row input, .evidence-row select, .step-card > textarea, .step-card > input {
   display: block; width: 100%; min-width: 0; padding: .72rem .8rem; color: var(--form-ink); font-size: 1rem; font-weight: 400; line-height: 1.5; background: #fff; border: 1px solid var(--form-control-line); border-radius: .5rem; outline: none;
 }
-.field input::placeholder, .field textarea::placeholder, .item-row input::placeholder, .evidence-row textarea::placeholder, .step-card > textarea::placeholder { color: #67758d; opacity: 1; }
+.field input::placeholder, .field textarea::placeholder, .item-row input::placeholder, .evidence-row textarea::placeholder, .step-card > textarea::placeholder { color: #5d6d7c; opacity: 1; }
 .field textarea, .evidence-row textarea, .step-card > textarea { resize: vertical; min-height: 5rem; }
 .field select, .evidence-row select { padding-right: 1.7rem; }
-input:focus, textarea:focus, select:focus { border-color: var(--form-accent) !important; box-shadow: 0 0 0 3px #254bb818; }
-:focus-visible { outline: 3px solid #254bb8; outline-offset: 3px; }
+input:focus, textarea:focus, select:focus { border-color: var(--form-accent) !important; box-shadow: 0 0 0 3px #00529318; }
+:focus-visible { outline: 3px solid #005293; outline-offset: 3px; }
 .required-marker { color: var(--form-accent); font-weight: 500; }
 .optional { color: var(--form-muted); font-size: .8rem; font-weight: 400; margin-left: .25rem; }
 .setup-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.75rem; }
@@ -203,7 +203,7 @@ input:focus, textarea:focus, select:focus { border-color: var(--form-accent) !im
 .button-compact { padding: .5rem .85rem; font-size: .83rem; }
 .button-text { display: inline-flex; align-items: center; justify-content: center; min-height: 2.2rem; padding: .35rem .3rem; border: 0; border-radius: .3rem; background: transparent; color: var(--form-accent); font-size: .85rem; line-height: 1.4; font-weight: 650; }
 .button-text:hover { background: var(--form-tint); }
-.button-text[data-action*="remove"], .button-text[data-action*="delete"] { color: #4b5a73; }
+.button-text[data-action*="remove"], .button-text[data-action*="delete"] { color: #475868; }
 .button-text[data-action*="remove"]:hover, .button-text[data-action*="delete"]:hover { background: #fff0ef; color: #9d3028; }
 .evidence-guide { padding: .9rem 1rem; margin-bottom: 1.2rem; border-radius: .6rem; background: var(--form-tint); font-size: .9rem; line-height: 1.65; }
 .evidence-guide p + p { margin-top: .35rem; }
@@ -241,10 +241,10 @@ input:focus, textarea:focus, select:focus { border-color: var(--form-accent) !im
 .form-alert { margin-bottom: 1rem; padding: 1rem; color: #85312c; border: 1px solid #e5bfb9; border-radius: .6rem; background: #fff5f3; }
 .draft-tools { padding: .25rem .1rem; }
 .draft-actions { display: flex; flex-wrap: wrap; gap: .6rem; padding: .9rem 0 .5rem; }
-#review-dialog { width: min(850px, calc(100vw - 2rem)); max-height: calc(100dvh - 3rem); margin: auto; padding: 1.75rem; border: 1px solid var(--form-line); border-radius: 1rem; color: var(--form-ink); background: white; box-shadow: 0 20px 90px #14233b30; overflow-y: auto; }
-#review-dialog::backdrop { background: #14233b60; backdrop-filter: blur(3px); }
-#example-dialog { width: min(1180px, calc(100vw - 2rem)); max-height: calc(100dvh - 3rem); margin: auto; padding: 0; border: 1px solid var(--form-line); border-radius: 1rem; color: var(--form-ink); background: white; box-shadow: 0 20px 90px #14233b30; overflow-y: auto; }
-#example-dialog::backdrop { background: #14233b60; backdrop-filter: blur(3px); }
+#review-dialog { width: min(850px, calc(100vw - 2rem)); max-height: calc(100dvh - 3rem); margin: auto; padding: 1.75rem; border: 1px solid var(--form-line); border-radius: 1rem; color: var(--form-ink); background: white; box-shadow: 0 20px 90px #07214030; overflow-y: auto; }
+#review-dialog::backdrop { background: #07214060; backdrop-filter: blur(3px); }
+#example-dialog { width: min(1180px, calc(100vw - 2rem)); max-height: calc(100dvh - 3rem); margin: auto; padding: 0; border: 1px solid var(--form-line); border-radius: 1rem; color: var(--form-ink); background: white; box-shadow: 0 20px 90px #07214030; overflow-y: auto; }
+#example-dialog::backdrop { background: #07214060; backdrop-filter: blur(3px); }
 body:has(#example-dialog[open]) { overflow: hidden; }
 .example-dialog-heading { position: sticky; top: 0; z-index: 1; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.15rem 1.6rem; border-bottom: 1px solid var(--form-line); background: white; }
 .example-dialog-heading h2 { font-size: 1.3rem; line-height: 1.4; font-weight: 800; letter-spacing: -.02em; }
@@ -285,7 +285,7 @@ body:has(#example-dialog[open]) { overflow: hidden; }
   .example-step li p { margin-bottom: .3rem; }
 }
 .confirm-dialog { width: min(440px, calc(100vw - 2rem)); margin: auto; padding: 1.5rem; border: 1px solid var(--form-line); border-radius: .8rem; color: var(--form-ink); background: white; line-height: 1.7; }
-.confirm-dialog::backdrop { background: #14233b60; }
+.confirm-dialog::backdrop { background: #07214060; }
 .confirm-dialog .review-actions { margin-bottom: 0; }
 .review-heading { display: flex; align-items: start; justify-content: space-between; gap: 1rem; margin-bottom: 1.4rem; }
 .review-heading h2 { font-size: 1.6rem; font-weight: 800; margin-top: .3rem; letter-spacing: -.02em; }
