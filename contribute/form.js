@@ -1,4 +1,4 @@
-import { RECIPIENT, IMPORTANCE, DATA_AVAILABILITY, uid, blankTask, blankStep, activeItems, effectiveIds, normalizeTask, exportTask, validationError, taskSummary } from './model.js?v=3';
+import { RECIPIENT, IMPORTANCE, DATA_AVAILABILITY, uid, blankTask, blankStep, activeItems, effectiveIds, normalizeTask, exportTask, validationError, taskSummary } from './model.js?v=4';
 import { exampleMarkup } from './example-view.js';
 import { SUBMISSION_ENDPOINT } from './config.js';
 
@@ -343,7 +343,7 @@ if (!SUBMIT_URL) {
   $('#send-email').className = 'button';
   $('#review-button').textContent = 'Review & send →';
   $('#delivery-note').textContent = `Send your prepared task to ${RECIPIENT}, or download it to keep a copy. Automatic submission is being set up.`;
-  $('#privacy-note').textContent = 'Describe the workflow without including patient-identifiable information.';
+  $('#privacy-note').textContent = 'Describe the task without including patient-identifiable information.';
 }
 render();
 if (initialMessage) status(initialMessage);

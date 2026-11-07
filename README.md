@@ -8,10 +8,10 @@ The site is static: plain HTML, CSS and a little vanilla JavaScript, with no bui
 
 | Path | Content |
 | --- | --- |
-| `index.html` | Homepage: hero, about, call for workflows, team preview |
+| `index.html` | Homepage: hero, about, call for tasks, team preview |
 | `projects/` | Short entries for each project with links to their own sites; BibTeX at `projects/#cite` |
 | `team/` | People (paper order, no role labels) and institutions |
-| `contribute/` | Workflow collection form with a worked example (Formspree delivery, email fallback) |
+| `contribute/` | "Share a task" form with a worked example (Formspree delivery, email fallback) |
 | `404.html` | Not-found page; uses `<base href="/MedCUA/">` because Pages serves it for any missing URL |
 
 ## Design system

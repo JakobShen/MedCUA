@@ -113,7 +113,7 @@ export function taskSummary(state) {
   if (data.task.publicDatasetUrl) lines.push(`Public dataset: ${data.task.publicDatasetUrl}`);
   lines.push('', `Tools: ${data.task.tools.map(item => item.name).join(', ')}`,
     `Data modalities: ${data.task.modalities.map(item => item.name).join(', ')}`, '', 'STEPS & EVIDENCE',
-    'Suggested workflow; only recorded evidence is scored.');
+    'Suggested steps; only recorded evidence is scored.');
   data.steps.forEach((step, i) => {
     lines.push('', `${i + 1}. ${step.description}`);
     if (data.task.tools.length > 1) lines.push(`   Tools: ${names(data.task.tools, step.toolIds)}`);
