@@ -90,6 +90,7 @@
         <div class="section-head">
           <p class="eyebrow" data-reveal>Before you start</p>
           <h2 class="h2" id="task-criteria-heading" data-reveal>Tasks we are <em>looking for</em></h2>
+          <p class="lead" data-reveal>We are looking for long-tail workflows from real clinical or research practice. These tasks may be specialized, variable, or infrequent, and lack a dedicated automated solution. We are particularly interested in the following characteristics.</p>
         </div>
         <ul class="criteria">
           <li class="criterion" data-reveal style="--d:0">
@@ -97,32 +98,32 @@
               <span class="criterion-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></span>
               <span class="num" aria-hidden="true">01</span>
             </div>
-            <h3 class="h3">Time-consuming</h3>
-            <p>Repetitive or manual work that takes effort today.</p>
+            <h3 class="h3">Time-consuming or repetitive</h3>
+            <p>Especially when many manual interactions are required.</p>
           </li>
           <li class="criterion" data-reveal style="--d:1">
             <div class="criterion-top">
               <span class="criterion-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor" fill-opacity=".16" stroke="none"/><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5v17"/></svg></span>
               <span class="num" aria-hidden="true">02</span>
             </div>
-            <h3 class="h3">Hard to automate</h3>
-            <p>Existing models or pipelines cover only part of it.</p>
+            <h3 class="h3">Limited existing solutions</h3>
+            <p>Not well solved by existing models or standard pipelines.</p>
           </li>
           <li class="criterion" data-reveal style="--d:2">
             <div class="criterion-top">
               <span class="criterion-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2"/><circle cx="6" cy="12" r="2"/><circle cx="6" cy="18" r="2"/><path d="M11 6h8M11 12h8M11 18h5"/></svg></span>
               <span class="num" aria-hidden="true">03</span>
             </div>
-            <h3 class="h3">Several steps</h3>
-            <p>Work that needs inspection, measurement, comparison, or interpretation.</p>
+            <h3 class="h3">Multi-step</h3>
+            <p>For example, segmentation, measurements, visualization, comparison, quality control, or interpretation.</p>
           </li>
           <li class="criterion" data-reveal style="--d:3">
             <div class="criterion-top">
               <span class="criterion-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="12" height="10" rx="2"/><path d="M9 14v2a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2h-4"/></svg></span>
               <span class="num" aria-hidden="true">04</span>
             </div>
-            <h3 class="h3">Across tools or data</h3>
-            <p>Tasks that may span software, modalities, or time points.</p>
+            <h3 class="h3">Multiple tools or data</h3>
+            <p>Tasks may involve multiple software tools, modalities, or time points.</p>
           </li>
         </ul>
       </div>
@@ -169,7 +170,7 @@
           </section>
 
           <section class="form-section" aria-labelledby="tools-heading">
-            <div class="section-title"><span class="section-number" aria-hidden="true">02</span><div><h2 id="tools-heading">Tools &amp; data types</h2><p class="small muted">List each tool and data type once here. In each step, select the ones that step uses.</p></div></div>
+            <div class="section-title"><span class="section-number" aria-hidden="true">02</span><div><h2 id="tools-heading">Tools &amp; data types</h2><p class="small muted">Add each tool and modality separately. A single entry applies to every step. If you add more than one, choose the ones each step uses.</p></div></div>
             <div class="setup-grid">
               <div class="setup-column"><h3>Software or tools</h3><p class="small muted">Imaging software, EHR, browser, or other tools.</p><div id="tools-list" class="item-list"></div><button type="button" class="button-text add-control" data-action="add-tool">+ Add tool</button></div>
               <div class="setup-column"><h3>Data modalities</h3><p class="small muted">MRI, CT, text / clinical records, or other data.</p><div id="modalities-list" class="item-list"></div><button type="button" class="button-text add-control" data-action="add-modality">+ Add modality</button></div>
@@ -255,6 +256,6 @@
       <a class="to-top" href="#main">Back to top <span aria-hidden="true">↑</span></a>
     </div>
   </footer>
-  <script type="module" src="./form.js?v=4"></script>
+  <script type="module" src="./form.js?v=5"></script>
 </body>
 </html>

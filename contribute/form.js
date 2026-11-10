@@ -61,7 +61,7 @@ function contextControl(step, kind) {
   const items = activeItems(state.task[kind]);
   if (items.length <= 1) return '';
   const idsKey = kind === 'tools' ? 'toolIds' : 'modalityIds';
-  return `<fieldset><legend>${kind === 'tools' ? 'Tools used' : 'Data used'}</legend><div class="choice-list">${items.map(item =>
+  return `<fieldset aria-label="${kind === 'tools' ? 'Software or tools' : 'Data modalities'} used in step ${state.steps.indexOf(step) + 1}"><legend>${kind === 'tools' ? 'Software or tools used' : 'Data modalities used'}</legend><div class="choice-list">${items.map(item =>
     `<label><input type="checkbox" data-step="${step.id}" data-context="${idsKey}" value="${item.id}" ${step[idsKey].includes(item.id) ? 'checked' : ''}><span>${escape(item.name)}</span></label>`).join('')}</div></fieldset>`;
 }
 function renderContexts() {
@@ -200,6 +200,7 @@ form.addEventListener('input', event => {
       const key = kind === 'tools' ? 'toolIds' : 'modalityIds';
       state.steps.forEach(step => { if (!step[key].length) step[key] = [before[0].id]; });
     }
+    renderContexts();
   } else if (element.dataset.field) {
     const step = state.steps.find(s => s.id === element.dataset.step);
     const target = element.dataset.evidence ? step.evidence.find(e => e.id === element.dataset.evidence) : step;
