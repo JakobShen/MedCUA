@@ -127,6 +127,35 @@ test('dataset imports discard invalid and duplicate choices and resolve conflict
   assert.deepEqual(normalizeTask(state).task.dataAvailability, ['none']);
 });
 
+test('optional video links survive export and import without losing Drive access parameters', () => {
+  const legacy = validSingle();
+  delete legacy.task.videoUrl;
+  const state = normalizeTask(legacy);
+  assert.equal(state.task.videoUrl, '');
+  assert.equal(validationError(state), '');
+  assert.doesNotMatch(taskSummary(state), /^VIDEO$/m);
+
+  const link = 'https://drive.google.com/file/d/example/view?usp=sharing&resourcekey=0-example';
+  state.task.videoUrl = `  ${link}  `;
+  assert.equal(validationError(state), '');
+  const exported = exportTask(state);
+  assert.equal(exported.task.videoUrl, link);
+  assert.equal(normalizeTask(exported).task.videoUrl, link);
+  assert.ok(taskSummary(state).includes(`\nVIDEO\n${link}`));
+});
+
+test('a video link must use the HTTPS Google Drive origin without credentials', () => {
+  const state = validSingle();
+  for (const link of ['http://drive.google.com/file/d/example/view', 'https://example.org/video.mp4',
+    'https://drive.google.com.example.org/file/d/example/view',
+    'https://user:secret@drive.google.com/file/d/example/view', 'javascript:alert(1)']) {
+    state.task.videoUrl = link;
+    assert.match(validationError(state), /valid Google Drive video link/, `Must reject ${link}`);
+    assert.equal(exportTask(state).task.videoUrl, '');
+    assert.doesNotMatch(taskSummary(state), /^VIDEO$/m);
+  }
+});
+
 test('a single active tool and modality are inherited by every exported step', () => {
   const state = validSingle();
   state.task.tools.push({ id: 'unused', name: '   ' });

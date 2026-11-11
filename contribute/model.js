@@ -6,11 +6,12 @@ export const DATA_AVAILABILITY = {
   none: 'No shareable data known',
   unsure: 'Not sure',
 };
+const DRIVE_ORIGIN = 'https://drive.google.com';
 export const uid = () => `id-${crypto.randomUUID()}`;
 export const blankStep = () => ({ id: uid(), description: '', toolIds: [], modalityIds: [], evidence: [] });
 export function blankTask() {
   return { schemaVersion: 1, contact: { name: '', email: '', affiliation: '' },
-    task: { name: '', description: '', data: '', dataAvailability: [], publicDatasetUrl: '',
+    task: { name: '', description: '', data: '', dataAvailability: [], publicDatasetUrl: '', videoUrl: '',
       tools: [{ id: uid(), name: '' }], modalities: [{ id: uid(), name: '' }] },
     steps: [blankStep()], expectedResult: '', comments: '' };
 }
@@ -28,12 +29,13 @@ function knownAvailability(value) {
   return sources.length ? sources : known.slice(0, 1);
 }
 
-function datasetUrl(value) {
+function webUrl(value, requiredOrigin) {
   const address = text(value).trim();
   if (!/^https?:\/\/[^/]/i.test(address) || /[\s\\]/.test(address)) return '';
   try {
     const url = new URL(address);
-    return url.username || url.password ? '' : address;
+    if (url.username || url.password || (requiredOrigin && url.origin !== requiredOrigin)) return '';
+    return address;
   } catch {
     return '';
   }
@@ -51,6 +53,7 @@ export function normalizeTask(raw) {
   result.contact = { name: text(raw.contact?.name), email: text(raw.contact?.email), affiliation: text(raw.contact?.affiliation) };
   result.task = { name: text(raw.task.name), description: text(raw.task.description), data: text(raw.task.data),
     dataAvailability: knownAvailability(raw.task.dataAvailability), publicDatasetUrl: text(raw.task.publicDatasetUrl),
+    videoUrl: text(raw.task.videoUrl),
     tools: tools.length ? tools.map(({ id, name }) => ({ id, name })) : result.task.tools,
     modalities: modalities.length ? modalities.map(({ id, name }) => ({ id, name })) : result.task.modalities };
   if (text(raw.task.exampleTitle)) result.task.exampleTitle = raw.task.exampleTitle;
@@ -68,7 +71,8 @@ export function normalizeTask(raw) {
 export function exportTask(state) {
   const copy = structuredClone(state);
   copy.task.dataAvailability = knownAvailability(copy.task.dataAvailability);
-  copy.task.publicDatasetUrl = copy.task.dataAvailability.includes('public') ? datasetUrl(copy.task.publicDatasetUrl) : '';
+  copy.task.publicDatasetUrl = copy.task.dataAvailability.includes('public') ? webUrl(copy.task.publicDatasetUrl) : '';
+  copy.task.videoUrl = webUrl(copy.task.videoUrl, DRIVE_ORIGIN);
   copy.task.tools = activeItems(copy.task.tools);
   copy.task.modalities = activeItems(copy.task.modalities);
   copy.steps.forEach(step => {
@@ -84,8 +88,12 @@ export function validationError(state) {
   for (const [key, label] of [['name', 'task name'], ['description', 'task goal'], ['data', 'data used by the task']]) {
     if (!state.task[key].trim()) return `Please enter the ${label}.`;
   }
-  if (knownAvailability(state.task.dataAvailability).includes('public') && !datasetUrl(state.task.publicDatasetUrl)) {
+  if (knownAvailability(state.task.dataAvailability).includes('public') && !webUrl(state.task.publicDatasetUrl)) {
     return 'Please enter a valid public dataset link starting with http:// or https://.';
+  }
+  const videoUrl = text(state.task.videoUrl).trim();
+  if (videoUrl && !webUrl(videoUrl, DRIVE_ORIGIN)) {
+    return 'Please enter a valid Google Drive video link starting with https://drive.google.com/.';
   }
   if (!activeItems(state.task.tools).length) return 'Please enter at least one tool or software application.';
   if (!activeItems(state.task.modalities).length) return 'Please enter at least one data modality.';
@@ -122,6 +130,7 @@ export function taskSummary(state) {
     if (!step.evidence.length) lines.push('   No evidence specified at this step.');
   });
   lines.push('', 'EXPECTED RESULT', data.expectedResult);
+  if (data.task.videoUrl) lines.push('', 'VIDEO', data.task.videoUrl);
   if (data.comments) lines.push('', 'COMMENTS', data.comments);
   if (data.task.note) lines.push('', 'EXAMPLE NOTE', data.task.note);
   if (data.task.reference) lines.push(`Reference: ${data.task.reference}`);

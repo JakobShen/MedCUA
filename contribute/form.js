@@ -1,4 +1,4 @@
-import { RECIPIENT, IMPORTANCE, DATA_AVAILABILITY, uid, blankTask, blankStep, activeItems, effectiveIds, normalizeTask, exportTask, validationError, taskSummary } from './model.js?v=4';
+import { RECIPIENT, IMPORTANCE, DATA_AVAILABILITY, uid, blankTask, blankStep, activeItems, effectiveIds, normalizeTask, exportTask, validationError, taskSummary } from './model.js?v=5';
 import { exampleMarkup } from './example-view.js';
 import { SUBMISSION_ENDPOINT } from './config.js';
 
@@ -9,7 +9,7 @@ const STORAGE_KEY = 'medopenclaw.task-collection.v1';
 const SUBMIT_URL = /^https:\/\/formspree\.io\/f\/[a-zA-Z0-9]+$/.test(SUBMISSION_ENDPOINT) ? SUBMISSION_ENDPOINT : '';
 const escape = value => String(value).replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
 const fieldPaths = { taskName: ['task', 'name'], goal: ['task', 'description'], dataDescription: ['task', 'data'],
-  publicDatasetUrl: ['task', 'publicDatasetUrl'],
+  publicDatasetUrl: ['task', 'publicDatasetUrl'], videoUrl: ['task', 'videoUrl'],
   contactName: ['contact', 'name'], email: ['contact', 'email'], affiliation: ['contact', 'affiliation'], expectedResult: ['expectedResult'], comments: ['comments'] };
 let state = blankTask();
 let storageAvailable = true;
@@ -111,7 +111,7 @@ function render() {
   renderItems('tools'); renderItems('modalities'); renderSteps();
 }
 function hasContent() {
-  return Boolean(state.task.name || state.task.description || state.task.data || state.task.dataAvailability.length || state.task.publicDatasetUrl || state.expectedResult || state.comments ||
+  return Boolean(state.task.name || state.task.description || state.task.data || state.task.dataAvailability.length || state.task.publicDatasetUrl || state.task.videoUrl || state.expectedResult || state.comments ||
     activeItems(state.task.tools).length || activeItems(state.task.modalities).length ||
     Object.values(state.contact).some(Boolean) || state.steps.some(step => step.description || step.evidence.length));
 }
@@ -160,6 +160,7 @@ function openReview(validate = true) {
     <dl><dt>Data used</dt><dd>${escape(data.task.data)}</dd>
     ${data.task.dataAvailability.length ? `<dt>Data availability</dt><dd>${data.task.dataAvailability.map(value => escape(DATA_AVAILABILITY[value])).join('<br>')}</dd>` : ''}
     ${data.task.publicDatasetUrl ? `<dt>Public dataset</dt><dd><a class="text-link" href="${escape(data.task.publicDatasetUrl)}" target="_blank" rel="noopener noreferrer">${escape(data.task.publicDatasetUrl)}</a></dd>` : ''}
+    ${data.task.videoUrl ? `<dt>Workflow video</dt><dd><a class="text-link" href="${escape(data.task.videoUrl)}" target="_blank" rel="noopener noreferrer">${escape(data.task.videoUrl)}</a></dd>` : ''}
     <dt>Software or tools</dt><dd>${escape(data.task.tools.map(item => item.name).join(', '))}</dd><dt>Data modalities</dt><dd>${escape(data.task.modalities.map(item => item.name).join(', '))}</dd></dl>
     <h3>Steps &amp; evidence</h3><ol class="review-steps">${data.steps.map(step => `<li><strong>${escape(step.description)}</strong>
     ${data.task.tools.length > 1 ? `<p class="small muted">Tools: ${escape(names(data.task.tools, step.toolIds))}</p>` : ''}
@@ -316,7 +317,8 @@ $('#submit-task')?.addEventListener('click', async () => {
   const payload = { subject: `MedCUA task: ${state.task.name.replace(/[\r\n]/g, ' ').slice(0, 140)}`,
     source: 'https://jakobshen.github.io/MedCUA/contribute/', submission_id: sentId,
     task: state.task.name, name: state.contact.name.trim(), email: state.contact.email.trim(), affiliation: state.contact.affiliation.trim(),
-    message: taskSummary(state), structured_task_json: JSON.stringify(data), _gotcha: '' };
+    message: taskSummary(state), structured_task_json: JSON.stringify(data),
+    ...(data.task.videoUrl ? { video_url: data.task.videoUrl } : {}), _gotcha: '' };
   status('Sending your task. Please keep this window open.', true);
   const controller = new AbortController(); const timeout = setTimeout(() => controller.abort(), 25000);
   try {
