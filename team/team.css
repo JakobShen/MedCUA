@@ -63,7 +63,7 @@
 /* ---------- People ---------- */
 .page-team .people { list-style: none; display: grid; }
 .page-team .people > li { display: flex; min-width: 0; }
-.page-team .people--team { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--team-gap); }
+.page-team .people--team { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--team-gap); }
 
 .page-team .person {
   --card-r: 22px;
@@ -217,12 +217,17 @@
 }
 
 /* ---------- Responsive ---------- */
-/* Switch to two columns when the portraits move beside the names. */
+/* Below 1240px five columns get too narrow for names and affiliations,
+   so cards become compact rows with a small photo. */
 @media (max-width: 1240px) {
-  .page-team .people--team { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .page-team .people--team { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .page-team .people--team .person { flex-direction: row; align-items: center; }
   .page-team .people--team .person-photo { width: 76px; }
   .page-team .people--team .person-body { padding: .2rem .5rem .2rem .85rem; }
+}
+
+@media (max-width: 960px) {
+  .page-team .people--team { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (max-width: 860px) {
