@@ -10,7 +10,7 @@ The site is static: plain HTML, CSS and a little vanilla JavaScript, with no bui
 | --- | --- |
 | `index.html` | Homepage: hero, about, call for tasks, team preview |
 | `projects/` | Short entries for each project with links to their own sites; BibTeX at `projects/#cite` |
-| `team/` | People (paper order, no role labels) and institutions |
+| `team/` | MedCUA core team, affiliations, and funding |
 | `contribute/` | "Share a task" form with a worked example (Formspree delivery, email fallback) |
 | `404.html` | Not-found page; uses `<base href="/MedCUA/">` because Pages serves it for any missing URL |
 
@@ -24,7 +24,7 @@ The site is static: plain HTML, CSS and a little vanilla JavaScript, with no bui
 ## Updating content
 
 - **Team member**: add a card in `team/index.html` and a tile in the homepage avatar wall (`index.html`, section `#team`). Photos are 480×480 WebP files in `assets/team/`.
-- **Numbers** (1,459 cases, 5 task families, 15 researchers) mirror MedFlowBench and the paper; they appear in `projects/index.html`, `team/index.html` and the homepage team section.
+- **Benchmark numbers** (1,459 cases and 5 task families) mirror MedFlowBench and the paper. The full paper citation is in `projects/index.html`.
 - **Institution logos** are in `assets/logos/` and are shown in greyscale until hover.
 - **Images**: keep images under about 350 KB, prefer WebP (`cwebp -q 80`), and always set `width`, `height` and `alt`.
 
