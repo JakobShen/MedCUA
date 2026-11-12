@@ -63,7 +63,7 @@
 /* ---------- People ---------- */
 .page-team .people { list-style: none; display: grid; }
 .page-team .people > li { display: flex; min-width: 0; }
-.page-team .people--team { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--team-gap); }
+.page-team .people--team { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: var(--team-gap); }
 
 .page-team .person {
   --card-r: 22px;
@@ -217,7 +217,7 @@
 }
 
 /* ---------- Responsive ---------- */
-/* Below 1240px five columns get too narrow for names and affiliations,
+/* Below 1240px six columns get too narrow for names and affiliations,
    so cards become compact rows with a small photo. */
 @media (max-width: 1240px) {
   .page-team .people--team { grid-template-columns: repeat(3, minmax(0, 1fr)); }

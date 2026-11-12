@@ -579,7 +579,7 @@ html.js .hud-trace.is-playing .trace li { animation: trace-in .5s var(--ease) fo
 .people-copy { display: grid; gap: 1.2rem; align-content: start; justify-items: start; }
 .people-copy .lead { max-width: 46ch; }
 .people-copy .btn { margin-top: .6rem; }
-.avatar-wall { list-style: none; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: clamp(.5rem, 1.2vw, .85rem); width: 100%; max-width: 38rem; }
+.avatar-wall { list-style: none; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: clamp(.5rem, 1.2vw, .85rem); width: 100%; max-width: 38rem; }
 .avatar-wall li { position: relative; aspect-ratio: 1; border-radius: 16px; overflow: hidden; background: var(--paper-3); box-shadow: 0 0 0 1px rgba(15, 23, 42, .06); }
 .avatar-wall img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s var(--ease); }
 .avatar-wall li:hover img { transform: scale(1.04); }
@@ -809,6 +809,7 @@ html.js [data-reveal].is-visible { opacity: 1; transform: none; }
 }
 
 @media (max-width: 420px) {
+  .avatar-wall { grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: 20rem; }
   .brand-name { font-size: 1.05rem; }
   .hero-pill-tag { display: none; }
   .logo-row { gap: .75rem 1.4rem; }
