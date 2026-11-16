@@ -43,7 +43,7 @@ The implementation is `editorial.css`, `pages-editorial.css` and `editorial.js`.
 
 - `.shell` uses a 1200px maximum and `clamp(22px, 5vw, 64px)` side gutters. Header, content and footer share those edges.
 - Standard section padding is `clamp(64px, 7vw, 96px)`. Local spacing follows content groups: 16–24px within a group, 32–64px between columns or rows.
-- The homepage opens on white. A compact statement sits beside an authentic, unfiltered anatomy replay, at a restrained 440px maximum width. A thin contextual row beneath links to the underlying run. Research entries use broad figure-and-text rows, followed by the task invitation and team portraits.
+- The homepage opens on white. A compact statement sits beside an authentic, unfiltered anatomy replay, at a restrained 440px maximum width. A compact pale case panel beneath groups the clinical question, the workflow link and a native disclosure for recorded steps. Research entries use broad figure-and-text rows, followed by the task invitation and team portraits.
 - At 860px the header uses its mobile menu. At 700px the cover, project rows and main two-column content stack. The homepage team preview goes from six columns to three, then two.
 - Projects use text-first, 0.8/1.2-column rows, stacking at 820px. Their figures use `object-fit: contain` so none of the research content is cropped.
 - Team portraits use three columns, two at 820px and one at 560px. Affiliations use two columns, then a single list at 820px.
@@ -61,6 +61,7 @@ Controls have 4px corners; the replay uses a simple 8px frame on its natural dar
 - Primary buttons are navy with white text, at least 48px high; secondary buttons use a transparent fill and navy text. Navigation and smaller actions have a minimum 44px target.
 - Links respond with color, underline or a small arrow movement. Keyboard focus uses a 3px blue outline with a 5px offset; preserve visible focus on linked portraits and other whole-item links.
 - Team entries combine one portrait, a name and affiliations. Keep the existing member order, profile destinations and affiliation order when changing layout.
+- The clinical case groups its title, source, question and actions in one pale 12px-radius panel. The recorded-steps chevron stays beside its label; the opened list aligns measurements in one column.
 - The replay provides a play/pause control. It pauses outside the viewport or when the document is hidden, and starts paused for reduced motion.
 - The homepage introduction and clinical image have one coordinated entrance, using `cubic-bezier(.16, 1, .3, 1)`. Hover transitions are short and local; linked imagery may scale to 1.025. There are no repeated scroll reveals.
 - Reduced motion disables presentation animations and transitions. Content remains visible without animation. The mobile menu exposes its state and closes with Escape or after following a link.
@@ -82,3 +83,5 @@ The homepage MedOpenClaw project preview is a still from the existing public pro
 ## Explicit owner feedback
 
 The owner rejected the full navy first screen. Keep large presentation surfaces white or near-white. TUM navy belongs in text, navigation and small controls, not a full-screen hero. Keep headline and anatomy scale restrained.
+
+The owner preferred the current online white/replay layout over the experimental themes. Refine this established layout; do not replace it with the rejected triptych or typography-led concepts.

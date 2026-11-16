@@ -20,7 +20,7 @@
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <link rel="preload" href="assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="site.css?v=12">
-  <link rel="stylesheet" href="editorial.css?v=3">
+  <link rel="stylesheet" href="editorial.css?v=4">
   <script>document.documentElement.classList.add('js')</script>
   <script src="editorial.js?v=1" defer></script>
 </head>
@@ -66,24 +66,30 @@
 
           </div>
         </div>
-        <div class="research-case">
-          <div class="research-case-context"><span>Inside the clinical workflow</span><span>3D Slicer · Brain MRI · MedOpenClaw</span></div>
-          <p>Map the vessels around this tumour. Is any major vessel encased or displaced?</p>
-          <a class="replay-link" href="https://jakobshen.github.io/MedOpenClaw/demos/">Watch the agent at work <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h11M10.5 5.5 15 10l-4.5 4.5"/></svg></a>
-        </div>
-        <details class="run-details">
-          <summary>Public research case · View the recorded steps</summary>
-          <div class="run-detail-grid">
-            <p>Agent run on UCSF-PDGM-0036 in 3D Slicer, using a contrast-enhanced T1 MRI. Research use only.</p>
-            <ol>
-              <li>Locate enhancing tumour <span>T1c</span></li>
-              <li>Segment with a local threshold <span>5.21 cm³</span></li>
-              <li>Apply the VMTK vesselness filter <span>0.6–2.2 mm</span></li>
-              <li>Find candidates in a 3–25 mm band <span>22 candidates</span></li>
-              <li>Measure the nearest eligible candidate <span>3.16 mm</span></li>
-            </ol>
+        <section class="research-case" aria-labelledby="case-title">
+          <div class="research-case-intro">
+            <h2 id="case-title">Inside the clinical workflow</h2>
+            <p class="research-case-context">3D Slicer · Brain MRI · MedOpenClaw</p>
+            <p class="research-case-question">Map the vessels around this tumour. Is any major vessel encased or displaced?</p>
           </div>
-        </details>
+          <a class="replay-link" href="https://jakobshen.github.io/MedOpenClaw/demos/">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="m7 4 9 6-9 6V4Z"/></svg>
+            Watch workflow
+          </a>
+          <details class="run-details">
+            <summary><span>View recorded steps</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></summary>
+            <div class="run-detail-grid">
+              <p>Public research case: UCSF-PDGM-0036 in 3D Slicer, using a contrast-enhanced T1 MRI. Research use only.</p>
+              <ol>
+                <li><span class="run-step">Locate enhancing tumour</span><span class="run-value">T1c</span></li>
+                <li><span class="run-step">Segment with a local threshold</span><span class="run-value">5.21 cm³</span></li>
+                <li><span class="run-step">Apply the VMTK vesselness filter</span><span class="run-value">0.6–2.2 mm</span></li>
+                <li><span class="run-step">Find candidates in a 3–25 mm band</span><span class="run-value">22 candidates</span></li>
+                <li><span class="run-step">Measure the nearest eligible candidate</span><span class="run-value">3.16 mm</span></li>
+              </ol>
+            </div>
+          </details>
+        </section>
       </div>
     </section>
 
