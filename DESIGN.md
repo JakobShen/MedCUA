@@ -1,6 +1,6 @@
 ---
 name: MedCUA presentation design
-description: A TUM-blue research cover, authentic clinical imagery and a restrained publication layout.
+description: A light research introduction, restrained navy typography and authentic clinical imagery.
 colors:
   navy: "#003359"
   navy-hover: "#005293"
@@ -25,7 +25,7 @@ The implementation is `editorial.css`, `pages-editorial.css` and `editorial.js`.
 
 ## Colors
 
-- Navy is the main text, primary-button, replay-panel and footer color. Primary buttons darken to the secondary navy on hover.
+- Navy is the main text and primary-button color. Primary buttons darken to the secondary navy on hover.
 - Link blue identifies text actions, focus, the caret and selected title emphasis.
 - White and pale blue-grey alternate between sections. Secondary text uses `#40566B`; metadata uses `#536B80`.
 - Thin rules use `#DCE4EB`; stronger control boundaries use `#C6D3DF`. Selection uses `#C2DCF0` with navy text.
@@ -34,7 +34,7 @@ The implementation is `editorial.css`, `pages-editorial.css` and `editorial.js`.
 ## Typography
 
 - Geist is the display and body face, loaded from `assets/fonts/geist.woff2`. Geist Mono is reserved for BibTeX and code; serif emphasis is not part of this presentation design.
-- Homepage title: `clamp(3rem, 4.8vw, 4.5rem)`, weight 460, line-height 1.09, tracking `-.035em`, with smaller mobile rules. White and pale blue type sit on the navy cover.
+- Homepage title: `clamp(2.6rem, 4vw, 3.5rem)`, weight 500, line-height 1.12, tracking `-.035em`, with smaller mobile rules. Navy type sits on white, with a compact two-line statement where space permits.
 - Page title: `clamp(2.75rem, 4.8vw, 4rem)`, weight 500, line-height 1.06. Section headings: `clamp(2rem, 3.2vw, 2.8rem)` with line-height 1.16.
 - Reading text is generally 16–18px, line-height 1.6–1.7. Metadata is 13–14px. Team names are 22–24px, with affiliations at 16px.
 - Use sentence case and concrete headings. Let headings carry their own meaning without eyebrow labels.
@@ -43,18 +43,18 @@ The implementation is `editorial.css`, `pages-editorial.css` and `editorial.js`.
 
 - `.shell` uses a 1200px maximum and `clamp(22px, 5vw, 64px)` side gutters. Header, content and footer share those edges.
 - Standard section padding is `clamp(64px, 7vw, 96px)`. Local spacing follows content groups: 16–24px within a group, 32–64px between columns or rows.
-- The homepage opens on one continuous navy research cover. A restrained white statement sits beside the existing anatomy replay, with the case context in one horizontal line beneath. The replay uses screen blending with restrained contrast to join the navy canvas as a presentation treatment; the source recording is unchanged. Research entries use broad figure-and-text rows, followed by the task invitation and team portraits.
+- The homepage opens on white. A compact statement sits beside an authentic, unfiltered anatomy replay, at a restrained 440px maximum width. A thin contextual row beneath links to the underlying run. Research entries use broad figure-and-text rows, followed by the task invitation and team portraits.
 - At 860px the header uses its mobile menu. At 700px the cover, project rows and main two-column content stack. The homepage team preview goes from six columns to three, then two.
 - Projects use text-first, 0.8/1.2-column rows, stacking at 820px. Their figures use `object-fit: contain` so none of the research content is cropped.
 - Team portraits use three columns, two at 820px and one at 560px. Affiliations use two columns, then a single list at 820px.
 
 ## Elevation & Depth
 
-The presentation pages are flat. Section color, spacing and thin rules separate content; there are no glass headers, floating HUD panels or card shadows. The opaque header keeps a single bottom rule.
+The footer uses the same light neutral surface as the content. The presentation pages are flat. Section color, spacing and thin rules separate content; there are no glass headers, floating HUD panels or card shadows. The opaque header keeps a single bottom rule.
 
 ## Shapes
 
-Controls have 4px corners; the homepage replay has no enclosing card. Project-page research figures and Team portraits are square-cornered. Avoid nested rounded containers and decorative gradients.
+Controls have 4px corners; the replay uses a simple 8px frame on its natural dark imaging background. Project-page research figures and Team portraits are square-cornered. Avoid nested rounded containers and decorative gradients.
 
 ## Components
 
@@ -78,3 +78,7 @@ Controls have 4px corners; the homepage replay has no enclosing card. Project-pa
 ## Visual asset provenance
 
 The homepage MedOpenClaw project preview is a still from the existing public project film at 00:30, cropped to its complete four-pane 3D Slicer viewer. The full architecture diagram remains on the Projects page. The recording and its clinical content are unchanged.
+
+## Explicit owner feedback
+
+The owner rejected the full navy first screen. Keep large presentation surfaces white or near-white. TUM navy belongs in text, navigation and small controls, not a full-screen hero. Keep headline and anatomy scale restrained.
