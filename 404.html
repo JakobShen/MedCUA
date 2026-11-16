@@ -10,22 +10,17 @@
   <meta name="theme-color" content="#ffffff">
   <link rel="icon" href="assets/mark.svg" type="image/svg+xml">
   <link rel="stylesheet" href="site.css?v=9">
+  <link rel="stylesheet" href="editorial.css?v=1">
+  <link rel="stylesheet" href="pages-editorial.css?v=1">
   <script>document.documentElement.classList.add('js')</script>
-  <script src="site.js?v=9" defer></script>
-  <style>
-    .nf { min-height: calc(100svh - var(--header-h)); display: grid; align-items: center; }
-    .nf .page-hero-inner { justify-items: center; text-align: center; margin-inline: auto; }
-    .nf-code { font-family: var(--font-mono); font-size: .8rem; letter-spacing: .2em; color: var(--accent-700); }
-    .nf-links { display: flex; flex-wrap: wrap; justify-content: center; gap: .6rem; margin-top: .6rem; }
-  </style>
+  <script src="editorial.js?v=1" defer></script>
 </head>
-<body>
+<body class="editorial page-not-found">
+  <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header" data-header>
     <div class="shell header-inner">
       <a class="brand" href="./" aria-label="MedCUA home">
-        <img class="brand-mark" src="assets/mark.svg" width="30" height="30" alt="">
         <span class="brand-name">MedCUA</span>
-        <span class="brand-sub">Computer-use agents<br>for medicine</span>
       </a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span class="nav-toggle-icon" aria-hidden="true"></span>Menu</button>
       <nav class="nav" id="site-nav" aria-label="Primary">
@@ -39,12 +34,11 @@
 
   <main id="main">
     <section class="page-hero nf" aria-labelledby="page-title">
-      <div class="page-hero-bg" aria-hidden="true"></div>
       <div class="shell page-hero-inner">
-        <p class="nf-code">404 · NOT FOUND</p>
-        <h1 class="page-title" id="page-title">This page could not be <em>found</em></h1>
+        <h1 class="page-title" id="page-title">Page not found</h1>
+        <p class="lead">Use the links below to return to MedCUA.</p>
         <div class="nf-links">
-          <a class="btn btn-primary" href="./">MedCUA home</a>
+          <a class="btn btn-primary" href="./">Return home</a>
           <a class="btn btn-ghost" href="projects/">Projects</a>
           <a class="btn btn-ghost" href="team/">Team</a>
           <a class="btn btn-ghost" href="contribute/">Share a task</a>

@@ -1,0 +1,187 @@
+/* Secondary MedCUA pages. Loaded only outside the contribution form. */
+
+.editorial.page-projects .page-hero,
+.editorial.page-team .page-hero {
+  padding-block: clamp(72px, 8vw, 120px) 56px;
+}
+.editorial .page-hero-inner {
+  display: grid;
+  gap: 24px;
+  max-width: 1200px;
+  padding-block: 0;
+}
+.editorial .page-hero .lead { max-width: 56ch; }
+
+/* Project descriptions stay beside, rather than inside, their research figures. */
+.editorial.page-projects .proj-list { gap: 0; }
+.editorial.page-projects section[aria-label="Projects"] { padding-top: 16px; }
+.editorial.page-projects .proj {
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  align-items: center;
+  gap: 64px;
+  padding-block: 56px 72px;
+  border-top: 1px solid var(--line);
+}
+.editorial.page-projects .proj:first-child { padding-top: 16px; border-top: 0; }
+.editorial.page-projects .proj-body { gap: 24px; }
+.editorial.page-projects .proj-body > p { max-width: 48ch; font-size: 18px; line-height: 1.6; }
+.editorial.page-projects .proj-figure {
+  display: flex;
+  align-items: center;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.editorial.page-projects .proj-figure img { width: 100%; height: auto; object-fit: contain; }
+.editorial.page-projects .proj-links { align-items: center; gap: 8px 24px; margin-top: 8px; }
+.editorial.page-projects .project-text-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+  color: var(--blue-600);
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  text-decoration-thickness: 1px;
+  text-decoration-color: transparent;
+  transition: color 160ms ease, text-decoration-color 160ms ease;
+}
+.editorial.page-projects .project-text-link:hover { color: var(--navy-900); text-decoration-color: currentColor; }
+.editorial.page-projects .cite-grid { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: 64px; }
+.editorial.page-projects .cite-head { gap: 24px; }
+.editorial.page-projects .cite-head p { font-size: 16px; line-height: 1.7; max-width: 54ch; }
+.editorial.page-projects .proj-bib { border: 0; border-radius: 0; box-shadow: none; background: transparent; }
+.editorial.page-projects .proj-bib-bar { padding: 0 0 16px; background: transparent; }
+.editorial.page-projects .proj-bib-label { font-size: 14px; letter-spacing: 0; text-transform: none; color: var(--ink-2); }
+.editorial.page-projects .proj-bib pre { padding: 24px 0 0; font-size: 13px; line-height: 1.8; }
+.editorial.page-projects .proj-copy {
+  min-height: 44px;
+  padding: 8px 16px;
+  border: 1px solid var(--line-2);
+  border-radius: 4px;
+  background: transparent;
+  color: var(--ink);
+  font-size: 14px;
+}
+.editorial.page-projects .proj-copy:hover { background: #fff; border-color: var(--blue-600); }
+
+/* Portraits and affiliations share an open, aligned grid. */
+.editorial.page-team .team-directory { padding-top: 16px; }
+.editorial.page-team .people--team { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 64px 32px; }
+.editorial.page-team .person,
+.editorial.page-team .people--team .person {
+  --card-r: 0;
+  --photo-r: 0;
+  --pad: 0;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.editorial.page-team .person.is-link:hover { transform: none; box-shadow: none; }
+.editorial.page-team .people--team .person-photo { width: 100%; flex: none; aspect-ratio: 1; border-radius: 0; }
+.editorial.page-team .person-photo::after { display: none; }
+.editorial.page-team .person-photo img { filter: none; object-position: center 35%; transition: transform 300ms ease; }
+.editorial.page-team .person.is-link:hover .person-photo img { transform: scale(1.025); }
+.editorial.page-team .people--team .person-body { width: 100%; padding: 24px 0 0; }
+.editorial.page-team .people--team .person-name { font-size: 24px; font-weight: 550; line-height: 1.25; letter-spacing: -.025em; }
+.editorial.page-team .person-ext { opacity: 1; width: 16px; height: 16px; }
+.editorial.page-team .person-link::after { inset: 0; border-radius: 0; }
+.editorial.page-team .people--team .person-aff {
+  gap: 4px;
+  margin-top: 12px;
+  padding-top: 0;
+  color: var(--ink-2);
+  font-size: 16px;
+  line-height: 1.5;
+}
+.editorial.page-team .person-aff li { padding: 0; text-indent: 0; }
+.editorial.page-team .group-head { display: block; margin-bottom: 40px; padding-bottom: 0; border: 0; }
+.editorial.page-team .inst-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 48px; }
+.editorial.page-team .inst {
+  display: grid;
+  grid-template-columns: 144px minmax(0, 1fr);
+  align-items: center;
+  min-height: 152px;
+  padding-block: 24px;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  background: transparent;
+}
+.editorial.page-team .inst:hover { transform: none; box-shadow: none; }
+.editorial.page-team .inst-logo,
+.editorial.page-team .funding .inst-logo { height: auto; min-height: 64px; padding: 0 24px 0 0; border: 0; justify-items: start; }
+.editorial.page-team .inst .logo { filter: none; opacity: 1; max-width: 120px; max-height: 44px; width: auto; height: auto; }
+.editorial.page-team .inst .logo--tum { width: 73px; }
+.editorial.page-team .inst-wordmark { text-align: left; color: var(--navy-900); opacity: 1; filter: none; font-size: 18px; }
+.editorial.page-team .inst-body,
+.editorial.page-team .funding .inst-body { grid-template-columns: minmax(0, 1fr) auto; padding: 0; gap: 4px 16px; }
+.editorial.page-team .inst-name { font-size: 16px; font-weight: 500; line-height: 1.45; }
+.editorial.page-team .inst-country { font-family: var(--font-sans); font-size: 14px; text-transform: none; letter-spacing: 0; }
+.editorial.page-team .inst-ext { position: static; opacity: 1; }
+.editorial.page-team .inst-link::after { inset: 0; border-radius: 0; }
+.editorial.page-team .funding { margin-top: 64px; }
+.editorial.page-team .funding .sub-head { margin-bottom: 16px; color: var(--navy-900); font-family: var(--font-sans); font-size: 24px; font-weight: 550; line-height: 1.3; letter-spacing: -.02em; text-transform: none; }
+.editorial.page-team .funding .inst-grid { max-width: calc(50% - 24px); grid-template-columns: 1fr; }
+
+.editorial.page-not-found .nf { display: grid; align-items: center; min-height: calc(100svh - var(--header-h)); padding-block: 96px; }
+.editorial.page-not-found .nf .page-hero-inner { justify-items: start; width: 100%; }
+.editorial.page-not-found .nf-links { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 16px; }
+
+@media (max-width: 1024px) {
+  .editorial.page-projects .proj,
+  .editorial.page-projects .cite-grid { gap: 40px; }
+  .editorial.page-team .people--team { gap: 48px 24px; }
+  .editorial.page-team .people--team .person-name { font-size: 22px; }
+  .editorial.page-team .inst-grid { gap: 0 32px; }
+  .editorial.page-team .inst { grid-template-columns: 112px minmax(0, 1fr); }
+  .editorial.page-team .inst .logo { max-width: 88px; }
+}
+
+@media (max-width: 820px) {
+  .editorial.page-projects .proj,
+  .editorial.page-projects .cite-grid { grid-template-columns: 1fr; gap: 32px; }
+  .editorial.page-projects .proj { padding-block: 48px; }
+  .editorial.page-projects .proj-body > p { max-width: 65ch; }
+  .editorial.page-projects .proj-figure { order: 0; }
+  .editorial.page-team .people--team { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .editorial.page-team .inst-grid { grid-template-columns: 1fr; }
+  .editorial.page-team .inst { grid-template-columns: 144px minmax(0, 1fr); min-height: 120px; }
+  .editorial.page-team .inst .logo { max-width: 120px; }
+  .editorial.page-team .funding .inst-grid { max-width: none; }
+}
+
+@media (max-width: 560px) {
+  .editorial.page-projects .page-hero,
+  .editorial.page-team .page-hero { padding-block: 56px 40px; }
+  .editorial.page-projects .proj { gap: 32px; padding-block: 40px; }
+  .editorial.page-projects .proj-body { gap: 16px; }
+  .editorial.page-projects .proj-body > p { font-size: 17px; }
+  .editorial.page-projects .proj-links { gap: 8px 24px; }
+  .editorial.page-projects .proj-links li:first-child { width: 100%; margin-bottom: 8px; }
+  .editorial.page-projects .proj-links .btn { width: 100%; }
+  .editorial.page-projects .bib-field { padding-left: 2ch; text-indent: -2ch; }
+  .editorial.page-team .people--team { grid-template-columns: 1fr; gap: 48px; }
+  .editorial.page-team .people--team .person { display: flex; flex-direction: column; }
+  .editorial.page-team .people--team .person-photo { width: 100%; aspect-ratio: 1; }
+  .editorial.page-team .people--team .person-body { padding: 20px 0 0; }
+  .editorial.page-team .people--team .person-name { font-size: 24px; }
+  .editorial.page-team .inst { grid-template-columns: 100px minmax(0, 1fr); }
+  .editorial.page-team .inst-logo { padding-right: 16px; }
+  .editorial.page-team .inst .logo { max-width: 84px; }
+  .editorial.page-team .inst-wordmark { font-size: 15px; }
+  .editorial.page-team .funding { margin-top: 48px; }
+  .editorial.page-not-found .nf { padding-block: 64px; }
+  .editorial.page-not-found .nf-links { width: 100%; flex-direction: column; }
+  .editorial.page-not-found .nf-links .btn { width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .editorial.page-team .person.is-link:hover .person-photo img { transform: none; }
+}

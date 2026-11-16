@@ -16,10 +16,11 @@ The site is static: plain HTML, CSS and a little vanilla JavaScript, with no bui
 
 ## Design system
 
-- `site.css` holds the tokens and shared components. Colours: slate ink (`--ink`, `--ink-2`, `--ink-3`), a teal accent scale (`--accent-50` to `--accent-800`) and an orange evidence signal (`--signal`). The `--navy-*` and `--blue-*` names are aliases kept for older selectors, so changing the `--accent-*` values recolours every page.
-- Type is self-hosted in `assets/fonts/` (Geist, Geist Mono, Instrument Serif; SIL Open Font License, licence files alongside). No third-party font or script requests are made.
-- Page-specific styles live next to each page (`team/team.css`, `projects/projects.css`, `contribute/style.css`).
-- `site.js` handles the sticky header, the mobile menu, reveal-on-scroll, the hero video (paused off screen and for reduced motion) and the agent-steps animation.
+- The presentation design is documented in `DESIGN.md`: TUM deep blue, white and pale blue-grey, self-hosted Geist type, open layouts, and restrained motion.
+- `editorial.css` overrides the legacy styles only on presentation pages with `body.editorial`. `pages-editorial.css` adds the Projects, Team and 404 layouts; load it after `editorial.css` and the existing page styles.
+- `editorial.js` handles presentation-page navigation and the homepage replay, including its play/pause control and reduced-motion preference. `projects/projects.js` retains the BibTeX copy action.
+- **The questionnaire is isolated.** `contribute/`, its form logic, and its original shared dependencies `site.css` and `site.js` remain protected from presentation-only changes. Do not add the editorial styles or script to the form, or overwrite its shared assets as part of a visual refresh.
+- Type is self-hosted in `assets/fonts/` (SIL Open Font License, licence files alongside). Presentation pages use Geist, with Geist Mono for code. The legacy Instrument Serif files remain available to the unchanged contribution page. No third-party font or script requests are made.
 
 ## Updating content
 

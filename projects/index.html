@@ -21,19 +21,19 @@
   <link rel="preload" href="../assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../site.css?v=9">
   <link rel="stylesheet" href="projects.css?v=4">
+  <link rel="stylesheet" href="../editorial.css?v=1">
+  <link rel="stylesheet" href="../pages-editorial.css?v=1">
   <script>document.documentElement.classList.add('js')</script>
-  <script src="../site.js?v=9" defer></script>
+  <script src="../editorial.js?v=1" defer></script>
   <script src="projects.js?v=3" defer></script>
 </head>
-<body class="page-projects">
+<body class="editorial page-projects">
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header" data-header>
     <div class="shell header-inner">
       <a class="brand" href="../" aria-label="MedCUA home">
-        <img class="brand-mark" src="../assets/mark.svg" width="30" height="30" alt="">
         <span class="brand-name">MedCUA</span>
-        <span class="brand-sub">Computer-use agents<br>for medicine</span>
       </a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span class="nav-toggle-icon" aria-hidden="true"></span>Menu</button>
       <nav class="nav" id="site-nav" aria-label="Primary">
@@ -47,46 +47,43 @@
 
   <main id="main">
     <section class="page-hero" aria-labelledby="page-title">
-      <div class="page-hero-bg" aria-hidden="true"></div>
       <div class="shell page-hero-inner">
-        <p class="crumbs"><a href="../">MedCUA</a><span aria-hidden="true">/</span><span>Projects</span></p>
-        <h1 class="page-title" id="page-title">Projects</h1>
+        <h1 class="page-title" id="page-title">Research projects</h1>
+        <p class="lead">Our first tools and benchmarks for computer-use agents in medicine.</p>
       </div>
     </section>
 
     <section class="section" aria-label="Projects">
       <div class="shell proj-list">
-        <article class="proj" id="medopenclaw" aria-labelledby="medopenclaw-title" data-reveal>
-          <figure class="proj-figure">
-            <img src="../assets/media/projects/fig-overview.webp" width="1800" height="838" alt="MedOpenClaw overview: a model operates 3D Slicer or QuPath through software actions and returns a trace, evidence and an answer.">
-          </figure>
+        <article class="proj" id="medopenclaw" aria-labelledby="medopenclaw-title">
           <div class="proj-body">
-            <p class="proj-meta">Runtime</p>
             <h2 class="h2" id="medopenclaw-title">MedOpenClaw</h2>
             <p>A runtime that lets AI agents operate 3D Slicer and QuPath on complete radiology studies and whole-slide images. Every action is recorded and can be replayed.</p>
             <ul class="proj-links" aria-label="MedOpenClaw links">
-              <li><a class="btn btn-primary btn-sm" href="https://jakobshen.github.io/MedOpenClaw/">Project website <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 14 14 6M7.5 6H14v6.5"/></svg></a></li>
-              <li><a class="btn btn-ghost btn-sm" href="https://github.com/jakobshen/MedOpenClaw">Code</a></li>
-              <li><a class="btn btn-ghost btn-sm" href="https://arxiv.org/abs/2603.24649">Paper</a></li>
+              <li><a class="btn btn-primary" href="https://jakobshen.github.io/MedOpenClaw/">Visit MedOpenClaw <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 14 14 6M7.5 6H14v6.5"/></svg></a></li>
+              <li><a class="project-text-link" href="https://github.com/jakobshen/MedOpenClaw">Code</a></li>
+              <li><a class="project-text-link" href="https://arxiv.org/abs/2603.24649">Paper</a></li>
             </ul>
           </div>
+          <figure class="proj-figure">
+            <img src="../assets/media/projects/fig-overview.webp" width="1800" height="838" alt="MedOpenClaw overview: a model operates 3D Slicer or QuPath through software actions and returns a trace, evidence and an answer.">
+          </figure>
         </article>
 
-        <article class="proj proj--flip" id="medflowbench" aria-labelledby="medflowbench-title" data-reveal>
-          <figure class="proj-figure">
-            <img src="../assets/media/projects/medflowbench-tasks.webp" width="1600" height="800" alt="Cases from the five MedFlowBench task families: brain MRI, follow-up brain MRI, lung PET/CT, a breast whole-slide image and a lymph-node whole-slide image." loading="lazy">
-          </figure>
+        <article class="proj" id="medflowbench" aria-labelledby="medflowbench-title">
           <div class="proj-body">
-            <p class="proj-meta">Benchmark</p>
             <h2 class="h2" id="medflowbench-title">MedFlowBench</h2>
             <p>A benchmark of 1,459 cases in five task families across radiology and pathology. An answer only counts when the evidence behind it is also correct.</p>
             <ul class="proj-links" aria-label="MedFlowBench links">
-              <li><a class="btn btn-primary btn-sm" href="https://jakobshen.github.io/MedOpenClaw/medflowbench/">Benchmark <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 14 14 6M7.5 6H14v6.5"/></svg></a></li>
-              <li><a class="btn btn-ghost btn-sm" href="https://jakobshen.github.io/MedOpenClaw/leaderboard/">Leaderboard</a></li>
-              <li><a class="btn btn-ghost btn-sm" href="https://github.com/JakobShen/Med_Flow_Bench">Code</a></li>
-              <li><a class="btn btn-ghost btn-sm" href="https://arxiv.org/abs/2603.24649">Paper</a></li>
+              <li><a class="btn btn-primary" href="https://jakobshen.github.io/MedOpenClaw/medflowbench/">View benchmark <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 14 14 6M7.5 6H14v6.5"/></svg></a></li>
+              <li><a class="project-text-link" href="https://jakobshen.github.io/MedOpenClaw/leaderboard/">Leaderboard</a></li>
+              <li><a class="project-text-link" href="https://github.com/JakobShen/Med_Flow_Bench">Code</a></li>
+              <li><a class="project-text-link" href="https://arxiv.org/abs/2603.24649">Paper</a></li>
             </ul>
           </div>
+          <figure class="proj-figure">
+            <img src="../assets/media/projects/medflowbench-tasks.webp" width="1600" height="800" alt="Cases from the five MedFlowBench task families: brain MRI, follow-up brain MRI, lung PET/CT, a breast whole-slide image and a lymph-node whole-slide image." loading="lazy">
+          </figure>
         </article>
       </div>
     </section>
@@ -94,11 +91,11 @@
     <section class="section section--tint" id="cite" aria-labelledby="cite-title">
       <div class="shell">
         <div class="cite-grid">
-          <div class="cite-head" data-reveal>
-            <h2 class="h3" id="cite-title">Citation</h2>
+          <div class="cite-head">
+            <h2 class="h2" id="cite-title">Cite the work</h2>
             <p>MedOpenClaw and MedFlowBench: Auditing Medical Agents in Full-Study Workflows. Weixiang Shen, Chengzhi Shen, Yanzhu Hu, Che Liu, Junde Wu, Jiayuan Zhu, Xiao Han, Zongyue Li, Jingpei Wu, Min Xu, Daguang Xu, Yueming Jin, Benedikt Wiestler, Daniel Rueckert and Jiazhen Pan. arXiv, 2026.</p>
           </div>
-          <div class="proj-bib" data-reveal style="--d:1">
+          <div class="proj-bib">
             <div class="proj-bib-bar">
               <p class="proj-bib-label">BibTeX</p>
               <button class="proj-copy" type="button" data-copy="bibtex" hidden>
@@ -123,7 +120,7 @@
   <footer class="site-footer">
     <div class="shell footer-top">
       <div class="footer-brand">
-        <a class="brand" href="../" aria-label="MedCUA home"><img class="brand-mark" src="../assets/mark.svg" width="30" height="30" alt=""><span class="brand-name">MedCUA</span></a>
+        <a class="brand" href="../" aria-label="MedCUA home"><span class="brand-name">MedCUA</span></a>
         <p>Computer-use agents for medicine. A research initiative at the Technical University of Munich and TUM University Hospital, with partners in Europe, the United States and Asia.</p>
         <a class="footer-mail" href="mailto:weixiang.shen@tum.de">weixiang.shen@tum.de</a>
       </div>

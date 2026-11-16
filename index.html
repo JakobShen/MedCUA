@@ -20,18 +20,17 @@
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <link rel="preload" href="assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="site.css?v=12">
+  <link rel="stylesheet" href="editorial.css?v=1">
   <script>document.documentElement.classList.add('js')</script>
-  <script src="site.js?v=9" defer></script>
+  <script src="editorial.js?v=1" defer></script>
 </head>
-<body>
+<body class="editorial page-home">
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header" data-header>
     <div class="shell header-inner">
       <a class="brand" href="./" aria-label="MedCUA home">
-        <img class="brand-mark" src="assets/mark.svg" width="30" height="30" alt="">
         <span class="brand-name">MedCUA</span>
-        <span class="brand-sub">Computer-use agents<br>for medicine</span>
       </a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span class="nav-toggle-icon" aria-hidden="true"></span>Menu</button>
       <nav class="nav" id="site-nav" aria-label="Primary">
@@ -44,59 +43,124 @@
   </header>
 
   <main id="main">
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-bg" aria-hidden="true"></div>
-      <div class="shell hero-grid">
-        <div class="hero-copy">
-          <a class="hero-pill" href="contribute/">
-            <span class="hero-pill-tag">Open call</span>
-            <span class="hero-pill-text">Share a task from your clinical practice</span>
-            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h11M10.5 5.5 15 10l-4.5 4.5"/></svg>
-          </a>
-          <h1 class="display" id="hero-title">Computer&#8209;use agents for <em>medicine</em></h1>
-          <p class="hero-lead">MedCUA is a research initiative at the Technical University of Munich. We develop AI agents that operate clinical software, such as imaging viewers and pathology platforms, and record the evidence behind every result.</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="contribute/">Share a task <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h11M10.5 5.5 15 10l-4.5 4.5"/></svg></a>
-            <a class="btn btn-ghost" href="#about">About MedCUA</a>
+    <section class="research-hero" aria-labelledby="hero-title">
+      <div class="shell">
+        <div class="research-intro">
+          <h1 class="research-title" id="hero-title">Computer-use agents <span class="title-blue">for medicine.</span></h1>
+          <div class="research-intro-copy">
+            <p>We develop AI agents that work inside clinical software and record the evidence behind every result. A research initiative at the Technical University of Munich.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="projects/">See our projects <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h11M10.5 5.5 15 10l-4.5 4.5"/></svg></a>
+              <a class="text-link" href="#about">About MedCUA <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h11M10.5 5.5 15 10l-4.5 4.5"/></svg></a>
+            </div>
           </div>
         </div>
-
-        <figure class="hero-visual">
-          <div class="hero-stage">
-            <div class="viewer">
-              <div class="viewer-bar" aria-hidden="true"><i></i><i></i><i></i><span class="viewer-title">3D Slicer · UCSF-PDGM-0036 · T1c</span><span class="viewer-live"><span class="pulse"></span>Replay</span></div>
-              <div class="viewer-screen">
-                <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="assets/media/hero-brain-poster.webp" aria-hidden="true" tabindex="-1" data-hero-video>
-                  <source src="assets/media/hero-brain-sm.webm" type="video/webm" media="(max-width: 700px)">
-                  <source src="assets/media/hero-brain-sm.mp4" type="video/mp4" media="(max-width: 700px)">
-                  <source src="assets/media/hero-brain.webm" type="video/webm">
-                  <source src="assets/media/hero-brain.mp4" type="video/mp4">
-                </video>
-                <div class="hero-reticle" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
-              </div>
-            </div>
-
-            <div class="hud hud-request">
-              <p class="hud-head"><span>Clinician asks</span></p>
-              <p>Map the vessels around this tumour. Is any major vessel encased or displaced?</p>
-            </div>
-
-            <div class="hud hud-trace" data-trace>
-              <p class="hud-head"><span class="pulse" aria-hidden="true"></span><span>Agent steps</span><span class="hud-meta">3D Slicer</span></p>
-              <ol class="trace">
-                <li style="--i:0"><span class="i">01</span><span class="a">Locate enhancing tumour</span><span class="v cool">T1c</span></li>
-                <li style="--i:1"><span class="i">02</span><span class="a">Segment, local threshold</span><span class="v">5.21 cm³</span></li>
-                <li style="--i:2"><span class="i">03</span><span class="a">Vesselness filter (VMTK)</span><span class="v cool">0.6–2.2 mm</span></li>
-                <li style="--i:3"><span class="i">04</span><span class="a">Candidates in 3–25 mm band</span><span class="v">22</span></li>
-                <li style="--i:4"><span class="i">05</span><span class="a">Nearest eligible candidate</span><span class="v">3.16 mm</span></li>
-              </ol>
-            </div>
+        <div class="replay-stage">
+          <div class="replay-media">
+            <video class="replay-video" muted loop playsinline preload="metadata" poster="assets/media/hero-brain-poster.webp" aria-label="MedOpenClaw brain tumour and vessel mapping replay in 3D Slicer" data-replay-video>
+              <source src="assets/media/hero-brain-sm.webm" type="video/webm" media="(max-width: 700px)">
+              <source src="assets/media/hero-brain-sm.mp4" type="video/mp4" media="(max-width: 700px)">
+              <source src="assets/media/hero-brain.webm" type="video/webm">
+              <source src="assets/media/hero-brain.mp4" type="video/mp4">
+            </video>
+            <button class="replay-control" type="button" data-replay-toggle hidden>Play replay</button>
           </div>
-          <figcaption class="hero-caption">Agent run on a public brain MRI case, shown in 3D Slicer. Research use only.</figcaption>
-        </figure>
+          <div class="replay-copy">
+            <h2>Inside the clinical workflow</h2>
+            <p class="replay-question">Map the vessels around this tumour. Is any major vessel encased or displaced?</p>
+            <p class="replay-context">3D Slicer · Brain MRI · MedOpenClaw</p>
+            <a class="replay-link" href="https://jakobshen.github.io/MedOpenClaw/demos/">Watch the agent at work <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h11M10.5 5.5 15 10l-4.5 4.5"/></svg></a>
+          </div>
+        </div>
+        <details class="run-details">
+          <summary>Public research case · View the recorded steps</summary>
+          <div class="run-detail-grid">
+            <p>Agent run on UCSF-PDGM-0036 in 3D Slicer, using a contrast-enhanced T1 MRI. Research use only.</p>
+            <ol>
+              <li>Locate enhancing tumour <span>T1c</span></li>
+              <li>Segment with a local threshold <span>5.21 cm³</span></li>
+              <li>Apply the VMTK vesselness filter <span>0.6–2.2 mm</span></li>
+              <li>Find candidates in a 3–25 mm band <span>22 candidates</span></li>
+              <li>Measure the nearest eligible candidate <span>3.16 mm</span></li>
+            </ol>
+          </div>
+        </details>
       </div>
     </section>
 
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="shell about-grid">
+        <h2 class="h2" id="about-title">Agents that work inside clinical software</h2>
+        <div class="about-text">
+          <p>Much of the work in clinical practice and medical research happens in software: reading imaging studies, measuring findings, comparing them with earlier examinations and writing up the result. Many of these steps are still done by hand.</p>
+          <p>MedCUA studies computer-use agents that carry out such steps in the tools clinicians already use, and that report every action and its evidence so another expert can check the result. Our long-term aim is MedCopilot, an assistant that works alongside clinicians inside their software.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section research-projects" id="projects" aria-labelledby="projects-title">
+      <div class="shell">
+        <div class="research-head">
+          <h2 class="h2" id="projects-title">Our first projects</h2>
+          <p>From operating medical software to evaluating the evidence behind an answer.</p>
+        </div>
+        <div class="research-project-grid">
+          <article class="research-project">
+            <a class="research-project-image" href="https://jakobshen.github.io/MedOpenClaw/" aria-label="Visit MedOpenClaw">
+              <img src="assets/media/projects/fig-overview.webp" width="1800" height="838" alt="MedOpenClaw architecture connects a model to 3D Slicer and QuPath, recording actions and evidence." loading="lazy">
+            </a>
+            <div class="research-project-title"><h3>MedOpenClaw</h3><span>Runtime</span></div>
+            <p>A runtime for agents to operate 3D Slicer and QuPath on complete radiology studies and whole-slide images. Every action can be replayed.</p>
+            <a class="link-arrow" href="https://jakobshen.github.io/MedOpenClaw/">View MedOpenClaw <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h11M10.5 5.5 15 10l-4.5 4.5"/></svg></a>
+          </article>
+          <article class="research-project">
+            <a class="research-project-image" href="https://jakobshen.github.io/MedOpenClaw/medflowbench/" aria-label="Visit MedFlowBench">
+              <img src="assets/media/projects/medflowbench-tasks.webp" width="1600" height="800" alt="Five MedFlowBench task families across radiology and pathology." loading="lazy">
+            </a>
+            <div class="research-project-title"><h3>MedFlowBench</h3><span>Benchmark</span></div>
+            <p>A benchmark of 1,459 cases across five task families. An answer only counts when the evidence behind it is also correct.</p>
+            <a class="link-arrow" href="https://jakobshen.github.io/MedOpenClaw/medflowbench/">View MedFlowBench <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h11M10.5 5.5 15 10l-4.5 4.5"/></svg></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section task-call" id="contribute" aria-labelledby="contribute-title">
+      <div class="shell task-call-grid">
+        <div class="task-call-copy">
+          <h2 class="h2" id="contribute-title">Share a task from your practice</h2>
+          <p>We are collecting long-tail tasks from clinical practice and research. Describe the goal, the software you use, the steps, and how you would check the result. Your tasks guide what we work on next.</p>
+          <a class="btn btn-primary" href="contribute/">Share a task <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h11M10.5 5.5 15 10l-4.5 4.5"/></svg></a>
+          <span class="task-call-note">No account needed. Please leave out patient-identifiable information.</span>
+        </div>
+        <ul class="task-criteria" aria-label="The tasks we are looking for">
+          <li><h3>Time-consuming or repetitive</h3><p>Workflows that require many manual interactions.</p></li>
+          <li><h3>Not well solved by existing tools</h3><p>Tasks that existing models or standard pipelines do not handle well.</p></li>
+          <li><h3>Multiple steps and decisions</h3><p>Segmentation, measurements, visualization, comparison, quality control or interpretation.</p></li>
+          <li><h3>Across tools, modalities or time points</h3><p>Work that combines information and adapts as results become available.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section team-preview" id="team" aria-labelledby="team-title">
+      <div class="shell">
+        <div class="research-head">
+          <div>
+            <h2 class="h2" id="team-title">Clinicians, imaging scientists and AI researchers</h2>
+            <p>Our core team collects real medical workflows and develops ways to evaluate computer-use agents on them.</p>
+          </div>
+          <a class="link-arrow" href="team/">Meet the team <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h11M10.5 5.5 15 10l-4.5 4.5"/></svg></a>
+        </div>
+        <ul class="team-preview-list" aria-label="Core team members">
+          <li><a href="https://aim-lab.io/author/weixiang-shen/"><img src="assets/team/weixiang-shen.webp?v=aim" width="480" height="480" alt="Weixiang Shen" loading="lazy"><span>Weixiang Shen</span></a></li>
+          <li><a href="https://zuseschoolrelai.de/people/scientists/chengzhi-shen/"><img src="assets/team/chengzhi-shen.webp" width="480" height="480" alt="Chengzhi Shen" loading="lazy"><span>Chengzhi Shen</span></a></li>
+          <li><a href="team/"><img src="assets/team/daguang-xu.webp" width="480" height="480" alt="Daguang Xu" loading="lazy"><span>Daguang Xu</span></a></li>
+          <li><a href="https://www.professoren.tum.de/en/wiestler-benedikt"><img src="assets/team/benedikt-wiestler.webp" width="480" height="480" alt="Benedikt Wiestler" loading="lazy"><span>Benedikt Wiestler</span></a></li>
+          <li><a href="https://www.professoren.tum.de/en/rueckert-daniel"><img src="assets/team/daniel-rueckert.webp" width="480" height="480" alt="Daniel Rueckert" loading="lazy"><span>Daniel Rueckert</span></a></li>
+          <li><a href="team/"><img src="assets/team/jiazhen-pan-portrait.webp" width="480" height="480" alt="Jiazhen Pan" loading="lazy"><span>Jiazhen Pan</span></a></li>
+        </ul>
+      </div>
+    </section>
     <section class="partners" aria-labelledby="partners-label">
       <div class="shell partners-inner">
         <h2 class="partners-label" id="partners-label">Team affiliations and funding</h2>
@@ -110,65 +174,12 @@
       </div>
     </section>
 
-    <section class="section" id="about" aria-labelledby="about-title">
-      <div class="shell">
-        <div class="about-grid">
-          <div class="about-head">
-            <p class="eyebrow" data-reveal>About</p>
-            <h2 class="h2" id="about-title" data-reveal>Agents that work inside clinical software</h2>
-          </div>
-          <div class="about-text" data-reveal>
-            <p>Much of the work in clinical practice and medical research happens in software: reading imaging studies, measuring findings, comparing them with earlier examinations and writing up the result. Many of these steps are still done by hand.</p>
-            <p>MedCUA studies computer-use agents that carry out such steps in the tools clinicians already use, and that report every action and its evidence so another expert can check the result. Our long-term aim is MedCopilot, an assistant that works alongside clinicians inside their software.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--tint" id="contribute" aria-labelledby="contribute-title">
-      <div class="shell">
-        <div class="call" data-reveal>
-          <div class="call-text">
-            <p class="eyebrow">Open call</p>
-            <h2 class="h2" id="contribute-title">Share a task from your practice</h2>
-            <p>We are collecting long-tail tasks from clinical practice and research. We are particularly interested in time-consuming or repetitive workflows, tasks not well solved by existing models or standard pipelines, and multi-step work that may span software tools, modalities, or time points. Describe the goal, the software you use, the steps, and how you would check the result. The tasks we receive guide what we work on next.</p>
-            <ul class="call-notes">
-              <li>No account needed</li>
-              <li>Please leave out patient-identifiable information</li>
-            </ul>
-          </div>
-          <div class="call-actions">
-            <a class="btn btn-primary" href="contribute/">Share a task <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h11M10.5 5.5 15 10l-4.5 4.5"/></svg></a>
-            <a class="link-arrow" href="contribute/">See a worked example <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h11M10.5 5.5 15 10l-4.5 4.5"/></svg></a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="team" aria-labelledby="team-title">
-      <div class="shell people-grid">
-        <div class="people-copy">
-          <p class="eyebrow" data-reveal>Team</p>
-          <h2 class="h2" id="team-title" data-reveal>Clinicians, imaging scientists and AI researchers</h2>
-          <p class="lead" data-reveal>Our core team collects real medical workflows and develops ways to evaluate computer-use agents on them.</p>
-          <a class="btn btn-ghost" href="team/" data-reveal>Meet the team <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h11M10.5 5.5 15 10l-4.5 4.5"/></svg></a>
-        </div>
-        <ul class="avatar-wall" aria-label="Core team members" data-reveal>
-          <li><img src="assets/team/weixiang-shen.webp?v=aim" width="480" height="480" alt="Weixiang Shen" loading="lazy"></li>
-          <li><img src="assets/team/chengzhi-shen.webp" width="480" height="480" alt="Chengzhi Shen" loading="lazy"></li>
-          <li><img src="assets/team/daguang-xu.webp" width="480" height="480" alt="Daguang Xu" loading="lazy"></li>
-          <li><img src="assets/team/benedikt-wiestler.webp" width="480" height="480" alt="Benedikt Wiestler" loading="lazy"></li>
-          <li><img src="assets/team/daniel-rueckert.webp" width="480" height="480" alt="Daniel Rueckert" loading="lazy"></li>
-          <li><img src="assets/team/jiazhen-pan-portrait.webp" width="480" height="480" alt="Jiazhen Pan" loading="lazy"></li>
-        </ul>
-      </div>
-    </section>
   </main>
 
   <footer class="site-footer">
     <div class="shell footer-top">
       <div class="footer-brand">
-        <a class="brand" href="./" aria-label="MedCUA home"><img class="brand-mark" src="assets/mark.svg" width="30" height="30" alt=""><span class="brand-name">MedCUA</span></a>
+        <a class="brand" href="./" aria-label="MedCUA home"><span class="brand-name">MedCUA</span></a>
         <p>Computer-use agents for medicine. A research initiative at the Technical University of Munich and TUM University Hospital, with partners in Europe, the United States and Asia.</p>
         <a class="footer-mail" href="mailto:weixiang.shen@tum.de">weixiang.shen@tum.de</a>
       </div>
