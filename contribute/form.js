@@ -73,7 +73,7 @@ function renderContexts() {
 }
 function evidenceMarkup(step, evidence, index) {
   return `<div class="evidence-row" data-evidence-row="${evidence.id}">
-    <label class="field"><span>Evidence ${index + 1} to save</span><textarea id="${evidence.id}" rows="2" data-step="${step.id}" data-evidence="${evidence.id}" data-field="description" placeholder="e.g. RV and LV diameters (mm), with series and slice.">${escape(evidence.description)}</textarea></label>
+    <label class="field"><span>Evidence ${index + 1} to save</span><textarea id="${evidence.id}" rows="2" data-step="${step.id}" data-evidence="${evidence.id}" data-field="description" placeholder="e.g. Volume of each target lesion at each visit (mm³).">${escape(evidence.description)}</textarea></label>
     <label class="field"><span>Importance</span><select data-step="${step.id}" data-evidence="${evidence.id}" data-field="importance" aria-label="Importance of evidence ${index + 1} in step ${state.steps.indexOf(step) + 1}"><option value="">Select…</option>${IMPORTANCE.map(level => `<option value="${level}" ${evidence.importance === level ? 'selected' : ''}>${level[0].toUpperCase() + level.slice(1)}</option>`).join('')}</select></label>
     <button type="button" class="button-text" data-action="remove-evidence" data-step="${step.id}" data-evidence="${evidence.id}" aria-label="Remove evidence ${index + 1} in step ${state.steps.indexOf(step) + 1}">Remove</button></div>`;
 }
@@ -83,7 +83,7 @@ function renderSteps() {
     <button type="button" class="button-text small" data-action="move-up" data-step="${step.id}" ${index === 0 ? 'disabled' : ''} aria-label="Move step ${index + 1} up">↑</button>
     <button type="button" class="button-text small" data-action="move-down" data-step="${step.id}" ${index === state.steps.length - 1 ? 'disabled' : ''} aria-label="Move step ${index + 1} down">↓</button>
     <button type="button" class="button-text small" data-action="remove-step" data-step="${step.id}" ${state.steps.length === 1 ? 'disabled' : ''}>Remove step</button></div></div>
-    <label class="field"><span>What do you do? <span class="sr-only">Step ${index + 1}</span></span><textarea id="description-${step.id}" rows="2" data-step="${step.id}" data-field="description" placeholder="e.g. Measure the right and left ventricles.">${escape(step.description)}</textarea></label>
+    <label class="field"><span>What do you do? <span class="sr-only">Step ${index + 1}</span></span><textarea id="description-${step.id}" rows="2" data-step="${step.id}" data-field="description" placeholder="e.g. Segment and measure the target lesions.">${escape(step.description)}</textarea></label>
     <div class="step-context" id="context-${step.id}"></div>
     <div class="evidence-list">${step.evidence.map((evidence, i) => evidenceMarkup(step, evidence, i)).join('')}</div>
     <button type="button" class="button-text add-control" data-action="add-evidence" data-step="${step.id}">+ Add evidence</button>
@@ -230,7 +230,7 @@ document.addEventListener('click', async event => {
     button.disabled = true;
     $('#example-status').textContent = '';
     try {
-      const response = await fetch('./examples.json'); if (!response.ok) throw new Error();
+      const response = await fetch('./examples.json?v=2'); if (!response.ok) throw new Error();
       const examples = await response.json();
       const exampleData = normalizeTask(examples[example]);
       $('#example-content').innerHTML = exampleMarkup(exampleData);

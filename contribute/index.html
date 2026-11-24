@@ -63,23 +63,22 @@
         <aside class="example-bar" aria-labelledby="worked-example-heading">
           <div class="example-bar-head">
             <p class="eyebrow">Worked example</p>
-            <p class="example-bar-meta">ESC 2019</p>
+            <p class="example-bar-meta">RANO 2.0</p>
           </div>
-          <h2 id="worked-example-heading" class="example-bar-title">Pulmonary embolism</h2>
-          <p class="example-bar-copy">Risk stratification from CTPA and clinical records, with the evidence recorded at each step.</p>
-          <ul class="tag-row" aria-label="Data and tools"><li class="chip">CTPA</li><li class="chip">Clinical records</li><li class="chip">3D Slicer</li></ul>
+          <h2 id="worked-example-heading" class="example-bar-title">Longitudinal tumor response assessment</h2>
+          <p class="example-bar-copy">Assess tumor response over time using brain MRI and clinical records.</p>
+          <ul class="tag-row" aria-label="Data and tools"><li class="chip">Brain MRI</li><li class="chip">Clinical records</li><li class="chip">3D Slicer</li></ul>
           <div class="example-preview">
             <p class="example-preview-head" aria-hidden="true"><span>Step</span><span>Evidence</span></p>
             <ol aria-label="Steps in the worked example">
-              <li><span class="n" aria-hidden="true">01</span><span class="t">Open the CTPA and locate the clots.</span><span class="e"><span class="sr-only">Evidence items:</span> 1</span></li>
-              <li><span class="n" aria-hidden="true">02</span><span class="t">Adjust the views to a four-chamber plane.</span><span class="e is-none"><span class="sr-only">Evidence items: none</span><span aria-hidden="true">—</span></span></li>
-              <li><span class="n" aria-hidden="true">03</span><span class="t">Measure the right and left ventricles.</span><span class="e"><span class="sr-only">Evidence items:</span> 2</span></li>
-              <li><span class="n" aria-hidden="true">04</span><span class="t">Check hemodynamic status and troponin.</span><span class="e"><span class="sr-only">Evidence items:</span> 2</span></li>
-              <li><span class="n" aria-hidden="true">05</span><span class="t">Calculate the sPESI.</span><span class="e"><span class="sr-only">Evidence items:</span> 2</span></li>
-              <li><span class="n" aria-hidden="true">06</span><span class="t">Assign the ESC 2019 risk class.</span><span class="e is-none"><span class="sr-only">Evidence items: none</span><span aria-hidden="true">—</span></span></li>
+              <li><span class="n" aria-hidden="true">01</span><span class="t">Select target lesions.</span><span class="e is-none"><span class="sr-only">Evidence items: none</span><span aria-hidden="true">—</span></span></li>
+              <li><span class="n" aria-hidden="true">02</span><span class="t">Segment and measure the target lesions.</span><span class="e"><span class="sr-only">Evidence items:</span> 1</span></li>
+              <li><span class="n" aria-hidden="true">03</span><span class="t">Compare measurements across visits.</span><span class="e"><span class="sr-only">Evidence items:</span> 4</span></li>
+              <li><span class="n" aria-hidden="true">04</span><span class="t">Consider other findings and clinical factors.</span><span class="e"><span class="sr-only">Evidence items:</span> 1</span></li>
+              <li><span class="n" aria-hidden="true">05</span><span class="t">Assign the RANO 2.0 response category.</span><span class="e is-none"><span class="sr-only">Evidence items: none</span><span aria-hidden="true">—</span></span></li>
             </ol>
           </div>
-          <button class="btn btn-ghost example-open" type="button" data-example="pulmonaryEmbolism" aria-haspopup="dialog" aria-controls="example-dialog">View the example <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h11M10.5 5.5 15 10l-4.5 4.5"/></svg></button>
+          <button class="btn btn-ghost example-open" type="button" data-example="ranoTumorAssessment" aria-haspopup="dialog" aria-controls="example-dialog">View the example <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h11M10.5 5.5 15 10l-4.5 4.5"/></svg></button>
           <p id="example-status" class="small status-message" role="status"></p>
         </aside>
       </div>
@@ -157,9 +156,9 @@
           <section class="form-section" aria-labelledby="task-heading">
             <div class="section-title"><span class="section-number" aria-hidden="true">01</span><div><h2 id="task-heading">The task</h2><p class="small muted">Describe the goal and the data you start with.</p></div></div>
             <div class="field-stack">
-              <label class="field"><span>Task name <span class="required-marker" aria-hidden="true">*</span></span><input name="taskName" required autocomplete="off" placeholder="e.g. Stratify pulmonary embolism risk"></label>
+              <label class="field"><span>Task name <span class="required-marker" aria-hidden="true">*</span></span><input name="taskName" required autocomplete="off" placeholder="e.g. Assess tumor response over time"></label>
               <label class="field"><span>What should the agent do? <span class="required-marker" aria-hidden="true">*</span></span><textarea name="goal" required rows="2" placeholder="Describe the clinical question or goal."></textarea></label>
-              <label class="field"><span>What data does the task use? <span class="required-marker" aria-hidden="true">*</span></span><textarea name="dataDescription" required rows="2" placeholder="e.g. CTPA and clinical records, including vital signs and troponin."></textarea></label>
+              <label class="field"><span>What data does the task use? <span class="required-marker" aria-hidden="true">*</span></span><textarea name="dataDescription" required rows="2" placeholder="e.g. Brain MRI across visits and clinical records, including steroid use and radiotherapy."></textarea></label>
               <fieldset class="data-availability" aria-describedby="data-availability-hint">
                 <legend>What data could be shared for this task? <span class="optional">optional</span></legend>
                 <p id="data-availability-hint" class="small muted">Select all that apply.</p>
@@ -181,7 +180,7 @@
           <section class="form-section" aria-labelledby="steps-heading">
             <div class="section-title"><span class="section-number" aria-hidden="true">03</span><div><h2 id="steps-heading">Steps &amp; evidence</h2><p class="small muted">Start with 4–6 steps. Use one step for each meaningful action or decision and group routine clicks under it.</p></div></div>
             <div class="evidence-guide">
-              <dl><dt>Step</dt><dd>Measure the right and left ventricles.</dd><dt>Evidence to save</dt><dd>RV and LV diameters (mm), with series and slice.</dd></dl>
+              <dl><dt>Step</dt><dd>Segment and measure the target lesions.</dd><dt>Evidence to save</dt><dd>Volume of each target lesion at each visit (mm³).</dd></dl>
               <p class="small muted">Add evidence where a step produces something that can be checked. List each item separately and mark it Essential or Optional. Only the evidence is scored.</p>
             </div>
             <div id="steps-list" class="step-list"></div>
@@ -191,7 +190,7 @@
           <section class="form-section" aria-labelledby="result-heading">
             <div class="section-title"><span class="section-number" aria-hidden="true">04</span><div><h2 id="result-heading">The result</h2></div></div>
             <div class="field-stack">
-              <label class="field"><span>What should the final answer contain? <span class="required-marker" aria-hidden="true">*</span></span><textarea name="expectedResult" required rows="2" placeholder="e.g. A risk class supported by the recorded evidence."></textarea></label>
+              <label class="field"><span>What should the final answer contain? <span class="required-marker" aria-hidden="true">*</span></span><textarea name="expectedResult" required rows="2" placeholder="e.g. Response category at each visit, linked to the recorded evidence."></textarea></label>
             </div>
           </section>
 
@@ -265,6 +264,6 @@
       <a class="to-top" href="#main">Back to top <span aria-hidden="true">↑</span></a>
     </div>
   </footer>
-  <script type="module" src="./form.js?v=6"></script>
+  <script type="module" src="./form.js?v=7"></script>
 </body>
 </html>

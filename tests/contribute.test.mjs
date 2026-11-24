@@ -11,15 +11,15 @@ const examples = JSON.parse(await readFile(new URL('../contribute/examples.json'
 const testContact = () => ({ name: 'Example contributor', email: 'example@example.org', affiliation: 'Example institution' });
 
 test('the example display is read-only, escaped, and independent of the contributor draft', () => {
-  const example = normalizeTask(examples.pulmonaryEmbolism);
+  const example = normalizeTask(examples.ranoTumorAssessment);
   const before = structuredClone(example);
   const markup = exampleMarkup(example);
   assert.deepEqual(example, before);
   assert.doesNotMatch(markup, /<(input|textarea|select|form)\b/i);
   assert.doesNotMatch(markup, /data-action="(?:download-json|new-task|copy-summary)"/);
   assert.match(markup, /<table\b/);
-  assert.equal((markup.match(/<tbody>/g) || []).length, 6);
-  assert.match(markup, /rowspan="2"/);
+  assert.equal((markup.match(/<tbody>/g) || []).length, 5);
+  assert.match(markup, /rowspan="4"/);
   for (const step of example.steps) {
     for (const item of step.evidence) assert.ok(markup.includes(item.description.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;')));
   }
@@ -315,7 +315,7 @@ test('an empty imported draft gets one editable step and one tool/modality field
 });
 
 test('summary preserves contact, comments, expected result, example title, notes, and reference', () => {
-  const state = normalizeTask(examples.pulmonaryEmbolism);
+  const state = normalizeTask(examples.ranoTumorAssessment);
   state.contact = testContact();
   state.comments = 'A free comment with multiple lines.\nSecond line.';
   const summary = taskSummary(state);
@@ -323,40 +323,38 @@ test('summary preserves contact, comments, expected result, example title, notes
     state.expectedResult, state.comments, state.task.exampleTitle, state.task.note, state.task.reference,
     ...Object.values(state.contact)]) assert.ok(summary.includes(value), `Missing ${value}`);
   assert.ok(summary.includes('Tools: 3D Slicer, EHR / clinical records'));
-  assert.ok(summary.includes('Data: CT, Clinical text / records'));
+  assert.ok(summary.includes('Data: MRI, Clinical text / records'));
 });
 
-test('the sole pulmonary embolism example retains its six steps, seven evidence items, and per-step context', () => {
-  assert.deepEqual(Object.keys(examples), ['pulmonaryEmbolism']);
-  const raw = examples.pulmonaryEmbolism;
+test('the sole RANO 2.0 example retains its five steps, six evidence items, and per-step context', () => {
+  assert.deepEqual(Object.keys(examples), ['ranoTumorAssessment']);
+  const raw = examples.ranoTumorAssessment;
   const restored = normalizeTask(raw);
   assert.deepEqual(restored.contact, { name: '', email: '', affiliation: '' }, 'The example leaves contributor details blank');
   restored.contact = testContact();
   assert.equal(validationError(restored), '', 'The example must be ready to review');
-  assert.equal(restored.task.exampleTitle, 'Example 1 - Pulmonary Embolism');
-  assert.equal(restored.task.name, 'Risk Stratification of Acute Pulmonary Embolism (ESC 2019)');
-  assert.equal(restored.task.description, 'Classify the early mortality risk of acute pulmonary embolism');
-  assert.equal(restored.task.reference, 'https://doi.org/10.1093/eurheartj/ehz405');
+  assert.equal(restored.task.exampleTitle, 'Example 1 - RANO 2.0');
+  assert.equal(restored.task.name, 'RANO 2.0 Longitudinal Tumor Response Assessment');
+  assert.equal(restored.task.description, 'Assess tumor response over time');
+  assert.equal(restored.task.reference, 'https://pmc.ncbi.nlm.nih.gov/articles/PMC10860967/');
   assert.deepEqual(restored.steps.map(step => step.description), [
-    'Open the CTPA and locate the clots.',
-    'Adjust the views to a four-chamber plane.',
-    'Measure the right and left ventricles.',
-    'Check hemodynamic status and troponin.',
-    'Calculate the sPESI.',
-    'Assign the ESC 2019 risk class.',
+    'Select target lesions.',
+    'Segment and measure the target lesions.',
+    'Compare measurements across visits.',
+    'Consider other findings and clinical factors.',
+    'Assign the RANO 2.0 response category.',
   ]);
-  assert.deepEqual(restored.steps.map(step => step.evidence.length), [1, 0, 2, 2, 2, 0]);
+  assert.deepEqual(restored.steps.map(step => step.evidence.length), [0, 1, 4, 1, 0]);
   assert.deepEqual(restored.steps.flatMap(step => step.evidence.map(item => item.importance)),
-    ['optional', 'essential', 'essential', 'essential', 'essential', 'essential', 'optional']);
+    ['essential', 'essential', 'essential', 'essential', 'essential', 'essential']);
   const exported = exportTask(restored);
   const names = (items, ids) => items.filter(item => ids.includes(item.id)).map(item => item.name);
   assert.deepEqual(exported.steps.map(step => names(exported.task.tools, step.toolIds)), [
     ['3D Slicer'], ['3D Slicer'], ['3D Slicer'],
-    ['EHR / clinical records'], ['EHR / clinical records'], ['EHR / clinical records'],
+    ['EHR / clinical records'], ['EHR / clinical records'],
   ]);
   assert.deepEqual(exported.steps.map(step => names(exported.task.modalities, step.modalityIds)), [
-    ['CT'], ['CT'], ['CT'], ['Clinical text / records'], ['Clinical text / records'],
-    ['CT', 'Clinical text / records'],
+    ['MRI'], ['MRI'], ['MRI'], ['Clinical text / records'], ['MRI', 'Clinical text / records'],
   ]);
   const imported = normalizeTask(JSON.parse(JSON.stringify(exported)));
   assert.equal(imported.task.exampleTitle, raw.task.exampleTitle);
