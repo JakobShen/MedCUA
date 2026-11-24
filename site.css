@@ -697,9 +697,7 @@ html.js .hud-trace.is-playing .trace li { animation: trace-in .5s var(--ease) fo
 
 /* ---------- Footer ---------- */
 .site-footer { background: var(--paper-2); color: var(--ink-2); border-top: 1px solid var(--line); }
-.footer-top { display: grid; grid-template-columns: minmax(0, 1.5fr) repeat(3, minmax(0, 1fr)); gap: clamp(2rem, 4vw, 3.5rem); padding-block: clamp(3.5rem, 7vw, 5rem) clamp(2.5rem, 5vw, 3.5rem); }
-.footer-brand { display: grid; gap: 1.1rem; align-content: start; justify-items: start; max-width: 360px; }
-.footer-brand p { font-size: .93rem; line-height: 1.6; }
+.footer-top { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(2rem, 4vw, 3.5rem); padding-block: clamp(3.5rem, 7vw, 5rem) clamp(2.5rem, 5vw, 3.5rem); }
 .footer-mail { color: var(--navy-900); text-decoration: none; font-weight: 560; }
 .footer-mail:hover { color: var(--blue-600); }
 .footer-col h2 { font-family: var(--font-mono); font-size: .68rem; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 1rem; }
@@ -736,8 +734,6 @@ html.js [data-reveal].is-visible { opacity: 1; transform: none; }
   .about-grid { grid-template-columns: 1fr; gap: 1.25rem; }
   .roadmap { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 2.75rem; }
   .roadmap::before { display: none; }
-  .footer-top { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .footer-brand { grid-column: 1 / -1; max-width: 520px; }
   .rail-item { width: clamp(240px, 34vw, 380px); margin-inline: calc(clamp(240px, 34vw, 380px) * -.22); }
 }
 
